@@ -1,112 +1,139 @@
 // =======================
-// AUTO MEDIA SYSTEM (JSON BASED)
+// FOTOĞRAFLAR (MANUEL AMA ESNEK)
 // =======================
 
+const photos = [
+"resimler/galeri/kskzpxoxkdkodld.jpg",
+"resimler/galeri/123454849939229.jpg",
+"resimler/galeri/asdasdadasd.jpeg"
+];
+
 const gallery = document.getElementById("gallery");
-const videoBox = document.getElementById("videos");
 
-// JSON ÇEK
-fetch("media.json")
-.then(res => res.json())
-.then(data => {
+if (gallery) {
 
-    // FOTOĞRAFLAR
-    data.photos.forEach(src => {
+photos.forEach(src => {
 
-        const img = document.createElement("img");
-        img.src = src;
-        img.loading = "lazy";
+const img = document.createElement("img");
 
-        gallery.appendChild(img);
+img.src = src;
+img.loading = "lazy";
+img.alt = "FOH Engineer";
 
-    });
-
-    // VİDEOLAR
-    data.videos.forEach(src => {
-
-        const video = document.createElement("video");
-        video.src = src;
-        video.controls = true;
-        video.preload = "metadata";
-
-        videoBox.appendChild(video);
-
-    });
+gallery.appendChild(img);
 
 });
 
+}
+
 // =======================
-// HERO SLIDER
+// VİDEOLAR
+// =======================
+
+const videos = [
+"videolar/video1.mp4",
+"videolar/randomvideo.mp4"
+];
+
+const videoContainer = document.getElementById("videos");
+
+if (videoContainer) {
+
+videos.forEach(src => {
+
+const player = document.createElement("video");
+
+player.src = src;
+player.controls = true;
+player.preload = "metadata";
+
+// aynı anda tek video oynasın
+player.addEventListener("play", () => {
+document.querySelectorAll("video").forEach(v => {
+if (v !== player) v.pause();
+});
+});
+
+videoContainer.appendChild(player);
+
+});
+
+}
+
+// =======================
+// HERO SLIDER (FOTO ARRAY'DEN)
 // =======================
 
 const hero = document.querySelector(".hero");
 
-fetch("media.json")
-.then(res => res.json())
-.then(data => {
+if (hero && photos.length > 0) {
 
-    let i = 0;
+let heroIndex = 0;
 
-    setInterval(() => {
+setInterval(() => {
 
-        i++;
-        if (i >= data.photos.length) i = 0;
+heroIndex++;
 
-        hero.style.background = `
-        linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.5)),
-        url('${data.photos[i]}') center/cover
-        `;
+if (heroIndex >= photos.length) {
+heroIndex = 0;
+}
 
-    }, 5000);
+hero.style.background = `
+linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.5)),
+url('${photos[heroIndex]}') center/cover no-repeat
+`;
 
-});
+}, 5000);
+
+}
 
 // =======================
-// LIGHTBOX
+// LIGHTBOX (GALERİ)
 // =======================
 
 document.addEventListener("click", (e) => {
 
-    if (e.target.tagName !== "IMG") return;
+if (e.target.tagName !== "IMG") return;
 
-    const overlay = document.createElement("div");
+const overlay = document.createElement("div");
 
-    overlay.style = `
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.9);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
-    `;
+overlay.style.position = "fixed";
+overlay.style.inset = "0";
+overlay.style.background = "rgba(0,0,0,.95)";
+overlay.style.display = "flex";
+overlay.style.alignItems = "center";
+overlay.style.justifyContent = "center";
+overlay.style.zIndex = "9999";
 
-    const image = document.createElement("img");
+const image = document.createElement("img");
 
-    image.src = e.target.src;
-    image.style.maxWidth = "90%";
+image.src = e.target.src;
+image.style.maxWidth = "95%";
+image.style.maxHeight = "95%";
+image.style.borderRadius = "12px";
 
-    overlay.appendChild(image);
+overlay.appendChild(image);
 
-    overlay.onclick = () => overlay.remove();
+overlay.onclick = () => overlay.remove();
 
-    document.body.appendChild(overlay);
+document.body.appendChild(overlay);
 
 });
 
 // =======================
-// FORM → WHATSAPP
+// TEKLİF FORM → WHATSAPP
 // =======================
 
 const form = document.getElementById("offerForm");
 
 if (form) {
+
 form.addEventListener("submit", function(e){
 
-    e.preventDefault();
+e.preventDefault();
 
-    const text = `
-Yeni Teklif
+const text = `
+Yeni Teklif Talebi
 
 Ad: ${this.name.value}
 Telefon: ${this.phone.value}
@@ -115,11 +142,13 @@ Lokasyon: ${this.location.value}
 Kişi: ${this.people.value}
 Tarih: ${this.date.value}
 
+Detay:
 ${this.message.value}
-    `;
+`;
 
-    window.location.href =
-    `https://wa.me/905320683012?text=${encodeURIComponent(text)}`;
+window.location.href =
+`https://wa.me/905320683012?text=${encodeURIComponent(text)}`;
 
 });
+
 }
