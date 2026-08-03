@@ -2,29 +2,21 @@ const owner = "ibrahimFOH";
 const repo = "FOH";
 
 
-function loadMedia(folder, elementId){
+function loadImages(){
 
-fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${folder}`)
+fetch(`https://api.github.com/repos/${owner}/${repo}/contents/images/gallery`)
 
 .then(response => response.json())
 
 .then(files => {
 
-const area = document.getElementById(elementId);
+const gallery = document.getElementById("gallery");
 
 
 files.forEach(file => {
 
-
-if(file.type !== "file") return;
-
-
-
 let name = file.name.toLowerCase();
 
-
-
-if(folder === "images"){
 
 if(
 name.endsWith(".jpg") ||
@@ -33,28 +25,47 @@ name.endsWith(".png") ||
 name.endsWith(".webp")
 ){
 
-area.innerHTML += `
+gallery.innerHTML += `
 
-<img 
-src="${file.download_url}" 
-alt="FOH Event">
+<img src="${file.download_url}" alt="FOH Event">
 
 `;
 
 }
 
+});
+
+});
+
 }
 
 
 
-if(folder === "videos"){
+function loadVideos(){
+
+fetch(`https://api.github.com/repos/${owner}/${repo}/contents/videos`)
+
+.then(response => response.json())
+
+.then(files => {
+
+
+const videos = document.getElementById("videos");
+
+
+files.forEach(file => {
+
+
+let name=file.name.toLowerCase();
+
 
 if(
 name.endsWith(".mp4") ||
 name.endsWith(".webm")
 ){
 
-area.innerHTML += `
+
+videos.innerHTML += `
 
 <video controls>
 
@@ -66,9 +77,6 @@ area.innerHTML += `
 
 }
 
-}
-
-
 
 });
 
@@ -80,6 +88,6 @@ area.innerHTML += `
 
 
 
-loadMedia("images","gallery");
+loadImages();
 
-loadMedia("videos","videos");
+loadVideos();
