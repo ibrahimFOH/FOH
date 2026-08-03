@@ -1,97 +1,125 @@
-const PHONE="905320683012";
+// =======================
+// AUTO MEDIA SYSTEM (JSON BASED)
+// =======================
 
-/* FOTO */
-const photos=[
-"resimler/galeri/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
-"resimler/galeri/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg"
-];
+const gallery = document.getElementById("gallery");
+const videoBox = document.getElementById("videos");
 
-const gallery=document.getElementById("gallery");
+// JSON ÇEK
+fetch("media.json")
+.then(res => res.json())
+.then(data => {
 
-photos.forEach(src=>{
-const img=document.createElement("img");
-img.src=src;
-img.loading="lazy";
-gallery.appendChild(img);
+    // FOTOĞRAFLAR
+    data.photos.forEach(src => {
+
+        const img = document.createElement("img");
+        img.src = src;
+        img.loading = "lazy";
+
+        gallery.appendChild(img);
+
+    });
+
+    // VİDEOLAR
+    data.videos.forEach(src => {
+
+        const video = document.createElement("video");
+        video.src = src;
+        video.controls = true;
+        video.preload = "metadata";
+
+        videoBox.appendChild(video);
+
+    });
+
 });
 
-/* VIDEO */
-const videos=[
-"videolar/video1.mp4",
-"videolar/video2.mp4"
-];
+// =======================
+// HERO SLIDER
+// =======================
 
-const videoBox=document.getElementById("videos");
+const hero = document.querySelector(".hero");
 
-videos.forEach(src=>{
-const v=document.createElement("video");
-v.src=src;
-v.controls=true;
+fetch("media.json")
+.then(res => res.json())
+.then(data => {
 
-v.addEventListener("play",()=>{
-document.querySelectorAll("video").forEach(x=>{
-if(x!==v) x.pause();
-});
-});
+    let i = 0;
 
-videoBox.appendChild(v);
-});
+    setInterval(() => {
 
-/* SLIDER */
-const hero=document.querySelector(".hero");
+        i++;
+        if (i >= data.photos.length) i = 0;
 
-const heroImages=[
-"resimler/galeri/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
-"resimler/galeri/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg"
-];
+        hero.style.background = `
+        linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.5)),
+        url('${data.photos[i]}') center/cover
+        `;
 
-let i=0;
+    }, 5000);
 
-setInterval(()=>{
-i=(i+1)%heroImages.length;
-
-hero.style.background=`
-linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.5)),
-url('${heroImages[i]}') center/cover
-`;
-
-},5000);
-
-/* LIGHTBOX */
-document.addEventListener("click",e=>{
-if(!e.target.closest(".gallery")) return;
-
-const overlay=document.createElement("div");
-overlay.style="position:fixed;inset:0;background:rgba(0,0,0,.9);display:flex;align-items:center;justify-content:center;z-index:9999;";
-
-const img=document.createElement("img");
-img.src=e.target.src;
-img.style.maxWidth="90%";
-
-overlay.appendChild(img);
-overlay.onclick=()=>overlay.remove();
-
-document.body.appendChild(overlay);
 });
 
-/* FORM → WHATSAPP */
-document.getElementById("offerForm").addEventListener("submit",function(e){
+// =======================
+// LIGHTBOX
+// =======================
 
-e.preventDefault();
+document.addEventListener("click", (e) => {
 
-const text=`
+    if (e.target.tagName !== "IMG") return;
+
+    const overlay = document.createElement("div");
+
+    overlay.style = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    `;
+
+    const image = document.createElement("img");
+
+    image.src = e.target.src;
+    image.style.maxWidth = "90%";
+
+    overlay.appendChild(image);
+
+    overlay.onclick = () => overlay.remove();
+
+    document.body.appendChild(overlay);
+
+});
+
+// =======================
+// FORM → WHATSAPP
+// =======================
+
+const form = document.getElementById("offerForm");
+
+if (form) {
+form.addEventListener("submit", function(e){
+
+    e.preventDefault();
+
+    const text = `
 Yeni Teklif
 
 Ad: ${this.name.value}
-Tel: ${this.phone.value}
+Telefon: ${this.phone.value}
 Etkinlik: ${this.type.value}
 Lokasyon: ${this.location.value}
 Kişi: ${this.people.value}
 Tarih: ${this.date.value}
 
 ${this.message.value}
-`;
+    `;
 
-window.location.href=`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
+    window.location.href =
+    `https://wa.me/905320683012?text=${encodeURIComponent(text)}`;
 
 });
+}
