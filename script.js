@@ -67,3 +67,34 @@ videoContainer.appendChild(player);
 });
 
 }
+
+// HERO SLIDER
+
+const heroImages = [
+"images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
+"images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg",
+"images/gallery/104D23F8-EA6F-40B7-866B-CF689E065E46.jpeg",
+"images/gallery/11AD6679-02D7-4ADC-87AA-92059E510189.jpeg"
+];
+
+let heroIndex = 0;
+
+setInterval(() => {
+
+heroIndex++;
+
+if(heroIndex >= heroImages.length){
+heroIndex = 0;
+}
+
+document.querySelector(".hero").style.background = `
+linear-gradient(
+90deg,
+rgba(0,0,0,.85),
+rgba(0,0,0,.45)
+),
+url('${heroImages[heroIndex]}')
+center/cover no-repeat
+`;
+
+}, 5000);
