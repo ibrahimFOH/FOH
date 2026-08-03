@@ -6,31 +6,106 @@
 
 <title>İbrahim Kavasoğlu | FOH Engineer</title>
 
+<meta name="description" content="Profesyonel FOH Engineer | Konser, Festival, Event Production">
+<meta name="keywords" content="FOH Engineer, ses sistemi kiralama, Hatay ses sistemi">
+<meta name="author" content="İbrahim Kavasoğlu">
+
+<link rel="icon" href="favicon.ico">
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-body{margin:0;font-family:Inter;background:#050505;color:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter;background:#050505;color:#fff}
 .container{width:90%;max-width:1100px;margin:auto}
+
 section{padding:80px 0}
-.hero{height:100vh;display:flex;align-items:center;position:relative}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+position:relative;
+}
+
 .hero::before{
-content:"";position:absolute;inset:0;
-background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.4)),
-url("images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg") center/cover;
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.4)),url("images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg") center/cover;
 z-index:-1;
 }
+
 h1{font-size:60px}
 span{color:#ffb000}
-.btn{background:#25D366;padding:12px 25px;border-radius:30px;color:#fff;text-decoration:none}
-.gallery,.videos{display:grid;gap:15px;margin-top:30px}
-.gallery{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
-.gallery img{width:100%;height:200px;object-fit:cover;border-radius:10px;cursor:pointer}
-.videos{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
-video{width:100%;border-radius:10px}
-form{display:flex;flex-direction:column;gap:10px;max-width:500px;margin:auto}
-input,select,textarea{padding:10px;background:#111;border:1px solid #333;color:#fff}
-.whatsapp{position:fixed;bottom:20px;right:20px;background:#25D366;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px}
+
+.btn{
+background:#25D366;
+padding:12px 25px;
+border-radius:30px;
+color:#fff;
+text-decoration:none;
+display:inline-block;
+margin-top:20px;
+}
+
+.gallery,.videos{
+display:grid;
+gap:15px;
+margin-top:30px;
+}
+
+.gallery{
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+}
+
+.gallery img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+cursor:pointer;
+}
+
+.videos{
+grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+}
+
+video{
+width:100%;
+border-radius:10px;
+}
+
+form{
+display:flex;
+flex-direction:column;
+gap:10px;
+max-width:500px;
+margin:auto;
+}
+
+input,select,textarea{
+padding:10px;
+background:#111;
+border:1px solid #333;
+color:#fff;
+}
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+color:#fff;
+}
 </style>
 
 </head>
@@ -64,24 +139,18 @@ input,select,textarea{padding:10px;background:#111;border:1px solid #333;color:#
 <h2>Teklif Al</h2>
 
 <form id="offerForm">
-
 <input type="text" name="name" placeholder="Ad Soyad" required>
 <input type="tel" name="phone" placeholder="Telefon" required>
-
 <select name="type">
-<option value="">Etkinlik Türü</option>
+<option>Etkinlik Türü</option>
 <option>Düğün</option>
 <option>Konser</option>
 <option>Festival</option>
 </select>
-
 <input type="number" name="people" placeholder="Kişi Sayısı">
 <input type="date" name="date">
-
 <textarea name="message" placeholder="Detay"></textarea>
-
 <button class="btn">Gönder</button>
-
 </form>
 
 </div>
@@ -91,7 +160,80 @@ input,select,textarea{padding:10px;background:#111;border:1px solid #333;color:#
 <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<script src="script.js"></script>
+<script>
+
+const PHONE="905320683012";
+
+/* GALERİ */
+const photos=[
+"images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
+"images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg"
+];
+
+const gallery=document.getElementById("gallery");
+
+photos.forEach(src=>{
+let img=document.createElement("img");
+img.src=src;
+gallery.appendChild(img);
+});
+
+/* VİDEO */
+const videos=["videos/video1.mp4"];
+
+const videoBox=document.getElementById("videos");
+
+videos.forEach(src=>{
+let v=document.createElement("video");
+v.src=src;
+v.controls=true;
+videoBox.appendChild(v);
+});
+
+/* LIGHTBOX */
+document.addEventListener("click",e=>{
+if(e.target.tagName!=="IMG")return;
+
+let overlay=document.createElement("div");
+overlay.style="position:fixed;inset:0;background:black;display:flex;align-items:center;justify-content:center;";
+
+let img=document.createElement("img");
+img.src=e.target.src;
+img.style.maxWidth="90%";
+
+overlay.appendChild(img);
+overlay.onclick=()=>overlay.remove();
+
+document.body.appendChild(overlay);
+});
+
+/* FORM → WHATSAPP */
+document.getElementById("offerForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=this.name.value;
+let phone=this.phone.value;
+let type=this.type.value;
+let people=this.people.value;
+let date=this.date.value;
+let message=this.message.value;
+
+let text=`Yeni Teklif
+
+Ad: ${name}
+Telefon: ${phone}
+Etkinlik: ${type}
+Kişi: ${people}
+Tarih: ${date}
+
+${message}`;
+
+window.location.href=`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
+
+});
+
+</script>
 
 </body>
 </html>
