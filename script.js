@@ -98,3 +98,36 @@ center/cover no-repeat
 `;
 
 }, 5000);
+
+// LIGHTBOX
+
+document.addEventListener("click",(e)=>{
+
+if(e.target.tagName !== "IMG") return;
+
+const overlay = document.createElement("div");
+
+overlay.style.position="fixed";
+overlay.style.inset="0";
+overlay.style.background="rgba(0,0,0,.95)";
+overlay.style.display="flex";
+overlay.style.alignItems="center";
+overlay.style.justifyContent="center";
+overlay.style.zIndex="99999";
+
+const image = document.createElement("img");
+
+image.src = e.target.src;
+image.style.maxWidth="95%";
+image.style.maxHeight="95%";
+image.style.borderRadius="12px";
+
+overlay.appendChild(image);
+
+overlay.onclick=()=>{
+overlay.remove();
+};
+
+document.body.appendChild(overlay);
+
+});
