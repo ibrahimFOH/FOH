@@ -1,133 +1,203 @@
-// FOTOĞRAFLAR
+// ======================
+// CONFIG
+// ======================
+
+const CONFIG = {
+  whatsapp: "905320683012",
+  heroInterval: 5000
+};
+
+// ======================
+// GALLERY
+// ======================
 
 const photos = [
-"images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
-"images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg",
-"images/gallery/104D23F8-EA6F-40B7-866B-CF689E065E46.jpeg",
-"images/gallery/11AD6679-02D7-4ADC-87AA-92059E510189.jpeg",
-"images/gallery/1BAAC2CA-6D55-4FB6-8459-5E8EAD6D9C8E.jpeg",
-"images/gallery/35E63E2A-949E-4AD5-AE11-E607E868C697.jpeg",
-"images/gallery/3EB8D62A-EB98-4976-950D-E74C17848A2C.jpeg",
-"images/gallery/4AFED6AF-BB13-46FD-8613-6F556058AFE7.jpeg",
-"images/gallery/668E9605-0CDE-435F-A8DF-8B5888BB6C32.jpeg",
-"images/gallery/BFAD4788-CF18-4F44-BAA3-43060965EEEA.jpeg",
-"images/gallery/DE228FEA-36C1-4CCD-9185-0E03014CD491.jpeg",
-"images/gallery/E232024B-1E1C-46CD-983E-D108BDDFE7F1.jpeg",
-"images/gallery/F29D89E6-01E9-4111-BC47-5E0293BF883F.jpeg"
-];
-
-const gallery = document.getElementById("gallery");
-
-if (gallery) {
-
-photos.forEach(photo => {
-
-const img = document.createElement("img");
-
-img.src = photo;
-
-img.loading = "lazy";
-
-img.alt = "İbrahim Kavasoğlu FOH";
-
-gallery.appendChild(img);
-
-});
-
-}
-
-
-
-// VİDEOLAR
-
-const videos = [
-
-"videos/video1.mp4",
-"videos/video2.mp4",
-"videos/video3.mp4"
-
-];
-
-const videoContainer = document.getElementById("videos");
-
-if (videoContainer) {
-
-videos.forEach(video => {
-
-const player = document.createElement("video");
-
-player.src = video;
-
-player.controls = true;
-
-player.preload = "metadata";
-
-videoContainer.appendChild(player);
-
-});
-
-}
-
-// HERO SLIDER
-
-const heroImages = [
 "images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
 "images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg",
 "images/gallery/104D23F8-EA6F-40B7-866B-CF689E065E46.jpeg",
 "images/gallery/11AD6679-02D7-4ADC-87AA-92059E510189.jpeg"
 ];
 
-let heroIndex = 0;
+const gallery = document.getElementById("gallery");
 
-setInterval(() => {
+if (gallery) {
+  const fragment = document.createDocumentFragment();
 
-heroIndex++;
+  photos.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.loading = "lazy";
+    img.alt = "FOH Event";
+    fragment.appendChild(img);
+  });
 
-if(heroIndex >= heroImages.length){
-heroIndex = 0;
+  gallery.appendChild(fragment);
 }
 
-document.querySelector(".hero").style.background = `
-linear-gradient(
-90deg,
-rgba(0,0,0,.85),
-rgba(0,0,0,.45)
-),
-url('${heroImages[heroIndex]}')
-center/cover no-repeat
+// ======================
+// VIDEOS (SMART PLAYER)
+// ======================
+
+const videos = [
+"videos/video1.mp4",
+"videos/video2.mp4"
+];
+
+const videoContainer = document.getElementById("videos");
+
+if (videoContainer) {
+
+  videos.forEach(src => {
+
+    const video = document.createElement("video");
+    video.src = src;
+    video.controls = true;
+    video.preload = "metadata";
+
+    // aynı anda tek video oynasın
+    video.addEventListener("play", () => {
+      document.querySelectorAll("video").forEach(v => {
+        if (v !== video) v.pause();
+      });
+    });
+
+    videoContainer.appendChild(video);
+  });
+}
+
+// ======================
+// HERO SLIDER (FIXED)
+// ======================
+
+const heroImages = [
+"images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
+"images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg"
+];
+
+const hero = document.querySelector(".hero");
+
+if (hero) {
+
+  let index = 0;
+
+  const changeHero = () => {
+    hero.style.background = `
+      linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.4)),
+      url('${heroImages[index]}') center/cover no-repeat
+    `;
+  };
+
+  changeHero();
+
+  setInterval(() => {
+    index = (index + 1) % heroImages.length;
+    changeHero();
+  }, CONFIG.heroInterval);
+}
+
+// ======================
+// LIGHTBOX (UPGRADED)
+// ======================
+
+document.addEventListener("click", e => {
+
+  if (e.target.tagName !== "IMG") return;
+
+  const overlay = document.createElement("div");
+  overlay.className = "lightbox";
+
+  overlay.innerHTML = `
+    <span class="close">&times;</span>
+    <img src="${e.target.src}">
+  `;
+
+  Object.assign(overlay.style, {
+    position: "fixed",
+    inset: "0",
+    background: "rgba(0,0,0,.95)",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    zIndex: "99999"
+  });
+
+  const img = overlay.querySelector("img");
+  img.style.maxWidth = "90%";
+  img.style.maxHeight = "90%";
+
+  overlay.onclick = () => overlay.remove();
+
+  document.body.appendChild(overlay);
+});
+
+// ======================
+// FORM → WHATSAPP (CRITICAL)
+// ======================
+
+const form = document.querySelector("form");
+
+if (form) {
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const name = form.querySelector("input[type='text']").value;
+    const phone = form.querySelector("input[type='tel']").value;
+    const type = form.querySelector("select").value;
+    const people = form.querySelector("input[type='number']").value;
+    const date = form.querySelector("input[type='date']").value;
+    const message = form.querySelector("textarea").value;
+
+    const text = `
+Yeni Teklif Talebi
+
+Ad: ${name}
+Telefon: ${phone}
+Etkinlik: ${type}
+Kişi: ${people}
+Tarih: ${date}
+
+Detay:
+${message}
 `;
 
-}, 5000);
+    const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
 
-// LIGHTBOX
+    window.open(url, "_blank");
+  });
 
-document.addEventListener("click",(e)=>{
+}
 
-if(e.target.tagName !== "IMG") return;
+// ======================
+// SCROLL ANIMATION (PREMIUM)
+// ======================
 
-const overlay = document.createElement("div");
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = 1;
+      entry.target.style.transform = "translateY(0)";
+    }
+  });
+}, { threshold: 0.1 });
 
-overlay.style.position="fixed";
-overlay.style.inset="0";
-overlay.style.background="rgba(0,0,0,.95)";
-overlay.style.display="flex";
-overlay.style.alignItems="center";
-overlay.style.justifyContent="center";
-overlay.style.zIndex="99999";
-
-const image = document.createElement("img");
-
-image.src = e.target.src;
-image.style.maxWidth="95%";
-image.style.maxHeight="95%";
-image.style.borderRadius="12px";
-
-overlay.appendChild(image);
-
-overlay.onclick=()=>{
-overlay.remove();
-};
-
-document.body.appendChild(overlay);
-
+document.querySelectorAll(".card, .section-title, .gallery img").forEach(el => {
+  el.style.opacity = 0;
+  el.style.transform = "translateY(40px)";
+  el.style.transition = ".6s";
+  observer.observe(el);
 });
+
+// ======================
+// PERFORMANCE: LAZY BG
+// ======================
+
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+
+// ======================
+// DEBUG LOG
+// ======================
+
+console.log("FOH SYSTEM READY");
