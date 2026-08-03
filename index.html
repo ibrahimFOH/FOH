@@ -1,273 +1,157 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>İbrahim Kavasoğlu | FOH Engineer</title>
 
-<meta name="description" content="FOH Engineer | Ses, Işık, Görüntü Sistemleri, Event Production">
-<meta name="keywords" content="FOH Engineer, ses sistemi kiralama, line array, sahne kurulumu">
+<meta name="description" content="FOH Sound Engineer | Konser, Festival, Live Music ve Event Production">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-/* RESET */
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Inter;background:#070707;color:#fff;overflow-x:hidden}
+body{
+font-family:'Inter',sans-serif;
+background:#070707;
+color:#fff;
+margin:0;
+}
 
-/* NAV */
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
 nav{
 position:fixed;
-top:0;
 width:100%;
-background:rgba(0,0,0,.85);
-backdrop-filter:blur(10px);
+background:#000;
+padding:20px;
 z-index:999;
 }
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 30px;
-}
+
 .logo{
 color:#ffb000;
 font-weight:800;
-letter-spacing:1px;
 }
 
-/* HERO */
 .hero{
 height:100vh;
 display:flex;
 align-items:center;
-padding:0 30px;
 background:
 linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.5)),
-url("resimler/galeri/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg") center/cover;
-transition:1s;
-}
-.hero-content{max-width:700px}
-
-.hero h1{
-font-size:clamp(42px,7vw,80px);
-line-height:1.1;
-}
-.hero span{color:#ffb000}
-
-.hero p{
-margin-top:10px;
-color:#ccc;
+url("images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg")
+center/cover no-repeat;
 }
 
-.btn{
-display:inline-block;
-margin-top:25px;
-background:#25D366;
-padding:14px 32px;
-border-radius:40px;
-color:#fff;
-text-decoration:none;
-font-weight:600;
+section{
+padding:100px 0;
 }
 
-/* SECTION */
-section{padding:100px 30px}
-h2{font-size:36px;margin-bottom:10px}
-
-/* GRID */
-.grid{
+.gallery{
 display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
 gap:20px;
-margin-top:40px;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 }
 
-/* CARD */
-.card{
-background:#111;
-padding:25px;
-border-radius:15px;
-border:1px solid #222;
-transition:.3s;
-}
-.card:hover{
-border-color:#ffb000;
-transform:translateY(-5px);
-}
-
-/* GALLERY */
 .gallery img{
 width:100%;
-height:220px;
-object-fit:cover;
 border-radius:12px;
 cursor:pointer;
 }
 
-/* VIDEO */
-video{
+.videos video{
 width:100%;
 border-radius:12px;
 }
 
-/* FORM */
-form{
-display:flex;
-flex-direction:column;
-gap:12px;
-max-width:600px;
-margin:auto;
-}
-input,textarea,select{
-padding:12px;
-background:#111;
-border:1px solid #333;
-color:#fff;
-border-radius:8px;
-}
-
-/* CONTACT */
-.contact{
-text-align:center;
-}
-
-/* BUTTON COLORS */
-.instagram{
-background:#E1306C;
-}
-
-/* FLOAT WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-width:60px;
-height:60px;
+.btn{
 background:#25D366;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:26px;
-color:#fff;
-z-index:999;
-}
-
-/* MOBILE */
-@media(max-width:700px){
-.hero h1{font-size:40px}
+color:white;
+padding:15px 25px;
+border-radius:30px;
+text-decoration:none;
+display:inline-block;
 }
 
 </style>
 </head>
 
-<body>
+<body id="top">
 
-<!-- NAV -->
 <nav>
-<div class="nav">
-<div class="logo">EVENT TECHNOLOGIES</div>
+<div class="container">
+<span class="logo">EVENT TECHNOLOGIES</span>
 </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-<div class="hero-content">
-<h1>İbrahim <span>Kavasoğlu</span></h1>
-<p>FOH Engineer • Live Sound • Lighting • Event Production</p>
-<a href="#offer" class="btn">Teklif Al</a>
-</div>
-</section>
+<div class="container">
 
-<!-- SERVICES -->
-<section>
-<h2>Hizmetler</h2>
-<div class="grid">
+<h1>
+İbrahim <span style="color:#ffb000;">Kavasoğlu</span>
+</h1>
 
-<div class="card">FOH Mixing</div>
-<div class="card">Line Array Sistem</div>
-<div class="card">RF Koordinasyon</div>
-<div class="card">SPL Hesaplama</div>
-<div class="card">Rider Hazırlama</div>
-<div class="card">Işık Sistemleri</div>
-<div class="card">LED Ekran</div>
-<div class="card">Sahne Kurulumu</div>
+<p>FOH Engineer</p>
+
+<p style="color:#ffb000;">Event Technologies</p>
+
+<a class="btn" href="#offer">Teklif Al</a>
 
 </div>
 </section>
 
-<!-- GALLERY -->
-<section>
+<!-- GALERİ -->
+<section id="gallery-section">
+<div class="container">
+
 <h2>Galeri</h2>
-<div id="gallery" class="grid gallery"></div>
+
+<div id="gallery" class="gallery"></div>
+
+</div>
 </section>
 
-<!-- VIDEO -->
-<section>
+<!-- VİDEO -->
+<section id="video">
+<div class="container">
+
 <h2>Videolar</h2>
-<div id="videos" class="grid"></div>
+
+<div id="videos" class="videos"></div>
+
+</div>
 </section>
 
-<!-- OFFER -->
+<!-- TEKLİF -->
 <section id="offer">
-<h2>Teklif Talebi</h2>
+<div class="container">
+
+<h2>Teklif</h2>
 
 <form id="offerForm">
 
-<input type="text" name="name" placeholder="Ad Soyad" required>
-<input type="tel" name="phone" placeholder="Telefon" required>
+<input name="name" placeholder="Ad Soyad"><br><br>
+<input name="phone" placeholder="Telefon"><br><br>
+<input name="type" placeholder="Etkinlik"><br><br>
+<input name="location" placeholder="Lokasyon"><br><br>
+<input name="people" placeholder="Kişi Sayısı"><br><br>
+<input name="date" type="date"><br><br>
 
-<select name="type">
-<option>Etkinlik Türü</option>
-<option>Düğün</option>
-<option>Konser</option>
-<option>Festival</option>
-<option>Kurumsal</option>
-</select>
-
-<input type="text" name="location" placeholder="Lokasyon">
-<input type="number" name="people" placeholder="Kişi Sayısı">
-<input type="date" name="date">
-
-<textarea name="message" placeholder="Detay"></textarea>
+<textarea name="message" placeholder="Mesaj"></textarea><br><br>
 
 <button class="btn">Gönder</button>
 
 </form>
+
+</div>
 </section>
-
-<!-- CONTACT -->
-<section class="contact">
-
-<h2>İletişim</h2>
-
-<a class="btn" href="https://wa.me/905320683012">
-<i class="fa-brands fa-whatsapp"></i> WhatsApp
-</a>
-
-<br><br>
-
-<a href="mailto:ibrahimkavasoglu7@gmail.com">
-<i class="fa-solid fa-envelope"></i> Mail Gönder
-</a>
-
-<br><br>
-
-<a class="btn instagram" href="https://instagram.com/ibrahim_kavasogluu" target="_blank">
-<i class="fa-brands fa-instagram"></i> Instagram
-</a>
-
-</section>
-
-<!-- FLOAT BUTTON -->
-<a href="https://wa.me/905320683012" class="whatsapp">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
 
 <script src="script.js"></script>
 
