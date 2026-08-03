@@ -1,103 +1,69 @@
-const owner = "ibrahimFOH";
-const repo = "FOH";
-const branch = "main";
+// FOTOĞRAFLAR
 
+const photos = [
+"images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
+"images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg",
+"images/gallery/104D23F8-EA6F-40B7-866B-CF689E065E46.jpeg",
+"images/gallery/11AD6679-02D7-4ADC-87AA-92059E510189.jpeg",
+"images/gallery/1BAAC2CA-6D55-4FB6-8459-5E8EAD6D9C8E.jpeg",
+"images/gallery/35E63E2A-949E-4AD5-AE11-E607E868C697.jpeg",
+"images/gallery/3EB8D62A-EB98-4976-950D-E74C17848A2C.jpeg",
+"images/gallery/4AFED6AF-BB13-46FD-8613-6F556058AFE7.jpeg",
+"images/gallery/668E9605-0CDE-435F-A8DF-8B5888BB6C32.jpeg",
+"images/gallery/BFAD4788-CF18-4F44-BAA3-43060965EEEA.jpeg",
+"images/gallery/DE228FEA-36C1-4CCD-9185-0E03014CD491.jpeg",
+"images/gallery/E232024B-1E1C-46CD-983E-D108BDDFE7F1.jpeg",
+"images/gallery/F29D89E6-01E9-4111-BC47-5E0293BF883F.jpeg"
+];
 
-// FOTOĞRAFLARI OTOMATİK ÇEK
-function loadImages() {
+const gallery = document.getElementById("gallery");
 
-    fetch(`https://api.github.com/repos/${owner}/${repo}/contents/images/gallery?ref=${branch}`)
-    .then(response => response.json())
-    .then(files => {
+if (gallery) {
 
-        const gallery = document.getElementById("gallery");
+photos.forEach(photo => {
 
-        if (!gallery) return;
+const img = document.createElement("img");
 
-        files.forEach(file => {
+img.src = photo;
 
-            let name = file.name.toLowerCase();
+img.loading = "lazy";
 
-            if (
-                name.endsWith(".jpg") ||
-                name.endsWith(".jpeg") ||
-                name.endsWith(".png") ||
-                name.endsWith(".webp")
-            ) {
+img.alt = "İbrahim Kavasoğlu FOH";
 
-                gallery.innerHTML += `
-                
-                <img 
-                src="${file.download_url}" 
-                alt="FOH Event">
+gallery.appendChild(img);
 
-                `;
-
-            }
-
-        });
-
-    })
-
-    .catch(error => {
-        console.log("Fotoğraf yükleme hatası:", error);
-    });
+});
 
 }
 
 
 
-// VİDEOLARI OTOMATİK ÇEK
-function loadVideos() {
+// VİDEOLAR
 
-    fetch(`https://api.github.com/repos/${owner}/${repo}/contents/videos?ref=${branch}`)
-    .then(response => response.json())
-    .then(files => {
+const videos = [
 
-        const videos = document.getElementById("videos");
+"videos/video1.mp4",
+"videos/video2.mp4",
+"videos/video3.mp4"
 
-        if (!videos) return;
+];
 
+const videoContainer = document.getElementById("videos");
 
-        files.forEach(file => {
+if (videoContainer) {
 
-            let name = file.name.toLowerCase();
+videos.forEach(video => {
 
+const player = document.createElement("video");
 
-            if (
-                name.endsWith(".mp4") ||
-                name.endsWith(".webm") ||
-                name.endsWith(".mov")
-            ) {
+player.src = video;
 
+player.controls = true;
 
-                videos.innerHTML += `
+player.preload = "metadata";
 
-                <video controls preload="metadata">
+videoContainer.appendChild(player);
 
-                    <source src="${file.download_url}">
-
-                </video>
-
-
-                `;
-
-            }
-
-
-        });
-
-
-    })
-
-    .catch(error => {
-        console.log("Video yükleme hatası:", error);
-    });
+});
 
 }
-
-
-
-// BAŞLAT
-loadImages();
-loadVideos();
