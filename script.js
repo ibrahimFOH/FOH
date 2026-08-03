@@ -1,9 +1,9 @@
 const PHONE="905320683012";
 
-/* GALERİ */
+/* FOTO */
 const photos=[
-"images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
-"images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg"
+"resimler/galeri/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
+"resimler/galeri/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg"
 ];
 
 const gallery=document.getElementById("gallery");
@@ -15,8 +15,11 @@ img.loading="lazy";
 gallery.appendChild(img);
 });
 
-/* VİDEO */
-const videos=["videos/video1.mp4","videos/video2.mp4"];
+/* VIDEO */
+const videos=[
+"videolar/video1.mp4",
+"videolar/video2.mp4"
+];
 
 const videoBox=document.getElementById("videos");
 
@@ -24,7 +27,6 @@ videos.forEach(src=>{
 const v=document.createElement("video");
 v.src=src;
 v.controls=true;
-v.preload="none";
 
 v.addEventListener("play",()=>{
 document.querySelectorAll("video").forEach(x=>{
@@ -35,12 +37,12 @@ if(x!==v) x.pause();
 videoBox.appendChild(v);
 });
 
-/* HERO SLIDER */
+/* SLIDER */
 const hero=document.querySelector(".hero");
 
 const heroImages=[
-"images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
-"images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg"
+"resimler/galeri/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
+"resimler/galeri/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg"
 ];
 
 let i=0;
@@ -49,7 +51,7 @@ setInterval(()=>{
 i=(i+1)%heroImages.length;
 
 hero.style.background=`
-linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.4)),
+linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.5)),
 url('${heroImages[i]}') center/cover
 `;
 
@@ -77,25 +79,18 @@ document.getElementById("offerForm").addEventListener("submit",function(e){
 
 e.preventDefault();
 
-const name=this.name.value;
-const phone=this.phone.value;
-const type=this.type.value;
-const location=this.location.value;
-const people=this.people.value;
-const date=this.date.value;
-const message=this.message.value;
+const text=`
+Yeni Teklif
 
-const text=`Yeni Teklif Talebi
+Ad: ${this.name.value}
+Tel: ${this.phone.value}
+Etkinlik: ${this.type.value}
+Lokasyon: ${this.location.value}
+Kişi: ${this.people.value}
+Tarih: ${this.date.value}
 
-Ad: ${name}
-Telefon: ${phone}
-Etkinlik: ${type}
-Lokasyon: ${location}
-Kişi: ${people}
-Tarih: ${date}
-
-Detay:
-${message}`;
+${this.message.value}
+`;
 
 window.location.href=`https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`;
 
