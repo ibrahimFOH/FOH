@@ -1,93 +1,103 @@
 const owner = "ibrahimFOH";
 const repo = "FOH";
+const branch = "main";
 
 
-function loadImages(){
+// FOTOĞRAFLARI OTOMATİK ÇEK
+function loadImages() {
 
-fetch(`https://api.github.com/repos/${owner}/${repo}/contents/images/gallery`)
+    fetch(`https://api.github.com/repos/${owner}/${repo}/contents/images/gallery?ref=${branch}`)
+    .then(response => response.json())
+    .then(files => {
 
-.then(response => response.json())
+        const gallery = document.getElementById("gallery");
 
-.then(files => {
+        if (!gallery) return;
 
-const gallery = document.getElementById("gallery");
+        files.forEach(file => {
 
+            let name = file.name.toLowerCase();
 
-files.forEach(file => {
+            if (
+                name.endsWith(".jpg") ||
+                name.endsWith(".jpeg") ||
+                name.endsWith(".png") ||
+                name.endsWith(".webp")
+            ) {
 
-let name = file.name.toLowerCase();
+                gallery.innerHTML += `
+                
+                <img 
+                src="${file.download_url}" 
+                alt="FOH Event">
 
+                `;
 
-if(
-name.endsWith(".jpg") ||
-name.endsWith(".jpeg") ||
-name.endsWith(".png") ||
-name.endsWith(".webp")
-){
+            }
 
-gallery.innerHTML += `
+        });
 
-<img src="${file.download_url}" alt="FOH Event">
+    })
 
-`;
-
-}
-
-});
-
-});
-
-}
-
-
-
-function loadVideos(){
-
-fetch(`https://api.github.com/repos/${owner}/${repo}/contents/videos`)
-
-.then(response => response.json())
-
-.then(files => {
-
-
-const videos = document.getElementById("videos");
-
-
-files.forEach(file => {
-
-
-let name=file.name.toLowerCase();
-
-
-if(
-name.endsWith(".mp4") ||
-name.endsWith(".webm")
-){
-
-
-videos.innerHTML += `
-
-<video controls>
-
-<source src="${file.download_url}">
-
-</video>
-
-`;
-
-}
-
-
-});
-
-
-});
-
+    .catch(error => {
+        console.log("Fotoğraf yükleme hatası:", error);
+    });
 
 }
 
 
 
+// VİDEOLARI OTOMATİK ÇEK
+function loadVideos() {
+
+    fetch(`https://api.github.com/repos/${owner}/${repo}/contents/videos?ref=${branch}`)
+    .then(response => response.json())
+    .then(files => {
+
+        const videos = document.getElementById("videos");
+
+        if (!videos) return;
+
+
+        files.forEach(file => {
+
+            let name = file.name.toLowerCase();
+
+
+            if (
+                name.endsWith(".mp4") ||
+                name.endsWith(".webm") ||
+                name.endsWith(".mov")
+            ) {
+
+
+                videos.innerHTML += `
+
+                <video controls preload="metadata">
+
+                    <source src="${file.download_url}">
+
+                </video>
+
+
+                `;
+
+            }
+
+
+        });
+
+
+    })
+
+    .catch(error => {
+        console.log("Video yükleme hatası:", error);
+    });
+
+}
+
+
+
+// BAŞLAT
 loadImages();
-
 loadVideos();
