@@ -832,6 +832,108 @@ height:240px;
 
 }
 
+  /* OTOMATİK GALERİ SON DÜZENLEME */
+
+#gallery.gallery {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    width:100%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+
+#gallery.gallery img {
+
+    width:100% !important;
+    height:220px !important;
+
+    object-fit:cover !important;
+
+    border-radius:15px;
+
+    display:block;
+
+}
+
+
+
+#gallery.gallery img:hover{
+
+    transform:scale(1.03);
+
+}
+
+
+
+/* VİDEO */
+
+#videos.videos{
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+
+}
+
+
+
+#videos.videos video{
+
+    width:100%;
+    height:280px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+}
+
+
+
+/* TABLET */
+
+@media(max-width:900px){
+
+#gallery.gallery{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+
+#videos.videos{
+
+grid-template-columns:1fr;
+
+}
+
+
+}
+
+
+
+/* TELEFON */
+
+@media(max-width:600px){
+
+
+#gallery.gallery{
+
+grid-template-columns:1fr;
+
+}
+
+
+#gallery.gallery img{
+
+height:240px !important;
+
+}
+
+
+}
 
 </style>
 
