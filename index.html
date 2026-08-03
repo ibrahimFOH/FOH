@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>İbrahim Kavasoğlu | Event Technologies</title>
+
+<meta name="description" content="İbrahim Kavasoğlu Event Technologies - FOH Engineering, profesyonel ses sistemleri, kiralama ve teknik çözümler">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#070707;
+color:#fff;
+line-height:1.6;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+
+/* NAV */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+z-index:999;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+
+.nav-inner{
+height:75px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+
+.logo{
+font-size:20px;
+font-weight:800;
+color:#ffb000;
+}
+
+
+.nav-links{
+display:flex;
+gap:20px;
+}
+
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+
+.nav-links a:hover{
+color:#ffb000;
+}
+
+
+.hamburger{
+display:none;
+background:none;
+border:0;
+color:white;
+font-size:25px;
+}
+
+
+
+/* HERO SLIDER */
+
+
+.hero{
+
+height:100vh;
+position:relative;
+overflow:hidden;
+
+}
+
+
+.hero-slide{
+
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+animation:heroSlider 20s infinite;
+
+}
+
+
+
+.hero-slide:nth-child(1){
+
+background-image:
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.85)
+),
+url("images/hero/sahne1.jpg");
+
+}
+
+
+
+.hero-slide:nth-child(2){
+
+animation-delay:5s;
+
+background-image:
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.85)
+),
+url("images/hero/avantis.jpg");
+
+}
+
+
+
+.hero-slide:nth-child(3){
+
+animation-delay:10s;
+
+background-image:
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.85)
+),
+url("images/hero/festival.jpg");
+
+}
+
+
+
+.hero-slide:nth-child(4){
+
+animation-delay:15s;
+
+background-image:
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.85)
+),
+url("images/hero/system.jpg");
+
+}
+
+
+
+@keyframes heroSlider{
+
+0%{
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+25%{
+opacity:1;
+}
+
+35%{
+opacity:0;
+}
+
+100%{
+opacity:0;
+}
+
+}
+
+
+
+.hero-content{
+
+position:absolute;
+top:50%;
+left:8%;
+transform:translateY(-50%);
+max-width:650px;
+
+}
+
+
+
+.hero-tag{
+
+color:#ffb000;
+letter-spacing:2px;
+font-size:13px;
+font-weight:700;
+margin-bottom:20px;
+
+}
+
+
+
+.hero h1{
+
+font-size:clamp(40px,6vw,65px);
+font-weight:800;
+line-height:1.1;
+
+}
+
+
+.hero h1 span{
+
+color:#ffb000;
+
+}
+
+
+.hero p{
+
+font-size:20px;
+color:#ddd;
+margin-top:20px;
+
+}
+
+
+.hero-btn{
+
+display:inline-flex;
+margin-top:35px;
+padding:15px 30px;
+border-radius:40px;
+background:#25D366;
+color:white;
+text-decoration:none;
+font-weight:700;
+
+}
+
+
+
+/* GENERAL */
+
+
+section{
+
+padding:100px 0;
+
+}
+
+
+.section-title{
+
+font-size:38px;
+font-weight:800;
+margin-bottom:15px;
+
+}
+
+
+.section-label{
+
+color:#ffb000;
+font-size:13px;
+letter-spacing:2px;
+margin-bottom:10px;
+
+}
+
+
+.section-desc{
+
+color:#aaa;
+max-width:600px;
+margin-bottom:40px;
+
+}
+
+
+
+/* CARDS */
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+
+}
+
+
+.card{
+
+background:#111;
+padding:35px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,.07);
+
+}
+
+
+.card i{
+
+font-size:25px;
+color:#ffb000;
+margin-bottom:20px;
+
+}
+
+
+.card h3{
+
+margin-bottom:15px;
+
+}
+
+
+.card p{
+
+color:#aaa;
+font-size:15px;
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- NAV -->
+
+<nav>
+
+<div class="container nav-inner">
+
+<div class="logo">
+IK · EVENT TECHNOLOGIES
+</div>
+
+
+<button class="hamburger" onclick="menuToggle()">
+<i class="fa-solid fa-bars"></i>
+</button>
+
+
+<div class="nav-links" id="menu">
+
+<a href="#services">Hizmetler</a>
+<a href="#rental">Kiralama</a>
+<a href="#engineering">Mühendislik</a>
+<a href="#references">Referans</a>
+<a href="#gallery">Galeri</a>
+<a href="#contact">İletişim</a>
+
+</div>
+
+</div>
+
+</nav>
+
+
+
+<!-- HERO -->
+
+
+<section class="hero">
+
+
+<div class="hero-slide"></div>
+<div class="hero-slide"></div>
+<div class="hero-slide"></div>
+<div class="hero-slide"></div>
+
+
+
+<div class="hero-content">
+
+
+<div class="hero-tag">
+FOH SOUND ENGINEER
+</div>
+
+
+<h1>
+İbrahim <span>Kavasoğlu</span>
+</h1>
+
+
+<p>
+Profesyonel Ses Sistemleri<br>
+Konser • Festival • Otel • Kurumsal Etkinlik
+</p>
+
+
+<a class="hero-btn"
+href="https://wa.me/905320683012"
+target="_blank">
+
+<i class="fa-brands fa-whatsapp"></i>
+&nbsp;
+İletişime Geç
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- HİZMETLER -->
+
+
+<section id="services">
+
+<div class="container">
+
+
+<div class="section-label">
+HİZMETLER
+</div>
+
+
+<h2 class="section-title">
+Profesyonel Ses Çözümleri
+</h2>
+
+
+<p class="section-desc">
+Etkinliklerin ses tarafını planlama, kurulum ve canlı operasyon süreçleriyle yönetiyorum.
+</p>
+
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<i class="fa-solid fa-sliders"></i>
+
+<h3>
+FOH Mixing
+</h3>
+
+<p>
+Konser ve canlı performanslarda dengeli, temiz ve kontrollü miks yönetimi.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-volume-high"></i>
+
+<h3>
+Ses Sistemi Operasyonu
+</h3>
+
+<p>
+Profesyonel ses sistemleri kurulumu, soundcheck ve etkinlik operasyonu.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-list-check"></i>
+
+<h3>
+Teknik Planlama
+</h3>
+
+<p>
+Rider, sahne planı, ekipman planlama ve etkinlik öncesi hazırlık.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- KİRALAMA -->
+
+
+<section id="rental" style="background:#0c0c0c;">
+
+
+<div class="container">
+
+
+<div class="section-label">
+KİRALAMA
+</div>
+
+
+<h2 class="section-title">
+Profesyonel Ses Sistemi Kiralama
+</h2>
+
+
+<p class="section-desc">
+Etkinlik ihtiyacına göre uygun sistem planlama ve teknik destek.
+</p>
+
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<i class="fa-solid fa-tower-broadcast"></i>
+
+<h3>
+Konser Sistemleri
+</h3>
+
+<p>
+Festival, konser ve açık alan etkinlikleri için ses çözümleri.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-hotel"></i>
+
+<h3>
+Otel Etkinlikleri
+</h3>
+
+<p>
+Live music, gala ve özel organizasyonlarda teknik operasyon.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-building"></i>
+
+<h3>
+Kurumsal Organizasyon
+</h3>
+
+<p>
+Toplantı, lansman ve özel etkinlikler için profesyonel çözümler.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- MÜHENDİSLİK -->
+
+
+<section id="engineering">
+
+
+<div class="container">
+
+
+<div class="section-label">
+SYSTEM ENGINEERING
+</div>
+
+
+<h2 class="section-title">
+Teknik Tasarım ve Mühendislik
+</h2>
+
+
+<p class="section-desc">
+Projenin sahaya çıkmadan önce teknik olarak hazırlanması.
+</p>
+
+
+
+<div class="grid">
+
+
+<div class="card">
+
+<i class="fa-solid fa-chart-line"></i>
+
+<h3>
+SPL Analizi
+</h3>
+
+<p>
+Alan ihtiyacına göre ses seviyesi ve kapsama hesaplamaları.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-draw-polygon"></i>
+
+<h3>
+Sahne Tasarımı
+</h3>
+
+<p>
+Stage plan, teknik çizim ve uygulama hazırlıkları.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<i class="fa-solid fa-gears"></i>
+
+<h3>
+Sistem Optimizasyonu
+</h3>
+
+<p>
+Kurulum sonrası ayar, kontrol ve performans iyileştirme.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- VIDEO -->
+
+
+<section style="background:#0c0c0c;">
+
+
+<div class="container">
+
+
+<div class="section-label">
+VIDEO
+</div>
+
+
+<h2 class="section-title">
+Sahadan Görüntüler
+</h2>
+
+
+<p class="section-desc">
+Yakında gerçek etkinlik videoları eklenecektir.
+</p>
+
+
+
+<video width="100%" controls style="border-radius:15px;background:#000;">
+
+
+<source src="videos/intro.mp4" type="video/mp4">
+
+
+Tarayıcınız video desteği vermiyor.
+
+
+</video>
+
+
+
+</div>
+
+
+</section>
+
+<!-- REFERANSLAR -->
+
+<section id="references">
+
+
+<div class="container">
+
+
+<div class="section-label">
+REFERANSLAR
+</div>
+
+
+<h2 class="section-title">
+Çalışma Alanları
+</h2>
+
+
+<p class="section-desc">
+Farklı etkinlik ve profesyonel projelerde ses operasyon deneyimi.
+</p>
+
+
+
+<div class="grid">
+
+
+<div class="card">
+<i class="fa-solid fa-star"></i>
+<h3>Rixos Premium Belek</h3>
+<p>
+Otel canlı müzik ve etkinlik ses operasyonları.
+</p>
+</div>
+
+
+
+<div class="card">
+<i class="fa-solid fa-music"></i>
+<h3>Nil Müzik</h3>
+<p>
+Profesyonel müzik projeleri ve sahne uygulamaları.
+</p>
+</div>
+
+
+
+<div class="card">
+<i class="fa-solid fa-record-vinyl"></i>
+<h3>Inart Studio</h3>
+<p>
+Stüdyo ve ses teknolojileri çalışmaları.
+</p>
+</div>
+
+
+
+<div class="card">
+<i class="fa-solid fa-volume-high"></i>
+<h3>Özal Ses Sistemleri</h3>
+<p>
+Ses sistemleri ve profesyonel etkinlik uygulamaları.
+</p>
+</div>
+
+
+
+<div class="card">
+<i class="fa-solid fa-calendar-days"></i>
+<h3>Evvel Temmuz Festivali</h3>
+<p>
+Festival sahne ve canlı performans operasyonları.
+</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- LOGO ALANI -->
+
+
+<section style="background:#0c0c0c;">
+
+
+<div class="container" style="text-align:center;">
+
+
+<div class="section-label">
+PARTNERS
+</div>
+
+
+<h2 class="section-title">
+Projeler ve İş Birlikleri
+</h2>
+
+
+
+<div style="display:flex;justify-content:center;flex-wrap:wrap;gap:30px;">
+
+
+<img src="images/logos/logo1.png"
+style="max-width:150px;max-height:80px;">
+
+
+<img src="images/logos/logo2.png"
+style="max-width:150px;max-height:80px;">
+
+
+<img src="images/logos/logo3.png"
+style="max-width:150px;max-height:80px;">
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- GALERİ -->
+
+
+<section id="gallery">
+
+
+<div class="container">
+
+
+<div class="section-label">
+GALERİ
+</div>
+
+
+<h2 class="section-title">
+Sahadan Kareler
+</h2>
+
+
+<p class="section-desc">
+Gerçek çalışma anlarından görüntüler.
+</p>
+
+
+
+<div class="gallery">
+
+
+<img src="images/gallery/foto1.jpg">
+
+
+<img src="images/gallery/foto2.jpg">
+
+
+<img src="images/gallery/foto3.jpg">
+
+
+<img src="images/gallery/foto4.jpg">
+
+
+<img src="images/gallery/foto5.jpg">
+
+
+<img src="images/gallery/foto6.jpg">
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- HAKKIMDA -->
+
+
+<section style="background:#0c0c0c;">
+
+
+<div class="container">
+
+
+<div class="section-label">
+HAKKIMDA
+</div>
+
+
+<h2 class="section-title">
+FOH Engineer
+</h2>
+
+
+
+<div class="card">
+
+
+<p style="color:#bbb;font-size:17px;">
+
+
+Canlı ses alanında konser, festival, otel ve kurumsal etkinliklerde
+FOH operasyonu yürütüyorum.
+
+<br><br>
+
+Amacım sadece ses vermek değil;
+sahne ile seyirci arasında doğru ses deneyimini oluşturmaktır.
+
+<br><br>
+
+Teknik planlama, sistem yaklaşımı ve sahadaki uygulama sürecini
+bir bütün olarak ele alıyorum.
+
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- İLETİŞİM -->
+
+
+<section id="contact">
+
+
+<div class="container" style="text-align:center;">
+
+
+<div class="section-label">
+İLETİŞİM
+</div>
+
+
+<h2 class="section-title">
+Projenizi Konuşalım
+</h2>
+
+
+<p class="section-desc" style="margin:auto;">
+Etkinlik, kiralama veya teknik destek için iletişime geçebilirsiniz.
+</p>
+
+
+
+<br>
+
+
+<a class="hero-btn"
+href="https://wa.me/905320683012"
+target="_blank">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+WhatsApp
+
+</a>
+
+
+
+<br><br>
+
+
+
+<a href="mailto:ibrahimkavasoglu7@gmail.com"
+style="color:#aaa;text-decoration:none;">
+
+<i class="fa-solid fa-envelope"></i>
+
+ibrahimkavasoglu7@gmail.com
+
+</a>
+
+
+
+<br><br>
+
+
+
+<a href="https://www.instagram.com/ibrahim_kavasogluu/"
+target="_blank"
+style="color:#ffb000;font-size:25px;">
+
+<i class="fa-brands fa-instagram"></i>
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer>
+
+
+<div class="container">
+
+
+© 2026 İbrahim Kavasoğlu Event Technologies
+
+
+</div>
+
+
+</footer>
+
+
+
+
+
+
+<script>
+
+
+function menuToggle(){
+
+document.getElementById("menu")
+.classList.toggle("active");
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
