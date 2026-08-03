@@ -16,7 +16,7 @@
 
   <style>
 
-/* mevcut css kodların */
+/* mevcut logokodların */
 
 .gallery img:hover{
 transform:scale(1.03);
@@ -57,6 +57,23 @@ font-family:inherit;
 
 outline:none;
 border-color:#ffb000;
+
+  @media(max-width:600px){
+
+.hero h1{
+font-size:42px !important;
+white-space:normal !important;
+}
+
+.logo{
+font-size:22px;
+font-weight:800;
+color:#ffb000;
+letter-spacing:2px;
+text-decoration:none;
+text-transform:uppercase;
+}
+}
 
 }
 </style>
@@ -164,19 +181,17 @@ z-index:-1;
 max-width:700px;
 }
 
-<h1 style=" {
-font-size:clamp(32px,5vw,68px);
+<h1 style="
+font-size:clamp(48px,7vw,82px);
 font-weight:800;
-line-height:1.1;
+line-height:1;
 margin-bottom:15px;
 white-space:nowrap;
-text-align:left;
+letter-spacing:-1px;
 ">
-İbrahim Kavasoğlu
-
-.hero h1 span{
-color:#ffb000;
-}
+<span style="color:#ffffff;">İbrahim</span>
+<span style="color:#ffb000;">Kavasoğlu</span>
+</h1>
 
 .hero p{
 font-size:20px;
@@ -408,10 +423,10 @@ height:220px;
 
 <div class="container nav-inner">
 
-<div class="logo">
+<a href="#top" class="logo">
 EVENT TECHNOLOGIES
-</div>
-
+</a>
+  
 <div class="nav-links">
 
 <a href="#services">Hizmetler</a>
@@ -728,5 +743,6 @@ Instagram
 
 <script src="script.js"></script>
 
-</body>
+<body id="top">
+  
 </html>
