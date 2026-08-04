@@ -14,11 +14,20 @@
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:'Inter',sans-serif;
 background:#070707;
 color:#fff;
-margin:0;
 }
 
 .container{
@@ -29,15 +38,21 @@ margin:auto;
 
 nav{
 position:fixed;
+top:0;
+left:0;
 width:100%;
-background:#000;
-padding:20px;
+padding:20px 0;
+background:rgba(0,0,0,.85);
+backdrop-filter:blur(10px);
 z-index:999;
 }
 
 .logo{
 color:#ffb000;
 font-weight:800;
+font-size:22px;
+letter-spacing:2px;
+text-decoration:none;
 }
 
 .hero{
@@ -50,8 +65,59 @@ url("images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg")
 center/cover no-repeat;
 }
 
+.hero h1{
+font-size:clamp(60px,8vw,95px);
+font-weight:800;
+line-height:1;
+white-space:nowrap;
+margin-bottom:15px;
+}
+
+.hero p{
+margin-bottom:10px;
+}
+
+.hero-role{
+font-size:24px;
+font-weight:600;
+}
+
+.hero-brand{
+color:#ffb000;
+font-size:18px;
+font-weight:700;
+letter-spacing:2px;
+}
+
+.hero-desc{
+font-size:14px;
+letter-spacing:2px;
+text-transform:uppercase;
+color:#aaa;
+margin-bottom:30px;
+}
+
+.btn{
+background:#25D366;
+color:white;
+padding:15px 30px;
+border-radius:40px;
+text-decoration:none;
+display:inline-flex;
+align-items:center;
+gap:10px;
+font-weight:700;
+border:none;
+cursor:pointer;
+}
+
 section{
 padding:100px 0;
+}
+
+h2{
+margin-bottom:30px;
+font-size:40px;
 }
 
 .gallery{
@@ -62,22 +128,86 @@ gap:20px;
 
 .gallery img{
 width:100%;
-border-radius:12px;
+border-radius:14px;
 cursor:pointer;
+transition:.3s;
+}
+
+.gallery img:hover{
+transform:scale(1.03);
+}
+
+.videos{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(350px,1fr));
+gap:20px;
 }
 
 .videos video{
 width:100%;
-border-radius:12px;
+border-radius:14px;
+box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
-.btn{
-background:#25D366;
+#offerForm{
+max-width:700px;
+}
+
+#offerForm input,
+#offerForm textarea{
+width:100%;
+padding:15px;
+background:#111;
 color:white;
-padding:15px 25px;
-border-radius:30px;
-text-decoration:none;
-display:inline-block;
+border:1px solid rgba(255,255,255,.1);
+border-radius:12px;
+margin-bottom:15px;
+font-family:inherit;
+}
+
+#offerForm input:focus,
+#offerForm textarea:focus{
+outline:none;
+border-color:#ffb000;
+}
+
+.contact-buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.instagram-btn{
+background:
+linear-gradient(
+45deg,
+#833AB4,
+#C13584,
+#E1306C,
+#FD1D1D,
+#FCAF45
+);
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.08);
+color:#777;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:48px;
+white-space:normal;
+}
+
+.contact-buttons{
+flex-direction:column;
+}
+
 }
 
 </style>
@@ -87,7 +217,11 @@ display:inline-block;
 
 <nav>
 <div class="container">
-<span class="logo">EVENT TECHNOLOGIES</span>
+
+<a href="#top" class="logo">
+EVENT TECHNOLOGIES
+</a>
+
 </div>
 </nav>
 
@@ -95,19 +229,30 @@ display:inline-block;
 <div class="container">
 
 <h1>
-İbrahim <span style="color:#ffb000;">Kavasoğlu</span>
+<span style="color:#fff;">İbrahim</span>
+<span style="color:#ffb000;">Kavasoğlu</span>
 </h1>
 
-<p>FOH Engineer</p>
+<p class="hero-role">
+FOH Engineer
+</p>
 
-<p style="color:#ffb000;">Event Technologies</p>
+<p class="hero-brand">
+Event Technologies
+</p>
 
-<a class="btn" href="#offer">Teklif Al</a>
+<p class="hero-desc">
+Audio • Lighting • Event Production
+</p>
+
+<a class="btn" href="#offer">
+<i class="fa-solid fa-file-signature"></i>
+Teklif Al
+</a>
 
 </div>
 </section>
 
-<!-- GALERİ -->
 <section id="gallery-section">
 <div class="container">
 
@@ -118,7 +263,6 @@ display:inline-block;
 </div>
 </section>
 
-<!-- VİDEO -->
 <section id="video">
 <div class="container">
 
@@ -129,29 +273,77 @@ display:inline-block;
 </div>
 </section>
 
-<!-- TEKLİF -->
 <section id="offer">
 <div class="container">
 
-<h2>Teklif</h2>
+<h2>Teklif Talebi</h2>
 
 <form id="offerForm">
 
-<input name="name" placeholder="Ad Soyad"><br><br>
-<input name="phone" placeholder="Telefon"><br><br>
-<input name="type" placeholder="Etkinlik"><br><br>
-<input name="location" placeholder="Lokasyon"><br><br>
-<input name="people" placeholder="Kişi Sayısı"><br><br>
-<input name="date" type="date"><br><br>
+<input name="name" placeholder="Ad Soyad">
 
-<textarea name="message" placeholder="Mesaj"></textarea><br><br>
+<input name="phone" placeholder="Telefon">
 
-<button class="btn">Gönder</button>
+<input name="type" placeholder="Etkinlik Türü">
+
+<input name="location" placeholder="Lokasyon">
+
+<input name="people" placeholder="Kişi Sayısı">
+
+<input name="date" type="date">
+
+<textarea
+name="message"
+rows="6"
+placeholder="Mesaj">
+</textarea>
+
+<button class="btn" type="submit">
+Teklif Gönder
+</button>
 
 </form>
 
 </div>
 </section>
+
+<section id="contact">
+<div class="container">
+
+<h2>İletişim</h2>
+
+<div class="contact-buttons">
+
+<a
+class="btn"
+href="https://wa.me/905320683012"
+target="_blank">
+
+<i class="fa-brands fa-whatsapp"></i>
+WhatsApp
+
+</a>
+
+<a
+class="btn instagram-btn"
+href="https://instagram.com/ibrahim_kavasogluu"
+target="_blank">
+
+<i class="fa-brands fa-instagram"></i>
+Instagram
+
+</a>
+
+</div>
+
+</div>
+</section>
+
+<footer>
+
+© 2026 İbrahim Kavasoğlu | FOH Engineer
+
+</footer>
 
 <script src="script.js"></script>
 
