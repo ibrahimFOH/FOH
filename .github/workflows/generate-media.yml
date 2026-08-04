@@ -1,0 +1,74 @@
+name: Generate media.json
+
+on:
+  push:
+    paths:
+      - 'images/gallery/**'
+      - 'videos/**'
+      - 'documents/**'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate media.json
+        run: |
+          python3 << 'EOF'
+          import os
+          import json
+          from pathlib import Path
+
+          def get_files(folder, extensions):
+              files = []
+              path = Path(folder)
+              if path.exists():
+                  for f in sorted(path.rglob("*")):
+                      if f.is_file() and f.suffix.lower() in extensions:
+                          files.append(str(f).replace("\\", "/"))
+              return files
+
+          photos = get_files("images/gallery", {".jpg", ".jpeg", ".png", ".webp", ".gif"})
+          videos = get_files("videos", {".mp4", ".webm", ".mov"})
+          
+          documents = []
+          docs_path = Path("documents")
+          if docs_path.exists():
+              for f in sorted(docs_path.rglob("*")):
+                  if f.is_file() and f.suffix.lower() == ".pdf":
+                      # Dosya adından başlık oluştur
+                      title = f.stem.replace("-", " ").replace("_", " ").title()
+                      documents.append({
+                          "title": title,
+                          "file": str(f).replace("\\", "/"),
+                          "icon": "fa-file-pdf"
+                      })
+
+          data = {
+              "photos": photos,
+              "videos": videos,
+              "documents": documents
+          }
+
+          with open("media.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, indent=2, ensure_ascii=False)
+
+          print("media.json başarıyla oluşturuldu")
+          print(f"Fotoğraf: {len(photos)}")
+          print(f"Video: {len(videos)}")
+          print(f"Doküman: {len(documents)}")
+          EOF
+
+      - name: Commit media.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add media.json
+          git diff --staged --quiet || git commit -m "Auto-update media.json"
+          git push
