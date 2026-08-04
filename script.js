@@ -61,11 +61,6 @@ if (hero && photos.length > 0) {
   let heroIndex = 0;
   setInterval(() => {
     heroIndex = (heroIndex + 1) % photos.length;
-    hero.style.setProperty(
-      "--hero-bg",
-      `url('${photos[heroIndex]}')`
-    );
-    // fallback için style güncelle
     hero.style.background = `
       linear-gradient(105deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.35) 100%),
       url('${photos[heroIndex]}') center/cover no-repeat
@@ -127,15 +122,24 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     if (!target) return;
     e.preventDefault();
     target.scrollIntoView({ behavior: "smooth" });
-    // mobil menüyü kapat
-    document.getElementById("navLinks")?.classList.remove("active");
+
+    const nav = document.getElementById("navLinks");
+    if (nav) nav.classList.remove("active");
   });
 });
 
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("navLinks");
+
 if (hamburger && navLinks) {
-  hamburger.addEventListener("click", () => {
+  hamburger.addEventListener("click", (e) => {
+    e.stopPropagation();
     navLinks.classList.toggle("active");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      navLinks.classList.remove("active");
+    }
   });
 }
