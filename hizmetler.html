@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hizmetler | Event Technologies</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#070707;color:#fff;line-height:1.6}
+.container{width:90%;max-width:1200px;margin:auto}
+section{padding:100px 0}
+.section-title{font-size:clamp(32px,5vw,48px);font-weight:800;margin-bottom:12px}
+.section-desc{color:#999;max-width:680px;font-size:16px;margin-bottom:40px}
+nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{height:72px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:15px;font-weight:800;letter-spacing:2.5px;color:#ffb000;text-decoration:none}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:#ccc;text-decoration:none;font-size:13.5px;font-weight:500;transition:.25s}
+.nav-links a:hover,.nav-links a.active{color:#ffb000}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.card{background:#111;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:32px 28px;transition:.35s}
+.card:hover{border-color:rgba(255,176,0,.4);transform:translateY(-6px)}
+.card i{font-size:26px;color:#ffb000;margin-bottom:18px;display:block}
+.card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.card p{color:#999;font-size:14.5px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;background:#ffb000;color:#000;transition:.3s}
+.btn:hover{background:#ffc933;transform:translateY(-2px)}
+footer{padding:50px 0 30px;border-top:1px solid rgba(255,255,255,.06);text-align:center;background:#050505}
+footer h3{font-size:22px;font-weight:800}
+footer h3 span{color:#ffb000}
+.footer-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:22px 0 18px}
+.footer-links a{color:#aaa;text-decoration:none;font-size:13.5px}
+.copyright{color:#555;font-size:13px}
+@media(max-width:900px){
+  .hamburger{display:block}
+  .nav-links{display:none;position:absolute;top:72px;left:0;width:100%;background:#0a0a0a;flex-direction:column;padding:24px 20px;gap:18px;z-index:9998}
+  .nav-links.active{display:flex !important}
+  .grid-3{grid-template-columns:1fr}
+  section{padding:70px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">EVENT TECHNOLOGIES</a>
+    <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hizmetler.html" class="active">Hizmetler</a>
+      <a href="muhendislik.html">Mühendislik</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="dokumanlar.html">Dokümanlar</a>
+      <a href="teklif.html">Teklif Al</a>
+    </div>
+  </div>
+</nav>
+
+<section style="padding-top:140px">
+  <div class="container">
+    <h1 class="section-title">Hizmetler</h1>
+    <p class="section-desc">Profesyonel ses, ışık ve sahne kiralama + operasyon desteği.</p>
+
+    <div class="grid-3">
+      <div class="card">
+        <i class="fa-solid fa-wave-square"></i>
+        <h3>Line Array & PA Sistemleri</h3>
+        <p>Açık alan ve kapalı mekân için Line Array ve Point Source çözümleri.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-headphones"></i>
+        <h3>Monitor & IEM</h3>
+        <p>Sahne monitör sistemleri ve in-ear monitor çözümleri.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-sliders"></i>
+        <h3>Dijital Mikserler</h3>
+        <p>Allen & Heath, Yamaha, DiGiCo, Midas serisi konsollar.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h3>Aydınlatma Sistemleri</h3>
+        <p>Moving Head, Wash, Beam, LED ve kontrol konsolları.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-network-wired"></i>
+        <h3>Network Audio (Dante)</h3>
+        <p>Dijital ses ağı altyapısı ve entegrasyon.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-truck-fast"></i>
+        <h3>Kurulum & Operasyon</h3>
+        <p>Kurulum, söküm, teknik ekip ve sahne koordinasyonu.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:60px;text-align:center">
+      <a href="teklif.html" class="btn"><i class="fa-solid fa-file-signature"></i> Kiralama Teklifi Al</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <h3>İbrahim <span>Kavasoğlu</span></h3>
+    <p style="color:#888;margin-bottom:8px">FOH Engineer • Event Technologies</p>
+    <div class="footer-links">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="muhendislik.html">Mühendislik</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="teklif.html">Teklif Al</a>
+    </div>
+    <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
