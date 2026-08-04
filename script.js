@@ -1,100 +1,85 @@
 // =======================
-// FOTOĞRAFLAR
-// Yeni fotoğraf eklemek için sadece bu listeye ekle
+// MEDIA.JSON'DAN OTOMATİK YÜKLEME
 // =======================
-const photos = [
-  "images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
-  "images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg",
-  "images/gallery/104D23F8-EA6F-40B7-866B-CF689E065E46.jpeg",
-  "images/gallery/11AD6679-02D7-4ADC-87AA-92059E510189.jpeg",
-  "images/gallery/1BAAC2CA-6D55-4FB6-8459-5E8EAD6D9C8E.jpeg",
-  "images/gallery/35E63E2A-949E-4AD5-AE11-E607E868C697.jpeg",
-  "images/gallery/3EB8D62A-EB98-4976-950D-E74C17848A2C.jpeg",
-  "images/gallery/4AFED6AF-BB13-46FD-8613-6F556058AFE7.jpeg",
-  "images/gallery/668E9605-0CDE-435F-A8DF-8B5888BB6C32.jpeg",
-  "images/gallery/BFAD4788-CF18-4F44-BAA3-43060965EEEA.jpeg",
-  "images/gallery/DE228FEA-36C1-4CCD-9185-0E03014CD491.jpeg",
-  "images/gallery/E232024B-1E1C-46CD-983E-D108BDDFE7F1.jpeg",
-  "images/gallery/F29D89E6-01E9-4111-BC47-5E0293BF883F.jpeg"
-];
 
-const gallery = document.getElementById("gallery");
-if (gallery) {
-  photos.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.loading = "lazy";
-    img.alt = "Event Technologies";
-    gallery.appendChild(img);
-  });
-}
+async function loadMedia() {
+  try {
+    const response = await fetch("media.json?t=" + Date.now()); // cache kırmak için
+    const data = await response.json();
 
-// =======================
-// VİDEOLAR
-// Yeni video eklemek için sadece bu listeye ekle
-// =======================
-const videos = [
-  "videos/video1.mp4",
-  "videos/video2.mp4",
-  "videos/video3.mp4"
-];
-
-const videoContainer = document.getElementById("videos");
-if (videoContainer) {
-  videos.forEach(src => {
-    const player = document.createElement("video");
-    player.src = src;
-    player.controls = true;
-    player.preload = "metadata";
-    player.addEventListener("play", () => {
-      document.querySelectorAll("video").forEach(v => {
-        if (v !== player) v.pause();
+    // ----- FOTOĞRAFLAR -----
+    const gallery = document.getElementById("gallery");
+    if (gallery && data.photos) {
+      gallery.innerHTML = "";
+      data.photos.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.loading = "lazy";
+        img.alt = "Event Technologies";
+        gallery.appendChild(img);
       });
-    });
-    videoContainer.appendChild(player);
-  });
-}
+    }
 
-// =======================
-// PDF / DOKÜMANLAR (ileride eklenecek)
-// documents/ klasörüne PDF koyup buraya eklemen yeterli
-// =======================
-const documents = [
-  // Örnek:
-  // { title: "Örnek Stage Plot", file: "documents/stageplot-ornek.pdf", icon: "fa-file-pdf" },
-  // { title: "SPL Rapor Örneği", file: "documents/spl-ornek.pdf", icon: "fa-calculator" }
-];
+    // ----- VİDEOLAR -----
+    const videoContainer = document.getElementById("videos");
+    if (videoContainer && data.videos) {
+      videoContainer.innerHTML = "";
+      data.videos.forEach(src => {
+        const player = document.createElement("video");
+        player.src = src;
+        player.controls = true;
+        player.preload = "metadata";
+        player.addEventListener("play", () => {
+          document.querySelectorAll("video").forEach(v => {
+            if (v !== player) v.pause();
+          });
+        });
+        videoContainer.appendChild(player);
+      });
+    }
 
-const documentsList = document.getElementById("documentsList");
-if (documentsList && documents.length > 0) {
-  documentsList.innerHTML = "";
-  documents.forEach(doc => {
-    const card = document.createElement("a");
-    card.href = doc.file;
-    card.target = "_blank";
-    card.className = "doc-card";
-    card.style.textDecoration = "none";
-    card.style.color = "inherit";
-    card.innerHTML = `
-      <i class="fa-solid ${doc.icon || 'fa-file-pdf'}"></i>
-      <h3>${doc.title}</h3>
-      <p>PDF görüntüle / indir</p>
-    `;
-    documentsList.appendChild(card);
-  });
+    // ----- DOKÜMANLAR (PDF) -----
+    const documentsList = document.getElementById("documentsList");
+    if (documentsList && data.documents && data.documents.length > 0) {
+      documentsList.innerHTML = "";
+      data.documents.forEach(doc => {
+        const card = document.createElement("a");
+        card.href = doc.file;
+        card.target = "_blank";
+        card.className = "doc-card";
+        card.style.textDecoration = "none";
+        card.style.color = "inherit";
+        card.innerHTML = `
+          <i class="fa-solid ${doc.icon || "fa-file-pdf"}"></i>
+          <h3>${doc.title}</h3>
+          <p>PDF görüntüle / indir</p>
+        `;
+        documentsList.appendChild(card);
+      });
+    }
+
+    // Hero slider için fotoğrafları kaydet
+    window.heroPhotos = data.photos || [];
+    startHeroSlider();
+
+  } catch (err) {
+    console.error("media.json yüklenemedi:", err);
+  }
 }
 
 // =======================
 // HERO SLIDER
 // =======================
-const hero = document.querySelector(".hero");
-if (hero && photos.length > 0) {
+function startHeroSlider() {
+  const hero = document.querySelector(".hero");
+  if (!hero || !window.heroPhotos || window.heroPhotos.length === 0) return;
+
   let heroIndex = 0;
   setInterval(() => {
-    heroIndex = (heroIndex + 1) % photos.length;
+    heroIndex = (heroIndex + 1) % window.heroPhotos.length;
     hero.style.background = `
       linear-gradient(105deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.35) 100%),
-      url('${photos[heroIndex]}') center/cover no-repeat
+      url('${window.heroPhotos[heroIndex]}') center/cover no-repeat
     `;
   }, 5500);
 }
@@ -173,3 +158,6 @@ if (hamburger && navLinks) {
     }
   });
 }
+
+// Sayfa yüklenince medyayı çek
+loadMedia();
