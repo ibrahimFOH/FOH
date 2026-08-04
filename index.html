@@ -21,19 +21,79 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.9
 .nav-inner{height:72px;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:15px;font-weight:800;letter-spacing:2.5px;color:#ffb000;text-decoration:none}
 .nav-right{display:flex;align-items:center;gap:16px}
-.nav-links{display:flex;gap:24px;align-items:center}
-.nav-links a{color:#ccc;text-decoration:none;font-size:13.5px;font-weight:500;transition:.25s}
-.nav-links a:hover,.nav-links a.active{color:#ffb000}
-.hamburger{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
 
+/* Nav links — hidden by default, toggled by hamburger on ALL screen sizes */
+.nav-links{
+  display:none;
+  position:absolute;
+  top:72px;
+  left:0;
+  width:100%;
+  background:#0a0a0a;
+  flex-direction:column;
+  padding:22px 20px;
+  gap:16px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  z-index:9998
+}
+.nav-links.active{display:flex}
+.nav-links a{color:#ccc;text-decoration:none;font-size:14px;font-weight:500;transition:.25s;padding:6px 0}
+.nav-links a:hover,.nav-links a.active{color:#ffb000}
+
+/* Hamburger — always visible */
+.hamburger{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:transparent;
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  width:40px;
+  height:40px;
+  border-radius:8px;
+  transition:.25s;
+  flex-shrink:0
+}
+.hamburger:hover{border-color:#ffb000;color:#ffb000}
+.hamburger.open{border-color:#ffb000;color:#ffb000}
+
+/* LANG */
 .lang-switch{display:flex;gap:6px}
-.lang-btn{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:6px;transition:.25s}
+.lang-btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  padding:5px 11px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:.25s
+}
 .lang-btn:hover,.lang-btn.active{border-color:#ffb000;color:#ffb000}
-.lang-btn .flag{width:20px;height:15px;border-radius:2px;object-fit:cover;vertical-align:middle;display:inline-block}
+.lang-btn .flag{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  object-fit:cover;
+  vertical-align:middle;
+  display:inline-block
+}
 
 /* HERO */
 .hero{height:100vh;min-height:720px;display:flex;align-items:center;position:relative}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.35) 100%),url("images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg") center/cover no-repeat;z-index:-1}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.35) 100%),
+    url("images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg") center/cover no-repeat;
+  z-index:-1
+}
 .hero-content{max-width:800px}
 .hero h1{font-size:clamp(40px,6.5vw,72px);font-weight:900;line-height:1.05;margin-bottom:18px;letter-spacing:-1.2px}
 .hero h1 span{color:#ffb000}
@@ -74,9 +134,6 @@ footer h3 span{color:#ffb000}
 .copyright{color:#555;font-size:13px}
 
 @media(max-width:900px){
-  .hamburger{display:block}
-  .nav-links{display:none;position:absolute;top:72px;left:0;width:100%;background:#0a0a0a;flex-direction:column;padding:22px 20px;gap:16px;border-bottom:1px solid rgba(255,255,255,.08);z-index:9998}
-  .nav-links.active{display:flex !important}
   .grid-3,.grid-2,.stats{grid-template-columns:1fr}
   .hero h1{font-size:40px}
   section{padding:70px 0}
@@ -91,22 +148,24 @@ footer h3 span{color:#ffb000}
     <div class="nav-right">
       <div class="lang-switch">
         <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
-          <img src="https://flagcdn.com/24x18/tr.png" alt="TR" class="flag"> TR
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f9-1f1f7.svg" alt="TR" class="flag"> TR
         </button>
         <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
-          <img src="https://flagcdn.com/24x18/gb.png" alt="GB" class="flag"> EN
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
         </button>
       </div>
-      <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
-      <div class="nav-links" id="navLinks">
-        <a href="index.html" class="active" data-i18n="nav_home">Ana Sayfa</a>
-        <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
-        <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
-        <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
-        <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
-        <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
-      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menü">
+        <i class="fa-solid fa-bars" id="hamburger-icon"></i>
+      </button>
     </div>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" class="active" data-i18n="nav_home">Ana Sayfa</a>
+    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+    <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+    <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+    <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+    <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
   </div>
 </nav>
 
@@ -260,15 +319,38 @@ footer h3 span{color:#ffb000}
 
 <script src="script.js"></script>
 <script>
+// ── HAMBURGER ──────────────────────────────────────────
+const hamburger = document.getElementById("hamburger");
+const hamburgerIcon = document.getElementById("hamburger-icon");
+const navLinks = document.getElementById("navLinks");
+
+hamburger.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("active");
+  hamburger.classList.toggle("open", isOpen);
+  hamburgerIcon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+});
+
+// Menü dışına tıklanınca kapat
+document.addEventListener("click", (e) => {
+  if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+    navLinks.classList.remove("active");
+    hamburger.classList.remove("open");
+    hamburgerIcon.className = "fa-solid fa-bars";
+  }
+});
+
+// ── DİL ────────────────────────────────────────────────
 const translations = {
   tr: {
-    nav_home:"Ana Sayfa", nav_services:"Hizmetler", nav_engineering:"Mühendislik", nav_gallery:"Galeri", nav_docs:"Dokümanlar", nav_offer:"Teklif Al",
+    nav_home:"Ana Sayfa", nav_services:"Hizmetler", nav_engineering:"Mühendislik",
+    nav_gallery:"Galeri", nav_docs:"Dokümanlar", nav_offer:"Teklif Al",
     hero_title:"Profesyonel <span>Ses & Sahne</span> Çözümleri",
     hero_sub:"FOH Engineer • Event Technologies",
     hero_brand:"Kiralama + Teknik Mühendislik",
     hero_desc:"Canlı etkinlikler, konserler, festivaller ve kurumsal organizasyonlar için ses sistemi kiralama, Stage Plot, SPL hesaplama, 3D sahne çizimi ve FOH operasyon hizmetleri sunuyoruz.",
     btn_offer:"Teklif Al", btn_engineering:"Mühendislik Hizmetleri",
-    s1_title:"Ne Sunuyoruz?", s1_desc:"Sadece ekipman kiralama değil, etkinliğinizin teknik altyapısını uçtan uca planlayan profesyonel çözümler.",
+    s1_title:"Ne Sunuyoruz?",
+    s1_desc:"Sadece ekipman kiralama değil, etkinliğinizin teknik altyapısını uçtan uca planlayan profesyonel çözümler.",
     c1_t:"Ses Sistemi Kiralama", c1_d:"Line Array, Point Source, Monitor ve DJ sistemleri. Etkinlik ölçeğine uygun profesyonel çözümler.",
     c2_t:"Işık & Truss Kiralama", c2_d:"Moving Head, Wash, Beam, LED aydınlatma ve sahne truss sistemleri.",
     c3_t:"FOH Operasyonu", c3_d:"Canlı miks yönetimi, sistem kurulumu, sahne koordinasyonu ve teknik operasyon.",
@@ -289,13 +371,15 @@ const translations = {
     btn_cta:"Teklif Formuna Git"
   },
   en: {
-    nav_home:"Home", nav_services:"Services", nav_engineering:"Engineering", nav_gallery:"Gallery", nav_docs:"Documents", nav_offer:"Get Quote",
+    nav_home:"Home", nav_services:"Services", nav_engineering:"Engineering",
+    nav_gallery:"Gallery", nav_docs:"Documents", nav_offer:"Get Quote",
     hero_title:"Professional <span>Audio & Stage</span> Solutions",
     hero_sub:"FOH Engineer • Event Technologies",
     hero_brand:"Rental + Technical Engineering",
     hero_desc:"We provide audio system rental, Stage Plot, SPL calculation, 3D stage design and FOH operations for live events, concerts, festivals and corporate organizations.",
     btn_offer:"Get Quote", btn_engineering:"Engineering Services",
-    s1_title:"What We Offer", s1_desc:"Not just equipment rental — professional end-to-end technical solutions for your event.",
+    s1_title:"What We Offer",
+    s1_desc:"Not just equipment rental — professional end-to-end technical solutions for your event.",
     c1_t:"Audio System Rental", c1_d:"Line Array, Point Source, Monitors and DJ systems tailored to your event scale.",
     c2_t:"Lighting & Truss Rental", c2_d:"Moving Heads, Wash, Beam, LED lighting and stage truss systems.",
     c3_t:"FOH Operations", c3_d:"Live mixing, system setup, stage coordination and technical operations.",
@@ -327,10 +411,6 @@ function setLanguage(lang) {
     if (translations[lang][key]) el.innerHTML = translations[lang][key];
   });
 }
-
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("navLinks");
-hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
 
 const savedLang = localStorage.getItem("lang") || "tr";
 setLanguage(savedLang);
