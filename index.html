@@ -29,7 +29,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.9
 .lang-switch{display:flex;gap:6px}
 .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:6px;transition:.25s}
 .lang-btn:hover,.lang-btn.active{border-color:#ffb000;color:#ffb000}
-.lang-btn .flag{font-size:15px}
+.lang-btn .flag{width:20px;height:15px;border-radius:2px;object-fit:cover;vertical-align:middle;display:inline-block}
 
 /* HERO */
 .hero{height:100vh;min-height:720px;display:flex;align-items:center;position:relative}
@@ -90,8 +90,12 @@ footer h3 span{color:#ffb000}
     <a href="index.html" class="logo">EVENT TECHNOLOGIES</a>
     <div class="nav-right">
       <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr"><span class="flag">🇹🇷</span> TR</button>
-        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en"><span class="flag">🇬🇧</span> EN</button>
+        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
+          <img src="https://flagcdn.com/24x18/tr.png" alt="TR" class="flag"> TR
+        </button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
+          <img src="https://flagcdn.com/24x18/gb.png" alt="GB" class="flag"> EN
+        </button>
       </div>
       <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
       <div class="nav-links" id="navLinks">
@@ -173,7 +177,7 @@ footer h3 span{color:#ffb000}
       <div class="card">
         <i class="fa-solid fa-file-lines"></i>
         <h3 data-i18n="c7_t">Teknik Rider</h3>
-        <p data-i18n="c7_d">Sanatçı rider’larının teknik olarak okunması ve sahneye uygun hale getirilmesi.</p>
+        <p data-i18n="c7_d">Sanatçı rider'larının teknik olarak okunması ve sahneye uygun hale getirilmesi.</p>
       </div>
     </div>
   </div>
@@ -272,7 +276,7 @@ const translations = {
     c4_t:"Stage Plot & Sahne Planı", c4_d:"Sanatçı ve organizasyon ihtiyaçlarına göre detaylı sahne yerleşim planı hazırlanır.",
     c5_t:"3D Sahne Çizimi", c5_d:"Etkinlik alanına özel 3D sahne ve sistem görselleştirmesi.",
     c6_t:"SPL Hesaplama", c6_d:"Alan kapasitesine ve sistem tipine göre ses basınç seviyesi analizi.",
-    c7_t:"Teknik Rider", c7_d:"Sanatçı rider’larının teknik olarak okunması ve sahneye uygun hale getirilmesi.",
+    c7_t:"Teknik Rider", c7_d:"Sanatçı rider'larının teknik olarak okunması ve sahneye uygun hale getirilmesi.",
     s3_title:"Rakamlarla Deneyim", st1:"Yıl Deneyim", st2:"Etkinlik", st3:"Sanatçı", st4:"Saat Canlı Miks",
     pack_title:"Mühendislik + Kiralama Paketi",
     pack_desc:"Stage Plot + SPL hesaplama + sistem tasarımı + ekipman kiralama + kurulum ve söküm hizmetlerini tek pakette alabilirsiniz. Festival, konser ve büyük kurumsal etkinlikler için ideal çözümdür.",
@@ -323,6 +327,11 @@ function setLanguage(lang) {
     if (translations[lang][key]) el.innerHTML = translations[lang][key];
   });
 }
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+hamburger.addEventListener("click", () => navLinks.classList.toggle("active"));
+
 const savedLang = localStorage.getItem("lang") || "tr";
 setLanguage(savedLang);
 </script>
