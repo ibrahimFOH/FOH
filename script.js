@@ -184,3 +184,24 @@ behavior:"smooth"
 });
 
 });
+
+function setLanguage(lang){
+
+if(lang==="en"){
+
+document.getElementById("gallery-title").innerText="Gallery";
+document.getElementById("video-title").innerText="Videos";
+document.getElementById("offer-title").innerText="Quote Request";
+
+}
+
+if(lang==="tr"){
+
+document.getElementById("gallery-title").innerText="Galeri";
+document.getElementById("video-title").innerText="Videolar";
+document.getElementById("offer-title").innerText="Teklif";
+
+}
+
+}
+
