@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teklif Al | Event Technologies</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#070707;color:#fff;line-height:1.6}
+.container{width:90%;max-width:1200px;margin:auto}
+section{padding:100px 0}
+.section-title{font-size:clamp(32px,5vw,48px);font-weight:800;margin-bottom:12px}
+.section-desc{color:#999;max-width:680px;font-size:16px;margin-bottom:40px}
+nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-inner{height:72px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:15px;font-weight:800;letter-spacing:2.5px;color:#ffb000;text-decoration:none}
+.nav-links{display:flex;gap:26px;align-items:center}
+.nav-links a{color:#ccc;text-decoration:none;font-size:13.5px;font-weight:500;transition:.25s}
+.nav-links a:hover,.nav-links a.active{color:#ffb000}
+.hamburger{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer}
+#offerForm{margin-top:30px;max-width:720px;display:grid;gap:14px}
+#offerForm input,#offerForm textarea,#offerForm select{width:100%;padding:15px 18px;background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;color:#fff;font-family:inherit;font-size:14.5px}
+#offerForm input:focus,#offerForm textarea:focus,#offerForm select:focus{outline:none;border-color:#ffb000}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:.3s}
+.btn-whatsapp{background:#25D366;color:#fff}
+.btn-whatsapp:hover{background:#2ee06f;transform:translateY(-2px)}
+.btn-instagram{background:linear-gradient(45deg,#833AB4,#C13584,#E1306C,#FD1D1D,#F77737);color:#fff}
+footer{padding:50px 0 30px;border-top:1px solid rgba(255,255,255,.06);text-align:center;background:#050505}
+footer h3{font-size:22px;font-weight:800}
+footer h3 span{color:#ffb000}
+.footer-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:22px 0 18px}
+.footer-links a{color:#aaa;text-decoration:none;font-size:13.5px}
+.copyright{color:#555;font-size:13px}
+@media(max-width:900px){
+  .hamburger{display:block}
+  .nav-links{display:none;position:absolute;top:72px;left:0;width:100%;background:#0a0a0a;flex-direction:column;padding:24px 20px;gap:18px;z-index:9998}
+  .nav-links.active{display:flex !important}
+  section{padding:70px 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">EVENT TECHNOLOGIES</a>
+    <button class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="muhendislik.html">Mühendislik</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="dokumanlar.html">Dokümanlar</a>
+      <a href="teklif.html" class="active">Teklif Al</a>
+    </div>
+  </div>
+</nav>
+
+<section style="padding-top:140px">
+  <div class="container">
+    <h1 class="section-title">Teklif Talebi</h1>
+    <p class="section-desc">Etkinliğinizin türüne göre detaylı teklif hazırlıyoruz.</p>
+
+    <form id="offerForm">
+      <input name="name" type="text" placeholder="Ad Soyad / Firma" required>
+      <input name="phone" type="text" placeholder="Telefon" required>
+      <select name="service" required>
+        <option value="" disabled selected>Hizmet Türü Seçin</option>
+        <option value="Ses Sistemi Kiralama">Ses Sistemi Kiralama</option>
+        <option value="Işık & Truss Kiralama">Işık & Truss Kiralama</option>
+        <option value="Stage Plot">Stage Plot / Sahne Planı</option>
+        <option value="3D Sahne Çizimi">3D Sahne Çizimi</option>
+        <option value="SPL Hesaplama">SPL Hesaplama</option>
+        <option value="Teknik Rider">Teknik Rider Hazırlama</option>
+        <option value="FOH Operasyonu">FOH Operasyonu</option>
+        <option value="Paket (Kiralama + Mühendislik)">Paket (Kiralama + Mühendislik)</option>
+        <option value="Diğer">Diğer</option>
+      </select>
+      <input name="location" type="text" placeholder="Lokasyon / Şehir">
+      <input name="date" type="date">
+      <input name="people" type="text" placeholder="Tahmini Katılımcı Sayısı">
+      <textarea name="message" rows="5" placeholder="Etkinlik detayları, özel istekler..."></textarea>
+      <button type="submit" class="btn btn-whatsapp"><i class="fa-solid fa-paper-plane"></i> Teklif Gönder (WhatsApp)</button>
+    </form>
+
+    <div style="margin-top:60px">
+      <h2 class="section-title" style="font-size:28px">İletişim</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:20px">
+        <a class="btn btn-whatsapp" href="https://wa.me/905320683012" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <a class="btn btn-instagram" href="https://instagram.com/ibrahim_kavasogluu" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      </div>
+      <p style="margin-top:24px;color:#aaa">
+        <i class="fa-solid fa-envelope" style="margin-right:8px;color:#ffb000"></i> ibrahimkavasoglu7@gmail.com
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <h3>İbrahim <span>Kavasoğlu</span></h3>
+    <p style="color:#888;margin-bottom:8px">FOH Engineer • Event Technologies</p>
+    <div class="footer-links">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="muhendislik.html">Mühendislik</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="teklif.html">Teklif Al</a>
+    </div>
+    <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
