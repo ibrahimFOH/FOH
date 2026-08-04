@@ -9,5 +9,11 @@
     "images/gallery/DE228FEA-36C1-4CCD-9185-0E03014CD491.jpeg"
   ],
   "videos": [],
-  "documents": []
+  "documents": [
+    {
+      "title": "Ni̇hat Mugi̇l Tekni̇k Ri̇der (1)",
+      "file": "documents/NİHAT MUGİL TEKNİK RİDER (1).pdf",
+      "icon": "fa-file-pdf"
+    }
+  ]
 }
