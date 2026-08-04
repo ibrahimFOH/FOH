@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İbrahim Kavasoğlu | FOH Engineer</title>
-<meta name="description" content="FOH Engineer | Audio • Lighting • Event Production">
+<title>İbrahim Kavasoğlu | FOH Engineer & Event Technologies</title>
+<meta name="description" content="Profesyonel ses sistemi kiralama, FOH mühendisliği, Stage Plot, SPL hesaplama ve 3D sahne çizimi hizmetleri.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
@@ -14,13 +14,13 @@ body{font-family:'Inter',sans-serif;background:#070707;color:#fff;overflow-x:hid
 .container{width:90%;max-width:1200px;margin:auto}
 section{padding:100px 0}
 .section-title{font-size:clamp(32px,5vw,48px);font-weight:800;margin-bottom:12px;letter-spacing:-0.5px}
-.section-desc{color:#999;max-width:640px;font-size:16px;margin-bottom:40px}
+.section-desc{color:#999;max-width:680px;font-size:16px;margin-bottom:40px}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
 .nav-inner{height:72px;display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:15px;font-weight:800;letter-spacing:2.5px;color:#ffb000;text-decoration:none}
-.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links{display:flex;gap:26px;align-items:center}
 .nav-links a{color:#ccc;text-decoration:none;font-size:13.5px;font-weight:500;transition:.25s}
 .nav-links a:hover{color:#ffb000}
 .hamburger{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;z-index:10001}
@@ -28,21 +28,24 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.8
 /* HERO */
 .hero{height:100vh;min-height:680px;display:flex;align-items:center;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.35) 100%),url("images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg") center/cover no-repeat;z-index:-1;transition:background-image .8s ease}
-.hero-content{max-width:800px}
-.hero h1{font-size:clamp(48px,8vw,92px);font-weight:900;line-height:.95;margin-bottom:18px;letter-spacing:-1.5px}
+.hero-content{max-width:820px}
+.hero h1{font-size:clamp(42px,7vw,78px);font-weight:900;line-height:.95;margin-bottom:18px;letter-spacing:-1.5px}
 .hero h1 span{color:#ffb000}
-.hero-sub{font-size:22px;font-weight:600;margin-bottom:8px;opacity:.95}
-.hero-brand{font-size:15px;font-weight:700;letter-spacing:3px;color:#ffb000;margin-bottom:14px;text-transform:uppercase}
-.hero-desc{font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#aaa;margin-bottom:36px}
+.hero-sub{font-size:20px;font-weight:600;margin-bottom:8px;opacity:.95}
+.hero-brand{font-size:14px;font-weight:700;letter-spacing:3px;color:#ffb000;margin-bottom:14px;text-transform:uppercase}
+.hero-desc{font-size:14px;color:#bbb;margin-bottom:36px;max-width:520px}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;transition:.3s;border:none;cursor:pointer}
 .btn-primary{background:#ffb000;color:#000}
 .btn-primary:hover{background:#ffc933;transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,176,0,.25)}
 .btn-whatsapp{background:#25D366;color:#fff}
 .btn-whatsapp:hover{background:#2ee06f;transform:translateY(-2px)}
 .btn-instagram{background:linear-gradient(45deg,#833AB4,#C13584,#E1306C,#FD1D1D,#F77737);color:#fff}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.2);color:#fff}
+.btn-outline:hover{border-color:#ffb000;color:#ffb000}
 
 /* CARDS */
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:40px}
 .card{background:#111;border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:32px 28px;transition:.35s;position:relative;overflow:hidden}
 .card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at top left,rgba(255,176,0,.08),transparent 60%);opacity:0;transition:.35s}
 .card:hover{border-color:rgba(255,176,0,.4);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
@@ -50,6 +53,10 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.8
 .card i{font-size:26px;color:#ffb000;margin-bottom:18px;display:block}
 .card h3{font-size:17px;font-weight:700;margin-bottom:8px}
 .card p{color:#999;font-size:14.5px;line-height:1.55}
+.card .card-cta{margin-top:18px;font-size:13px;color:#ffb000;font-weight:600}
+
+/* HIGHLIGHT BOX */
+.highlight-box{background:linear-gradient(135deg,#111 0%,#0d0d0d 100%);border:1px solid rgba(255,176,0,.25);border-radius:18px;padding:40px;margin-top:30px}
 
 /* STATS */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
@@ -65,10 +72,18 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.8
 .videos video{width:100%;height:240px;object-fit:cover;border-radius:12px;background:#111;transition:.3s}
 .videos video:hover{transform:translateY(-4px)}
 
+/* DOCUMENTS */
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:40px}
+.doc-card{background:#111;border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:28px;text-align:center;transition:.3s}
+.doc-card:hover{border-color:rgba(255,176,0,.4);transform:translateY(-4px)}
+.doc-card i{font-size:32px;color:#ffb000;margin-bottom:14px}
+.doc-card h3{font-size:16px;margin-bottom:6px}
+.doc-card p{color:#888;font-size:13px}
+
 /* FORM */
 #offerForm{margin-top:30px;max-width:720px;display:grid;gap:14px}
-#offerForm input,#offerForm textarea{width:100%;padding:15px 18px;background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;color:#fff;font-family:inherit;font-size:14.5px;transition:.25s}
-#offerForm input:focus,#offerForm textarea:focus{outline:none;border-color:#ffb000;box-shadow:0 0 0 3px rgba(255,176,0,.15)}
+#offerForm input,#offerForm textarea,#offerForm select{width:100%;padding:15px 18px;background:#111;border:1px solid rgba(255,255,255,.08);border-radius:12px;color:#fff;font-family:inherit;font-size:14.5px;transition:.25s}
+#offerForm input:focus,#offerForm textarea:focus,#offerForm select:focus{outline:none;border-color:#ffb000;box-shadow:0 0 0 3px rgba(255,176,0,.15)}
 #offerForm button{justify-self:start;margin-top:8px}
 
 /* FOOTER */
@@ -83,23 +98,11 @@ footer h3 span{color:#ffb000}
 /* MOBILE */
 @media(max-width:900px){
   .hamburger{display:block}
-  .nav-links{
-    display:none;
-    position:absolute;
-    top:72px;
-    left:0;
-    width:100%;
-    background:#0a0a0a;
-    flex-direction:column;
-    padding:24px 20px;
-    gap:18px;
-    border-bottom:1px solid rgba(255,255,255,.08);
-    z-index:9998;
-  }
+  .nav-links{display:none;position:absolute;top:72px;left:0;width:100%;background:#0a0a0a;flex-direction:column;padding:24px 20px;gap:18px;border-bottom:1px solid rgba(255,255,255,.08);z-index:9998}
   .nav-links.active{display:flex !important}
-  .grid-3{grid-template-columns:1fr}
+  .grid-3,.grid-2{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .hero h1{font-size:48px}
+  .hero h1{font-size:42px}
   section{padding:70px 0}
 }
 @media(max-width:500px){
@@ -114,172 +117,242 @@ footer h3 span{color:#ffb000}
     <a href="#top" class="logo">EVENT TECHNOLOGIES</a>
     <button class="hamburger" id="hamburger" aria-label="Menü"><i class="fa-solid fa-bars"></i></button>
     <div class="nav-links" id="navLinks">
-      <a href="#about">Hakkımda</a>
       <a href="#services">Hizmetler</a>
-      <a href="#technical">Teknik</a>
+      <a href="#engineering">Mühendislik</a>
+      <a href="#rental">Kiralama</a>
+      <a href="#documents">Dokümanlar</a>
       <a href="#gallery-section">Galeri</a>
-      <a href="#video">Video</a>
-      <a href="#offer">Teklif</a>
+      <a href="#offer">Teklif Al</a>
       <a href="#contact">İletişim</a>
     </div>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <h1>İbrahim <span>Kavasoğlu</span></h1>
-      <div class="hero-sub">FOH Engineer</div>
-      <div class="hero-brand">Event Technologies</div>
-      <div class="hero-desc">Audio • Lighting • Event Production</div>
-      <a class="btn btn-primary" href="#offer"><i class="fa-solid fa-file-signature"></i> Teklif Al</a>
+      <h1>Profesyonel <span>Ses & Sahne</span> Çözümleri</h1>
+      <div class="hero-sub">FOH Engineer • Event Technologies</div>
+      <div class="hero-brand">Kiralama + Teknik Mühendislik</div>
+      <div class="hero-desc">
+        Canlı etkinlikler, konserler ve kurumsal organizasyonlar için ses sistemi kiralama, Stage Plot, SPL hesaplama, 3D sahne çizimi ve FOH operasyon hizmetleri.
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a class="btn btn-primary" href="#offer"><i class="fa-solid fa-file-signature"></i> Teklif Al</a>
+        <a class="btn btn-outline" href="#engineering"><i class="fa-solid fa-drafting-compass"></i> Mühendislik Hizmetleri</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="about">
+<!-- ANA HİZMETLER -->
+<section id="services" style="background:#0b0b0b">
   <div class="container">
-    <h2 class="section-title">Hakkımda</h2>
-    <p class="section-desc">
-      Merhaba, ben İbrahim Kavasoğlu. Canlı ses sistemleri, konser, festival, otel etkinlikleri ve kurumsal organizasyonlarda FOH Engineer olarak görev almaktayım. Miks yönetimi, sistem kurulumu, teknik planlama, sahne operasyonu ve etkinlik koordinasyonu alanlarında profesyonel hizmet vermekteyim.
+    <h2 class="section-title">Ne Sunuyoruz?</h2>
+    <p class="section-desc">Sadece ekipman kiralama değil, uçtan uca teknik planlama ve operasyon desteği.</p>
+    <div class="grid-3">
+      <div class="card">
+        <i class="fa-solid fa-volume-high"></i>
+        <h3>Ses Sistemi Kiralama</h3>
+        <p>Line Array, Point Source, Monitor ve DJ sistemleri. Etkinlik ölçeğine uygun profesyonel çözümler.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h3>Işık & Truss Kiralama</h3>
+        <p>Moving Head, Wash, Beam, LED ve sahne truss sistemleri.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-sliders"></i>
+        <h3>FOH Operasyonu</h3>
+        <p>Canlı miks yönetimi, sistem kurulumu ve sahne koordinasyonu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÜHENDİSLİK HİZMETLERİ -->
+<section id="engineering">
+  <div class="container">
+    <h2 class="section-title">Teknik Mühendislik</h2>
+    <p class="section-desc">Sahne ve ses sistemleri için profesyonel planlama, çizim ve hesaplama hizmetleri.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <i class="fa-solid fa-draw-polygon"></i>
+        <h3>Stage Plot & Sahne Planı</h3>
+        <p>Sanatçı ve organizasyon ihtiyaçlarına göre detaylı sahne yerleşim planı (Stage Plot) hazırlanır. Giriş-çıkış, monitör, enstrüman ve teknik hatlar net şekilde gösterilir.</p>
+        <div class="card-cta">→ Stage Plot talebi için teklif alın</div>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-cube"></i>
+        <h3>3D Sahne Çizimi</h3>
+        <p>Etkinlik alanına özel 3D sahne ve sistem görselleştirmesi. Organizasyon ve teknik ekibin aynı dili konuşması için görsel destek.</p>
+        <div class="card-cta">→ 3D çizim talebi için teklif alın</div>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-chart-column"></i>
+        <h3>SPL Hesaplama & Analiz</h3>
+        <p>Alan kapasitesine, seyirci sayısına ve sistem tipine göre ses basınç seviyesi (SPL) hesaplaması ve kapsama analizi.</p>
+        <div class="card-cta">→ SPL hesaplama talebi için teklif alın</div>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-file-lines"></i>
+        <h3>Teknik Rider Hazırlama</h3>
+        <p>Sanatçı rider’larının teknik olarak okunması, uyarlanması ve sahne/ses sistemine uygun hale getirilmesi.</p>
+        <div class="card-cta">→ Rider hizmeti için teklif alın</div>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top:50px">
+      <h3 style="font-size:22px;margin-bottom:12px;color:#ffb000">Mühendislik + Kiralama Paketi</h3>
+      <p style="color:#bbb;margin-bottom:20px">
+        Stage Plot + SPL hesaplama + sistem tasarımı + ekipman kiralama + kurulum/söküm hizmetlerini tek pakette alabilirsiniz. Özellikle festival, konser ve büyük kurumsal etkinlikler için idealdir.
+      </p>
+      <a class="btn btn-primary" href="#offer">Paket Teklifi Al</a>
+    </div>
+  </div>
+</section>
+
+<!-- KİRALAMA -->
+<section id="rental" style="background:#0b0b0b">
+  <div class="container">
+    <h2 class="section-title">Kiralama Çözümleri</h2>
+    <p class="section-desc">Profesyonel etkinlikler için hazır ekipman ve operasyon desteği.</p>
+    <div class="grid-3">
+      <div class="card">
+        <i class="fa-solid fa-wave-square"></i>
+        <h3>Line Array & PA</h3>
+        <p>Açık alan ve kapalı mekân için Line Array ve Point Source sistemler.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-headphones"></i>
+        <h3>Monitor & IEM</h3>
+        <p>Sahne monitör sistemleri ve in-ear monitor çözümleri.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-network-wired"></i>
+        <h3>Network Audio (Dante)</h3>
+        <p>Dijital ses ağı altyapısı ve dijital mikser entegrasyonu.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-sliders"></i>
+        <h3>Dijital Mikserler</h3>
+        <p>Allen & Heath, Yamaha, DiGiCo, Midas serisi konsollar.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h3>Aydınlatma</h3>
+        <p>Moving Head, Wash, Beam, LED ve kontrol sistemleri.</p>
+      </div>
+      <div class="card">
+        <i class="fa-solid fa-truck-fast"></i>
+        <h3>Kurulum & Operasyon</h3>
+        <p>Kurulum, söküm, teknik ekip ve sahne koordinasyonu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOKÜMANLAR -->
+<section id="documents">
+  <div class="container">
+    <h2 class="section-title">Örnek Dokümanlar</h2>
+    <p class="section-desc">Stage Plot, Rider ve SPL örnekleri. İhtiyacınıza göre özel hazırlanır.</p>
+    
+    <div class="doc-grid" id="documentsList">
+      <!-- PDF'ler buraya otomatik eklenecek (script.js) -->
+      <div class="doc-card">
+        <i class="fa-solid fa-file-pdf"></i>
+        <h3>Stage Plot Örnekleri</h3>
+        <p>Yakında eklenecek / Talep üzerine</p>
+      </div>
+      <div class="doc-card">
+        <i class="fa-solid fa-file-signature"></i>
+        <h3>Teknik Rider Örnekleri</h3>
+        <p>Yakında eklenecek / Talep üzerine</p>
+      </div>
+      <div class="doc-card">
+        <i class="fa-solid fa-calculator"></i>
+        <h3>SPL Rapor Örnekleri</h3>
+        <p>Yakında eklenecek / Talep üzerine</p>
+      </div>
+      <div class="doc-card">
+        <i class="fa-solid fa-cube"></i>
+        <h3>3D Sahne Çizimleri</h3>
+        <p>Yakında eklenecek / Talep üzerine</p>
+      </div>
+    </div>
+
+    <p style="margin-top:30px;color:#888;font-size:14px">
+      PDF veya görsel örnek eklemek istersen <code>documents/</code> klasörüne koyup script.js içindeki listeye eklemen yeterli.
     </p>
   </div>
 </section>
 
-<section id="services" style="background:#0b0b0b">
-  <div class="container">
-    <h2 class="section-title">Hizmetler</h2>
-    <p class="section-desc">Canlı etkinlikler için profesyonel teknik çözümler.</p>
-    <div class="grid-3">
-      <div class="card"><i class="fa-solid fa-sliders"></i><h3>FOH Mixing</h3><p>Canlı performanslarda profesyonel miks yönetimi.</p></div>
-      <div class="card"><i class="fa-solid fa-volume-high"></i><h3>Ses Sistemleri</h3><p>Kurulum, ayarlama ve operasyon hizmetleri.</p></div>
-      <div class="card"><i class="fa-solid fa-diagram-project"></i><h3>Teknik Koordinasyon</h3><p>Etkinlik öncesi ve süresince teknik yönetim.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="rental">
-  <div class="container">
-    <h2 class="section-title">Kiralama Hizmetleri</h2>
-    <p class="section-desc">Profesyonel etkinlikler için ekipman çözümleri.</p>
-    <div class="grid-3">
-      <div class="card"><i class="fa-solid fa-wave-square"></i><h3>Ses Sistemleri</h3><p>Line Array, Point Source, Monitor ve DJ sistemleri.</p></div>
-      <div class="card"><i class="fa-solid fa-lightbulb"></i><h3>Işık Sistemleri</h3><p>Moving Head, Wash, Beam, LED ve sahne aydınlatmaları.</p></div>
-      <div class="card"><i class="fa-solid fa-truck-fast"></i><h3>Operasyon</h3><p>Kurulum, söküm ve teknik destek hizmetleri.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="technical" style="background:#0b0b0b">
-  <div class="container">
-    <h2 class="section-title">Teknik Hizmetler</h2>
-    <p class="section-desc">Etkinlik planlama ve mühendislik hizmetleri.</p>
-    <div class="grid-3">
-      <div class="card"><i class="fa-solid fa-file-lines"></i><h3>Rider Hazırlama</h3><p>Sanatçı ve organizasyonlar için teknik rider hazırlama.</p></div>
-      <div class="card"><i class="fa-solid fa-draw-polygon"></i><h3>Stage Plot</h3><p>Sahne yerleşim planı oluşturma hizmeti.</p></div>
-      <div class="card"><i class="fa-solid fa-chart-column"></i><h3>SPL Hesaplama</h3><p>Ses kapsama ve SPL analiz çalışmaları.</p></div>
-      <div class="card"><i class="fa-solid fa-sliders"></i><h3>System Engineering</h3><p>Ses sistemlerinin tasarımı ve optimizasyonu.</p></div>
-      <div class="card"><i class="fa-solid fa-network-wired"></i><h3>Network Audio</h3><p>Dante ve dijital ses ağları planlaması.</p></div>
-      <div class="card"><i class="fa-solid fa-headphones"></i><h3>Monitor Engineering</h3><p>Sahne monitör sistemlerinin yönetimi.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="stats">
-  <div class="container">
-    <h2 class="section-title" style="text-align:center;margin-bottom:40px">İstatistikler</h2>
-    <div class="stats-grid">
-      <div class="stat-item"><h3>8+</h3><p>Yıl Deneyim</p></div>
-      <div class="stat-item"><h3>100+</h3><p>Etkinlik</p></div>
-      <div class="stat-item"><h3>100+</h3><p>Sanatçı</p></div>
-      <div class="stat-item"><h3>1000+</h3><p>Saat Canlı Miks</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="references" style="background:#0b0b0b">
-  <div class="container">
-    <h2 class="section-title">Referanslar</h2>
-    <p class="section-desc">Görev alınan proje ve organizasyonlardan bazıları.</p>
-    <div class="grid-3">
-      <div class="card"><h3>Rixos Premium Belek</h3><p>Live Music & Event Operations</p></div>
-      <div class="card"><h3>Nil Müzik</h3><p>Canlı Performans ve Prodüksiyon</p></div>
-      <div class="card"><h3>İnart Stüdyo</h3><p>Kayıt ve Ses Uygulamaları</p></div>
-      <div class="card"><h3>Özal Ses Sistemleri</h3><p>Saha Operasyonları</p></div>
-      <div class="card"><h3>Evvel Temmuz Festivali</h3><p>Festival Operasyonları</p></div>
-      <div class="card"><h3>Etkinlik Projeleri</h3><p>Kurumsal ve Açık Hava Organizasyonları</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="equipment">
-  <div class="container">
-    <h2 class="section-title">Ekipmanlar & Sistemler</h2>
-    <p class="section-desc">Kullanılan ve desteklenen profesyonel sistemler.</p>
-    <div class="grid-3">
-      <div class="card"><i class="fa-solid fa-sliders"></i><h3>Dijital Mikserler</h3><p>Allen & Heath, Yamaha, DiGiCo, Midas</p></div>
-      <div class="card"><i class="fa-solid fa-volume-high"></i><h3>PA Sistemleri</h3><p>Line Array ve Point Source çözümleri</p></div>
-      <div class="card"><i class="fa-solid fa-network-wired"></i><h3>Network Audio</h3><p>Dante ve dijital ses ağları</p></div>
-      <div class="card"><h3>Meyer Sound</h3><p>Profesyonel line array sistemleri</p></div>
-      <div class="card"><h3>Wireless Systems</h3><p>Kablosuz mikrofon ve IEM çözümleri</p></div>
-      <div class="card"><h3>Lighting & Truss</h3><p>Moving Head, LED, truss sistemleri</p></div>
-    </div>
-  </div>
-</section>
-
+<!-- GALERİ -->
 <section id="gallery-section" style="background:#0b0b0b">
   <div class="container">
     <h2 class="section-title">Galeri</h2>
-    <p class="section-desc">Etkinliklerden ve çalışmalardan görüntüler.</p>
+    <p class="section-desc">Sahadan görüntüler ve kurulumlar.</p>
     <div id="gallery" class="gallery"></div>
   </div>
 </section>
 
+<!-- VİDEOLAR -->
 <section id="video">
   <div class="container">
     <h2 class="section-title">Videolar</h2>
-    <p class="section-desc">Sahadan görüntüler ve canlı performans kayıtları.</p>
+    <p class="section-desc">Canlı performans ve sahne kayıtları.</p>
     <div id="videos" class="videos"></div>
   </div>
 </section>
 
-<section id="faq" style="background:#0b0b0b">
-  <div class="container">
-    <h2 class="section-title">Sık Sorulan Sorular</h2>
-    <div class="grid-3">
-      <div class="card"><h3>Hangi şehirlerde hizmet veriyorsunuz?</h3><p>Türkiye genelinde proje bazlı hizmet verilmektedir. Özellikle Hatay, Adana, Mersin, Gaziantep, Osmaniye ve Kahramanmaraş.</p></div>
-      <div class="card"><h3>Ses sistemi kiralama yapıyor musunuz?</h3><p>Evet. Etkinlik ölçeğine uygun profesyonel Line Array, Point Source ve monitor çözümleri sunulmaktadır.</p></div>
-      <div class="card"><h3>Rider ve Stage Plot hazırlıyor musunuz?</h3><p>Evet. Teknik döküman, stage plot ve SPL hesaplama hizmeti verilmektedir.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="offer">
+<!-- TEKLİF -->
+<section id="offer" style="background:#0b0b0b">
   <div class="container">
     <h2 class="section-title">Teklif Talebi</h2>
-    <p class="section-desc">Etkinliğiniz hakkında bilgi verin, sizinle iletişime geçelim.</p>
+    <p class="section-desc">Etkinliğinizin türüne göre (kiralama, Stage Plot, SPL, 3D çizim vb.) detaylı teklif hazırlıyoruz.</p>
+    
     <form id="offerForm">
-      <input name="name" type="text" placeholder="Ad Soyad" required>
+      <input name="name" type="text" placeholder="Ad Soyad / Firma" required>
       <input name="phone" type="text" placeholder="Telefon" required>
-      <input name="type" type="text" placeholder="Etkinlik Türü">
-      <input name="location" type="text" placeholder="Lokasyon">
-      <input name="people" type="text" placeholder="Katılımcı Sayısı">
+      <select name="service" required>
+        <option value="" disabled selected>Hizmet Türü Seçin</option>
+        <option value="Ses Sistemi Kiralama">Ses Sistemi Kiralama</option>
+        <option value="Işık & Truss Kiralama">Işık & Truss Kiralama</option>
+        <option value="Stage Plot">Stage Plot / Sahne Planı</option>
+        <option value="3D Sahne Çizimi">3D Sahne Çizimi</option>
+        <option value="SPL Hesaplama">SPL Hesaplama</option>
+        <option value="Teknik Rider">Teknik Rider Hazırlama</option>
+        <option value="FOH Operasyonu">FOH Operasyonu</option>
+        <option value="Paket (Kiralama + Mühendislik)">Paket (Kiralama + Mühendislik)</option>
+        <option value="Diğer">Diğer</option>
+      </select>
+      <input name="location" type="text" placeholder="Lokasyon / Şehir">
       <input name="date" type="date">
-      <textarea name="message" rows="5" placeholder="Etkinlik detayları"></textarea>
-      <button type="submit" class="btn btn-whatsapp"><i class="fa-solid fa-paper-plane"></i> Teklif Gönder</button>
+      <input name="people" type="text" placeholder="Tahmini Katılımcı Sayısı">
+      <textarea name="message" rows="5" placeholder="Etkinlik detayları, özel istekler, mevcut rider varsa belirtin..."></textarea>
+      <button type="submit" class="btn btn-whatsapp"><i class="fa-solid fa-paper-plane"></i> Teklif Gönder (WhatsApp)</button>
     </form>
   </div>
 </section>
 
-<section id="contact" style="background:#0b0b0b">
+<!-- İLETİŞİM -->
+<section id="contact">
   <div class="container">
     <h2 class="section-title">İletişim</h2>
-    <p class="section-desc">Yeni etkinlikler ve projeler için iletişime geçebilirsiniz.</p>
+    <p class="section-desc">Projeleriniz için hızlı dönüş yapıyoruz.</p>
     <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:30px">
       <a class="btn btn-whatsapp" href="https://wa.me/905320683012" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
       <a class="btn btn-instagram" href="https://instagram.com/ibrahim_kavasogluu" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a>
     </div>
-    <p style="margin-top:28px;color:#aaa"><i class="fa-solid fa-envelope" style="margin-right:8px;color:#ffb000"></i> ibrahimkavasoglu7@gmail.com</p>
+    <p style="margin-top:28px;color:#aaa">
+      <i class="fa-solid fa-envelope" style="margin-right:8px;color:#ffb000"></i> ibrahimkavasoglu7@gmail.com
+    </p>
   </div>
 </section>
 
@@ -288,10 +361,9 @@ footer h3 span{color:#ffb000}
     <h3>İbrahim <span>Kavasoğlu</span></h3>
     <p style="color:#888;margin-bottom:8px">FOH Engineer • Event Technologies</p>
     <div class="footer-links">
-      <a href="#top">Ana Sayfa</a>
       <a href="#services">Hizmetler</a>
-      <a href="#gallery-section">Galeri</a>
-      <a href="#video">Videolar</a>
+      <a href="#engineering">Mühendislik</a>
+      <a href="#rental">Kiralama</a>
       <a href="#offer">Teklif Al</a>
     </div>
     <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies<br>All Rights Reserved</p>
