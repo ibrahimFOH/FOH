@@ -75,18 +75,87 @@ function startHeroSlider() {
   }, 5500);
 }
 
-// Lightbox
-document.addEventListener("click", (e) => {
-  if (e.target.tagName !== "IMG" || !e.target.closest("#gallery")) return;
-  const overlay = document.createElement("div");
-  overlay.style.cssText = `position:fixed;inset:0;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;z-index:10000;cursor:zoom-out;`;
-  const image = document.createElement("img");
-  image.src = e.target.src;
-  image.style.cssText = "max-width:92%;max-height:92%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6)";
-  overlay.appendChild(image);
-  overlay.onclick = () => overlay.remove();
-  document.body.appendChild(overlay);
-});
+// Lightbox — ok tuşları, klavye, sayaç
+(function () {
+  let galleryImages = [];
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const overlay = document.createElement("div");
+    overlay.id = "lbOverlay";
+    overlay.style.cssText = "position:fixed;inset:0;background:rgba(0,0,0,.96);display:flex;align-items:center;justify-content:center;z-index:10000;";
+
+    const img = document.createElement("img");
+    img.id = "lbImg";
+    img.src = galleryImages[currentIndex];
+    img.style.cssText = "max-width:88%;max-height:88vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6);user-select:none;pointer-events:none;";
+
+    const counter = document.createElement("div");
+    counter.id = "lbCounter";
+    counter.style.cssText = "position:absolute;top:18px;left:50%;transform:translateX(-50%);color:#fff;font-size:13px;font-family:Inter,sans-serif;background:rgba(0,0,0,.55);padding:5px 16px;border-radius:20px;";
+    counter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+
+    const btnBase = "position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:20px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;";
+
+    const prev = document.createElement("button");
+    prev.style.cssText = btnBase + "left:18px;";
+    prev.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+    prev.addEventListener("mouseover", () => prev.style.background = "rgba(255,176,0,.35)");
+    prev.addEventListener("mouseout",  () => prev.style.background = "rgba(255,255,255,.1)");
+    prev.onclick = (e) => { e.stopPropagation(); navigate(-1); };
+
+    const next = document.createElement("button");
+    next.style.cssText = btnBase + "right:18px;";
+    next.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+    next.addEventListener("mouseover", () => next.style.background = "rgba(255,176,0,.35)");
+    next.addEventListener("mouseout",  () => next.style.background = "rgba(255,255,255,.1)");
+    next.onclick = (e) => { e.stopPropagation(); navigate(1); };
+
+    const close = document.createElement("button");
+    close.style.cssText = "position:absolute;top:16px;right:18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:18px;width:40px;height:40px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;";
+    close.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    close.addEventListener("mouseover", () => close.style.background = "rgba(255,80,80,.35)");
+    close.addEventListener("mouseout",  () => close.style.background = "rgba(255,255,255,.1)");
+    close.onclick = (e) => { e.stopPropagation(); closeLightbox(); };
+
+    overlay.appendChild(img);
+    overlay.appendChild(counter);
+    if (galleryImages.length > 1) { overlay.appendChild(prev); overlay.appendChild(next); }
+    overlay.appendChild(close);
+    overlay.onclick = closeLightbox;
+
+    document.body.appendChild(overlay);
+    document.addEventListener("keydown", handleKey);
+  }
+
+  function navigate(dir) {
+    currentIndex = (currentIndex + dir + galleryImages.length) % galleryImages.length;
+    const img = document.getElementById("lbImg");
+    const counter = document.getElementById("lbCounter");
+    if (img) img.src = galleryImages[currentIndex];
+    if (counter) counter.textContent = `${currentIndex + 1} / ${galleryImages.length}`;
+  }
+
+  function closeLightbox() {
+    const overlay = document.getElementById("lbOverlay");
+    if (overlay) overlay.remove();
+    document.removeEventListener("keydown", handleKey);
+  }
+
+  function handleKey(e) {
+    if (e.key === "Escape")      closeLightbox();
+    if (e.key === "ArrowRight")  navigate(1);
+    if (e.key === "ArrowLeft")   navigate(-1);
+  }
+
+  document.addEventListener("click", (e) => {
+    if (e.target.tagName !== "IMG" || !e.target.closest("#gallery")) return;
+    const imgs = Array.from(document.querySelectorAll("#gallery img"));
+    galleryImages = imgs.map(i => i.src);
+    openLightbox(imgs.indexOf(e.target));
+  });
+})();
 
 // Mobil Menü — tüm sayfalarda tek kaynak
 const hamburger = document.getElementById("hamburger");
