@@ -57,20 +57,21 @@ async function loadMedia() {
 
     // Hero slider (sadece ana sayfada)
     window.heroPhotos = data.photos || [];
-    if (document.querySelector(".hero")) startHeroSlider();
+    if (document.querySelector(".hero-bg")) startHeroSlider();
 
   } catch (err) {
     console.log("media.json henüz yok veya yüklenemedi");
   }
 }
 
+// Hero arka plan slider — .hero-bg div'ini hedefler
 function startHeroSlider() {
-  const hero = document.querySelector(".hero");
-  if (!hero || !window.heroPhotos || window.heroPhotos.length === 0) return;
+  const heroBg = document.getElementById("heroBg");
+  if (!heroBg || !window.heroPhotos || window.heroPhotos.length === 0) return;
   let i = 0;
   setInterval(() => {
     i = (i + 1) % window.heroPhotos.length;
-    hero.style.background = `linear-gradient(105deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.35) 100%), url('${window.heroPhotos[i]}') center/cover no-repeat`;
+    heroBg.style.backgroundImage = `linear-gradient(105deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.35) 100%), url('${window.heroPhotos[i]}')`;
   }, 5500);
 }
 
@@ -87,37 +88,24 @@ document.addEventListener("click", (e) => {
   document.body.appendChild(overlay);
 });
 
-// Form → WhatsApp
-const form = document.getElementById("offerForm");
-if (form) {
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    const text = `Yeni Teklif Talebi
-
-Ad / Firma: ${this.name.value}
-Telefon: ${this.phone.value}
-Hizmet: ${this.service.value}
-Lokasyon: ${this.location.value}
-Tarih: ${this.date.value}
-Katılımcı: ${this.people.value}
-
-Detay:
-${this.message.value}`;
-    window.location.href = `https://wa.me/905320683012?text=${encodeURIComponent(text)}`;
-  });
-}
-
-// Mobil Menü
+// Mobil Menü — tüm sayfalarda tek kaynak
 const hamburger = document.getElementById("hamburger");
+const hamburgerIcon = document.getElementById("hamburger-icon");
 const navLinks = document.getElementById("navLinks");
 if (hamburger && navLinks) {
   hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
-    navLinks.classList.toggle("active");
+    const isOpen = navLinks.classList.toggle("active");
+    hamburger.classList.toggle("open", isOpen);
+    if (hamburgerIcon) {
+      hamburgerIcon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+    }
   });
   document.addEventListener("click", (e) => {
     if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
       navLinks.classList.remove("active");
+      hamburger.classList.remove("open");
+      if (hamburgerIcon) hamburgerIcon.className = "fa-solid fa-bars";
     }
   });
 }

@@ -86,13 +86,15 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.9
 
 /* HERO */
 .hero{height:100vh;min-height:720px;display:flex;align-items:center;position:relative}
-.hero::before{
-  content:"";
+.hero-bg{
   position:absolute;
   inset:0;
-  background:linear-gradient(110deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.35) 100%),
-    url("images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg") center/cover no-repeat;
-  z-index:-1
+  background-image:linear-gradient(110deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.35) 100%),
+    url("images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg");
+  background-size:cover;
+  background-position:center;
+  z-index:-1;
+  transition:background-image 0.6s ease
 }
 .hero-content{max-width:800px}
 .hero h1{font-size:clamp(40px,6.5vw,72px);font-weight:900;line-height:1.05;margin-bottom:18px;letter-spacing:-1.2px}
@@ -171,6 +173,7 @@ footer h3 span{color:#ffb000}
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-bg" id="heroBg"></div>
   <div class="container">
     <div class="hero-content">
       <h1 data-i18n="hero_title">Profesyonel <span>Ses & Sahne</span> Çözümleri</h1>
@@ -311,6 +314,7 @@ footer h3 span{color:#ffb000}
       <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
       <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
       <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+      <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
       <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
     </div>
     <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
@@ -319,26 +323,6 @@ footer h3 span{color:#ffb000}
 
 <script src="script.js"></script>
 <script>
-// ── HAMBURGER ──────────────────────────────────────────
-const hamburger = document.getElementById("hamburger");
-const hamburgerIcon = document.getElementById("hamburger-icon");
-const navLinks = document.getElementById("navLinks");
-
-hamburger.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("active");
-  hamburger.classList.toggle("open", isOpen);
-  hamburgerIcon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
-});
-
-// Menü dışına tıklanınca kapat
-document.addEventListener("click", (e) => {
-  if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-    navLinks.classList.remove("active");
-    hamburger.classList.remove("open");
-    hamburgerIcon.className = "fa-solid fa-bars";
-  }
-});
-
 // ── DİL ────────────────────────────────────────────────
 const translations = {
   tr: {

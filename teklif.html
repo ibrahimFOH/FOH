@@ -181,6 +181,7 @@ footer h3 span{color:#ffb000}
       <a href="hizmetler.html">Hizmetler</a>
       <a href="muhendislik.html">Mühendislik</a>
       <a href="galeri.html">Galeri</a>
+      <a href="dokumanlar.html">Dokümanlar</a>
       <a href="teklif.html">Teklif Al</a>
     </div>
     <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
@@ -189,25 +190,6 @@ footer h3 span{color:#ffb000}
 
 <script src="script.js"></script>
 <script>
-// ── HAMBURGER ──────────────────────────────────────────
-const hamburger = document.getElementById("hamburger");
-const hamburgerIcon = document.getElementById("hamburger-icon");
-const navLinks = document.getElementById("navLinks");
-
-hamburger.addEventListener("click", () => {
-  const isOpen = navLinks.classList.toggle("active");
-  hamburger.classList.toggle("open", isOpen);
-  hamburgerIcon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
-});
-
-document.addEventListener("click", (e) => {
-  if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-    navLinks.classList.remove("active");
-    hamburger.classList.remove("open");
-    hamburgerIcon.className = "fa-solid fa-bars";
-  }
-});
-
 // ── FORM → WHATSAPP ─────────────────────────────────────
 document.getElementById("offerForm").addEventListener("submit", function(e) {
   e.preventDefault();
