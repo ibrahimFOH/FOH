@@ -1,5 +1,6 @@
 // =======================
 // FOTOĞRAFLAR
+// Yeni fotoğraf eklemek için sadece bu listeye ekle
 // =======================
 const photos = [
   "images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
@@ -23,13 +24,14 @@ if (gallery) {
     const img = document.createElement("img");
     img.src = src;
     img.loading = "lazy";
-    img.alt = "FOH Engineer - Event";
+    img.alt = "Event Technologies";
     gallery.appendChild(img);
   });
 }
 
 // =======================
 // VİDEOLAR
+// Yeni video eklemek için sadece bu listeye ekle
 // =======================
 const videos = [
   "videos/video1.mp4",
@@ -50,6 +52,35 @@ if (videoContainer) {
       });
     });
     videoContainer.appendChild(player);
+  });
+}
+
+// =======================
+// PDF / DOKÜMANLAR (ileride eklenecek)
+// documents/ klasörüne PDF koyup buraya eklemen yeterli
+// =======================
+const documents = [
+  // Örnek:
+  // { title: "Örnek Stage Plot", file: "documents/stageplot-ornek.pdf", icon: "fa-file-pdf" },
+  // { title: "SPL Rapor Örneği", file: "documents/spl-ornek.pdf", icon: "fa-calculator" }
+];
+
+const documentsList = document.getElementById("documentsList");
+if (documentsList && documents.length > 0) {
+  documentsList.innerHTML = "";
+  documents.forEach(doc => {
+    const card = document.createElement("a");
+    card.href = doc.file;
+    card.target = "_blank";
+    card.className = "doc-card";
+    card.style.textDecoration = "none";
+    card.style.color = "inherit";
+    card.innerHTML = `
+      <i class="fa-solid ${doc.icon || 'fa-file-pdf'}"></i>
+      <h3>${doc.title}</h3>
+      <p>PDF görüntüle / indir</p>
+    `;
+    documentsList.appendChild(card);
   });
 }
 
@@ -99,12 +130,12 @@ if (form) {
     e.preventDefault();
     const text = `Yeni Teklif Talebi
 
-Ad: ${this.name.value}
+Ad / Firma: ${this.name.value}
 Telefon: ${this.phone.value}
-Etkinlik: ${this.type.value}
+Hizmet: ${this.service.value}
 Lokasyon: ${this.location.value}
-Kişi: ${this.people.value}
 Tarih: ${this.date.value}
+Katılımcı: ${this.people.value}
 
 Detay:
 ${this.message.value}`;
@@ -122,7 +153,6 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
     if (!target) return;
     e.preventDefault();
     target.scrollIntoView({ behavior: "smooth" });
-
     const nav = document.getElementById("navLinks");
     if (nav) nav.classList.remove("active");
   });
