@@ -14,6 +14,21 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+   .lang-btn{
+background:#111;
+color:#fff;
+border:1px solid #333;
+padding:8px 12px;
+margin-left:5px;
+cursor:pointer;
+border-radius:6px;
+}
+
+.lang-btn:hover{
+border-color:#ffb000;
+color:#ffb000;
+}
+
 <style>
 
 *{
@@ -335,6 +350,12 @@ font-size:60px;
 EVENT TECHNOLOGIES
 </a>
 
+<div style="float:right;">
+<button onclick="setLanguage('tr')" class="lang-btn">TR</button>
+<button onclick="setLanguage('en')" class="lang-btn">EN</button>
+</div>
+  
+ 
 <div class="nav-links">
 
 <a href="#about">Hakkımda</a>
