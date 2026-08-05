@@ -5,9 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Teklif Al | Event Technologies</title>
 <meta name="description" content="Etkinliğiniz için ses sistemi, ışık, sahne ve mühendislik hizmetleri teklifi alın. WhatsApp üzerinden hızlı iletişim.">
+<link rel="canonical" href="https://ibrahimfoh.github.io/FOH/teklif.html">
 <meta property="og:title" content="Teklif Al | Event Technologies">
 <meta property="og:description" content="Etkinliğiniz için ses, ışık, sahne ve mühendislik hizmetleri teklifi alın.">
-<meta property="og:image" content="images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg">
+<meta property="og:image" content="https://ibrahimfoh.github.io/FOH/images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -15,94 +16,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;background:#070707;color:#fff;line-height:1.6}
-.container{width:90%;max-width:1200px;margin:auto}
-section{padding:100px 0}
-.section-title{font-size:clamp(32px,5vw,48px);font-weight:800;margin-bottom:12px}
-.section-desc{color:#999;max-width:680px;font-size:16px;margin-bottom:40px}
-
-/* NAV */
-nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.93);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
-.nav-inner{height:72px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:15px;font-weight:800;letter-spacing:2.5px;color:#ffb000;text-decoration:none}
-.nav-right{display:flex;align-items:center;gap:16px}
-
-/* Nav links — hamburger ile açılır, her ekranda */
-.nav-links{
-  display:none;
-  position:absolute;
-  top:72px;left:0;
-  width:100%;
-  background:#0a0a0a;
-  flex-direction:column;
-  padding:22px 20px;
-  gap:16px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  z-index:9998
-}
-.nav-links.active{display:flex}
-.nav-links a{color:#ccc;text-decoration:none;font-size:14px;font-weight:500;transition:.25s;padding:6px 0}
-.nav-links a:hover,.nav-links a.active{color:#ffb000}
-
-/* Hamburger — her zaman görünür */
-.hamburger{
-  display:flex;align-items:center;justify-content:center;
-  background:transparent;
-  border:1px solid rgba(255,255,255,.18);
-  color:#fff;font-size:18px;cursor:pointer;
-  width:40px;height:40px;border-radius:8px;
-  transition:.25s;flex-shrink:0
-}
-.hamburger:hover,.hamburger.open{border-color:#ffb000;color:#ffb000}
-
-/* LANG */
-.lang-switch{display:flex;gap:6px}
-.lang-btn{
-  background:transparent;border:1px solid rgba(255,255,255,.18);
-  color:#fff;padding:5px 11px;border-radius:6px;cursor:pointer;
-  font-size:13px;display:flex;align-items:center;gap:6px;transition:.25s
-}
-.lang-btn:hover,.lang-btn.active{border-color:#ffb000;color:#ffb000}
-.lang-btn .flag{width:22px;height:22px;border-radius:50%;object-fit:cover;vertical-align:middle}
-
-/* FORM */
-#offerForm{margin-top:30px;max-width:720px;display:grid;gap:14px}
-#offerForm input,
-#offerForm textarea,
-#offerForm select{
-  width:100%;padding:15px 18px;
-  background:#111;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:12px;
-  color:#fff;font-family:inherit;font-size:14.5px
-}
-#offerForm select option{background:#111;color:#fff}
-#offerForm input:focus,
-#offerForm textarea:focus,
-#offerForm select:focus{outline:none;border-color:#ffb000}
-
-/* BUTTONS */
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:50px;text-decoration:none;font-weight:700;font-size:14px;border:none;cursor:pointer;transition:.3s}
-.btn-whatsapp{background:#25D366;color:#fff}
-.btn-whatsapp:hover{background:#1ebe5c;transform:translateY(-2px);box-shadow:0 10px 24px rgba(37,211,102,.25)}
-.btn-instagram{background:linear-gradient(45deg,#833AB4,#C13584,#E1306C,#FD1D1D,#F77737);color:#fff}
-.btn-instagram:hover{opacity:.88;transform:translateY(-2px)}
-
-/* FOOTER */
-footer{padding:50px 0 30px;border-top:1px solid rgba(255,255,255,.06);text-align:center;background:#050505}
-footer h3{font-size:22px;font-weight:800}
-footer h3 span{color:#ffb000}
-.footer-links{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:22px 0 18px}
-.footer-links a{color:#aaa;text-decoration:none;font-size:13.5px}
-.footer-links a:hover{color:#ffb000}
-.copyright{color:#555;font-size:13px}
-
-@media(max-width:900px){
-  section{padding:70px 0}
-}
-</style>
 </head>
 <body>
 
@@ -124,53 +37,52 @@ footer h3 span{color:#ffb000}
     </div>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="index.html">Ana Sayfa</a>
-    <a href="hizmetler.html">Hizmetler</a>
-    <a href="muhendislik.html">Mühendislik</a>
-    <a href="galeri.html">Galeri</a>
-    <a href="dokumanlar.html">Dokümanlar</a>
-    <a href="teklif.html" class="active">Teklif Al</a>
+    <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+    <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+    <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+    <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+    <a href="teklif.html" class="active" data-i18n="nav_offer">Teklif Al</a>
   </div>
 </nav>
 
-<section style="padding-top:140px">
+<section class="page-hero">
   <div class="container">
-    <h1 class="section-title">Teklif Talebi</h1>
-    <p class="section-desc">Etkinliğinizin türüne göre detaylı teklif hazırlıyoruz.</p>
+    <h1 class="section-title" data-i18n="t_title">Teklif Talebi</h1>
+    <p class="section-desc" data-i18n="t_desc">Etkinliğinizin türüne göre detaylı teklif hazırlıyoruz.</p>
 
     <form id="offerForm">
-      <input name="name" type="text" placeholder="Ad Soyad / Firma" required>
-      <input name="phone" type="text" placeholder="Telefon" required>
+      <input name="name" type="text" data-i18n-placeholder="ph_name" placeholder="Ad Soyad / Firma" required>
+      <input name="phone" type="text" data-i18n-placeholder="ph_phone" placeholder="Telefon" required>
       <select name="service" required>
-        <option value="" disabled selected>Hizmet Türü Seçin</option>
-        <option value="Ses Sistemi Kiralama">Ses Sistemi Kiralama</option>
-        <option value="Işık & Truss Kiralama">Işık &amp; Truss Kiralama</option>
-        <option value="Stage Plot">Stage Plot / Sahne Planı</option>
-        <option value="3D Sahne Çizimi">3D Sahne Çizimi</option>
-        <option value="SPL Hesaplama">SPL Hesaplama</option>
-        <option value="Teknik Rider">Teknik Rider Hazırlama</option>
-        <option value="FOH Operasyonu">FOH Operasyonu</option>
-        <option value="Paket (Kiralama + Mühendislik)">Paket (Kiralama + Mühendislik)</option>
-        <option value="Diğer">Diğer</option>
+        <option value="" disabled selected data-i18n="opt_placeholder">Hizmet Türü Seçin</option>
+        <option value="Ses Sistemi Kiralama" data-i18n="opt_1">Ses Sistemi Kiralama</option>
+        <option value="Işık & Truss Kiralama" data-i18n="opt_2">Işık &amp; Truss Kiralama</option>
+        <option value="Stage Plot" data-i18n="opt_3">Stage Plot / Sahne Planı</option>
+        <option value="3D Sahne Çizimi" data-i18n="opt_4">3D Sahne Çizimi</option>
+        <option value="SPL Hesaplama" data-i18n="opt_5">SPL Hesaplama</option>
+        <option value="Teknik Rider" data-i18n="opt_6">Teknik Rider Hazırlama</option>
+        <option value="FOH Operasyonu" data-i18n="opt_7">FOH Operasyonu</option>
+        <option value="Paket (Kiralama + Mühendislik)" data-i18n="opt_8">Paket (Kiralama + Mühendislik)</option>
+        <option value="Diğer" data-i18n="opt_9">Diğer</option>
       </select>
-      <input name="location" type="text" placeholder="Lokasyon / Şehir">
+      <input name="location" type="text" data-i18n-placeholder="ph_location" placeholder="Lokasyon / Şehir">
       <input name="date" type="date">
-      <input name="people" type="text" placeholder="Tahmini Katılımcı Sayısı">
-      <textarea name="message" rows="5" placeholder="Etkinlik detayları, özel istekler..."></textarea>
+      <input name="people" type="text" data-i18n-placeholder="ph_people" placeholder="Tahmini Katılımcı Sayısı">
+      <textarea name="message" rows="5" data-i18n-placeholder="ph_message" placeholder="Etkinlik detayları, özel istekler..."></textarea>
 
-      <!-- DÜZELTİLDİ: ikon fa-brands fa-whatsapp, yazı "Teklif Al" -->
       <button type="submit" class="btn btn-whatsapp">
-        <i class="fa-brands fa-whatsapp"></i> Teklif Al
+        <i class="fa-brands fa-whatsapp"></i> <span data-i18n="t_submit">Teklif Al</span>
       </button>
     </form>
 
     <div style="margin-top:60px">
-      <h2 class="section-title" style="font-size:28px">İletişim</h2>
+      <h2 class="section-title" style="font-size:28px" data-i18n="t_contact_title">İletişim</h2>
       <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:20px">
-        <a class="btn btn-whatsapp" href="https://wa.me/905320683012" target="_blank">
+        <a class="btn btn-whatsapp" href="https://wa.me/905320683012" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-whatsapp"></i> WhatsApp
         </a>
-        <a class="btn btn-instagram" href="https://instagram.com/ibrahim_kavasogluu" target="_blank">
+        <a class="btn btn-instagram" href="https://instagram.com/ibrahim_kavasogluu" target="_blank" rel="noopener noreferrer">
           <i class="fa-brands fa-instagram"></i> Instagram
         </a>
       </div>
@@ -184,16 +96,16 @@ footer h3 span{color:#ffb000}
 <footer>
   <div class="container">
     <h3>İbrahim <span>Kavasoğlu</span></h3>
-    <p style="color:#888;margin-bottom:8px">FOH Engineer • Event Technologies</p>
+    <p style="color:#888;margin-bottom:8px" data-i18n="footer_role">FOH Engineer • Event Technologies</p>
     <div class="footer-links">
-      <a href="index.html">Ana Sayfa</a>
-      <a href="hizmetler.html">Hizmetler</a>
-      <a href="muhendislik.html">Mühendislik</a>
-      <a href="galeri.html">Galeri</a>
-      <a href="dokumanlar.html">Dokümanlar</a>
-      <a href="teklif.html">Teklif Al</a>
+      <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+      <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+      <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+      <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+      <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+      <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
     </div>
-    <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
+    <p class="copyright" data-i18n="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
   </div>
 </footer>
 
@@ -223,15 +135,6 @@ document.getElementById("offerForm").addEventListener("submit", function(e) {
   const encoded = encodeURIComponent(text);
   window.open(`https://wa.me/905320683012?text=${encoded}`, "_blank");
 });
-
-// ── DİL (opsiyonel — script.js yoksa diye) ─────────────
-function setLanguage(lang) {
-  localStorage.setItem("lang", lang);
-  document.getElementById("btn-tr").classList.toggle("active", lang === "tr");
-  document.getElementById("btn-en").classList.toggle("active", lang === "en");
-}
-const savedLang = localStorage.getItem("lang") || "tr";
-setLanguage(savedLang);
 </script>
 </body>
 </html>

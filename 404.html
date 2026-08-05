@@ -9,13 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
-<style>
-.not-found{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;padding-top:72px}
-.not-found .big{font-size:clamp(100px,18vw,180px);font-weight:900;color:#ffb000;line-height:1;opacity:.15;position:absolute;user-select:none;pointer-events:none}
-.not-found .content{position:relative;z-index:1}
-.not-found h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:14px}
-.not-found p{color:#888;margin-bottom:32px;font-size:16px;max-width:420px}
-</style>
 </head>
 <body>
 
@@ -23,28 +16,36 @@
   <div class="container nav-inner">
     <a href="index.html" class="logo">EVENT TECHNOLOGIES</a>
     <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f9-1f1f7.svg" alt="TR" class="flag"> TR
+        </button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
+        </button>
+      </div>
       <button class="hamburger" id="hamburger" aria-label="Menü">
         <i class="fa-solid fa-bars" id="hamburger-icon"></i>
       </button>
     </div>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="index.html">Ana Sayfa</a>
-    <a href="hizmetler.html">Hizmetler</a>
-    <a href="muhendislik.html">Mühendislik</a>
-    <a href="galeri.html">Galeri</a>
-    <a href="dokumanlar.html">Dokümanlar</a>
-    <a href="teklif.html">Teklif Al</a>
+    <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+    <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+    <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+    <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+    <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
   </div>
 </nav>
 
 <div class="not-found">
   <div class="big">404</div>
   <div class="content">
-    <h2>Sayfa Bulunamadı</h2>
-    <p>Aradığınız sayfa mevcut değil veya taşınmış olabilir.</p>
+    <h2 data-i18n="nf_title">Sayfa Bulunamadı</h2>
+    <p data-i18n="nf_desc">Aradığınız sayfa mevcut değil veya taşınmış olabilir.</p>
     <a href="index.html" class="btn btn-primary">
-      <i class="fa-solid fa-house"></i> Ana Sayfaya Dön
+      <i class="fa-solid fa-house"></i> <span data-i18n="nf_btn">Ana Sayfaya Dön</span>
     </a>
   </div>
 </div>
@@ -52,16 +53,16 @@
 <footer>
   <div class="container">
     <h3>İbrahim <span>Kavasoğlu</span></h3>
-    <p style="color:#888;margin-bottom:8px">FOH Engineer • Event Technologies</p>
+    <p style="color:#888;margin-bottom:8px" data-i18n="footer_role">FOH Engineer • Event Technologies</p>
     <div class="footer-links">
-      <a href="index.html">Ana Sayfa</a>
-      <a href="hizmetler.html">Hizmetler</a>
-      <a href="muhendislik.html">Mühendislik</a>
-      <a href="galeri.html">Galeri</a>
-      <a href="dokumanlar.html">Dokümanlar</a>
-      <a href="teklif.html">Teklif Al</a>
+      <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+      <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+      <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+      <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+      <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+      <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
     </div>
-    <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
+    <p class="copyright" data-i18n="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
   </div>
 </footer>
 
