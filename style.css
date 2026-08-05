@@ -136,3 +136,79 @@ footer h3 span{color:#ffb000}
   .hero h1{font-size:40px}
   section{padding:70px 0}
 }
+
+/* FORM İYİLEŞTİRMELERİ */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 13px;
+  color: #999;
+  font-weight: 500;
+  padding-left: 4px;
+}
+
+#offerForm input[type="date"] {
+  color-scheme: dark;
+  min-height: 52px;
+}
+
+#offerForm input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
+
+/* KVKK checkbox - mobil uyumlu */
+.kvkk-label {
+  display: flex !important;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13.5px;
+  color: #aaa;
+  margin: 8px 0 4px;
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.kvkk-label input[type="checkbox"] {
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: #ffb000;
+  cursor: pointer;
+}
+
+.kvkk-label span {
+  flex: 1;
+  word-break: break-word;
+}
+
+/* Mobil form düzeni */
+@media (max-width: 600px) {
+  #offerForm {
+    gap: 12px;
+  }
+
+  #offerForm input,
+  #offerForm textarea,
+  #offerForm select {
+    padding: 14px 16px;
+    font-size: 16px; /* iOS zoom engellemek için */
+  }
+
+  .kvkk-label {
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .btn-whatsapp {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+  }
+}
