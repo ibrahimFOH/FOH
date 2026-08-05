@@ -1,5 +1,5 @@
 // =========================================================
-// EVENT TECHNOLOGIES — Ortak JS (tüm sayfalarda tek kaynak)
+// EVENT TECHNOLOGIES — Ortak JS
 // =========================================================
 
 const translations = {
@@ -26,7 +26,7 @@ const translations = {
     c7_t:"Teknik Rider", c7_d:"Sanatçı rider'larının teknik olarak okunması ve sahneye uygun hale getirilmesi.",
     s3_title:"Rakamlarla Deneyim", st1:"Yıl Deneyim", st2:"Etkinlik", st3:"Sanatçı", st4:"Saat Canlı Miks",
     pack_title:"Mühendislik + Kiralama Paketi",
-    pack_desc:"Stage Plot + SPL hesaplama + sistem tasarımı + ekipman kiralama + kurulum ve söküm hizmetlerini tek pakette alabilirsiniz. Festival, konser ve büyük kurumsal etkinlikler için ideal çözümdür.",
+    pack_desc:"Stage Plot + SPL hesaplama + sistem tasarımı + ekipman kiralama + kurulum ve söküm hizmetlerini tek pakette alabilirsiniz.",
     btn_pack:"Paket Teklifi Al",
     s4_title:"Neden Biz?", s4_desc:"Her projede temiz, dengeli ve güvenilir ses elde etmeyi hedefliyoruz.",
     c8_t:"Uçtan Uca Yönetim", c8_d:"Planlamadan kuruluma, miksten söküme kadar tüm süreci yönetiyoruz.",
@@ -55,21 +55,21 @@ const translations = {
 
     g_title:"Galeri", g_desc:"Sahadan görüntüler ve kurulumlar.",
     g_videos_title:"Videolar", g_videos_desc:"Canlı performans ve sahne kayıtları.",
-    g_alt:"Event Technologies – saha fotoğrafı",
 
     d_title:"Örnek Dokümanlar", d_desc:"Stage Plot, Rider, SPL ve 3D çizim örnekleri.",
-    d_empty_title:"Henüz doküman eklenmedi", d_empty_desc:"PDF'leri documents klasörüne yükleyin",
     d_view:"PDF görüntüle / indir",
 
     t_title:"Teklif Talebi", t_desc:"Etkinliğinizin türüne göre detaylı teklif hazırlıyoruz.",
     ph_name:"Ad Soyad / Firma", ph_phone:"Telefon",
+    ph_date:"Etkinlik Tarihi",
     opt_placeholder:"Hizmet Türü Seçin",
     opt_1:"Ses Sistemi Kiralama", opt_2:"Işık & Truss Kiralama", opt_3:"Stage Plot / Sahne Planı",
     opt_4:"3D Sahne Çizimi", opt_5:"SPL Hesaplama", opt_6:"Teknik Rider Hazırlama",
     opt_7:"FOH Operasyonu", opt_8:"Paket (Kiralama + Mühendislik)", opt_9:"Diğer",
     ph_location:"Lokasyon / Şehir", ph_people:"Tahmini Katılımcı Sayısı",
     ph_message:"Etkinlik detayları, özel istekler...",
-    t_submit:"Teklif Al", t_contact_title:"İletişim",
+    t_submit:"Teklif Al",
+    kvkk_text:"Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.",
 
     nf_title:"Sayfa Bulunamadı", nf_desc:"Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
     nf_btn:"Ana Sayfaya Dön"
@@ -97,7 +97,7 @@ const translations = {
     c7_t:"Technical Rider", c7_d:"Technical review and adaptation of artist riders for the stage.",
     s3_title:"Experience in Numbers", st1:"Years Experience", st2:"Events", st3:"Artists", st4:"Hours Live Mix",
     pack_title:"Engineering + Rental Package",
-    pack_desc:"Get Stage Plot + SPL calculation + system design + equipment rental + setup/teardown in one package. Ideal for festivals, concerts and large corporate events.",
+    pack_desc:"Get Stage Plot + SPL calculation + system design + equipment rental + setup/teardown in one package.",
     btn_pack:"Get Package Quote",
     s4_title:"Why Us?", s4_desc:"We aim for clean, balanced and reliable sound on every project.",
     c8_t:"End-to-End Management", c8_d:"We manage the entire process from planning to teardown.",
@@ -126,21 +126,21 @@ const translations = {
 
     g_title:"Gallery", g_desc:"Field photos and setups.",
     g_videos_title:"Videos", g_videos_desc:"Live performance and stage recordings.",
-    g_alt:"Event Technologies – field photo",
 
     d_title:"Sample Documents", d_desc:"Stage Plot, Rider, SPL and 3D drawing examples.",
-    d_empty_title:"No documents added yet", d_empty_desc:"Upload PDFs to the documents folder",
     d_view:"View / download PDF",
 
     t_title:"Quote Request", t_desc:"We prepare detailed quotes according to your event type.",
     ph_name:"Full Name / Company", ph_phone:"Phone",
+    ph_date:"Event Date",
     opt_placeholder:"Select Service Type",
     opt_1:"Audio System Rental", opt_2:"Lighting & Truss Rental", opt_3:"Stage Plot / Layout",
     opt_4:"3D Stage Design", opt_5:"SPL Calculation", opt_6:"Technical Rider",
     opt_7:"FOH Operations", opt_8:"Package (Rental + Engineering)", opt_9:"Other",
     ph_location:"Location / City", ph_people:"Estimated Attendance",
     ph_message:"Event details, special requests...",
-    t_submit:"Get Quote", t_contact_title:"Contact",
+    t_submit:"Get Quote",
+    kvkk_text:"I accept that my personal data will be processed for preparing the quote.",
 
     nf_title:"Page Not Found", nf_desc:"The page you are looking for does not exist or has been moved.",
     nf_btn:"Back to Home"
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('lang') || 'tr';
   setLanguage(saved);
 
-  // Hamburger menü
+  // Hamburger
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.getElementById('navLinks');
   const icon = document.getElementById('hamburger-icon');
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Galeri fotoğrafları (sadece gerçekten var olanlar)
+  // Galeri
   const photos = [
     "images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
     "images/gallery/1028BA7C-0A7F-49DF-B2DE-896109D700EC.jpeg",
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Videolar — şu an klasör boş, boş dizi bırakıldı
+  // Videolar (klasör boş)
   const videos = [];
   const videoContainer = document.getElementById("videos");
   if (videoContainer && videos.length > 0) {
@@ -236,19 +236,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Hero arka plan slider
+  // Hero slider
   const heroBg = document.getElementById("heroBg");
   if (heroBg && photos.length > 0) {
     let heroIndex = 0;
     heroBg.style.backgroundImage = `linear-gradient(110deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.35) 100%), url("${photos[0]}")`;
-    
     setInterval(() => {
       heroIndex = (heroIndex + 1) % photos.length;
       heroBg.style.backgroundImage = `linear-gradient(110deg,rgba(0,0,0,.93) 0%,rgba(0,0,0,.6) 45%,rgba(0,0,0,.35) 100%), url("${photos[heroIndex]}")`;
     }, 5000);
   }
 
-  // Teklif formu → WhatsApp
+  // Form → WhatsApp
   const form = document.getElementById("offerForm");
   if (form) {
     form.addEventListener("submit", function(e) {
