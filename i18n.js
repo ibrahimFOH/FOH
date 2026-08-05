@@ -1,7 +1,7 @@
 const translations = {
   tr: {
     nav_home:"Ana Sayfa", nav_services:"Hizmetler", nav_engineering:"Mühendislik",
-    nav_gallery:"Galeri", nav_docs:"Dokümanlar", nav_offer:"Teklif Al",
+    nav_gallery:"Galeri", nav_docs:"Dokümanlar", nav_sss:"SSS", nav_about:"Hakkımda", nav_offer:"Teklif Al",
     footer_role:"FOH Engineer • Stagepulse",
     copyright:"© 2026 Stagepulse – İbrahim Kavasoğlu",
     hero_title:"Profesyonel <span>Ses & Sahne</span> Çözümleri",
