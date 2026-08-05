@@ -73,6 +73,10 @@ const translations = {
 
     nf_title:"Sayfa Bulunamadı", nf_desc:"Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
     nf_btn:"Ana Sayfaya Dön"
+    m_c1_cta:"→ Stage Plot talebi için teklif alın",
+m_c2_cta:"→ 3D çizim talebi için teklif alın",
+m_c3_cta:"→ SPL hesaplama talebi için teklif alın",
+m_c4_cta:"→ Rider hizmeti için teklif alın",
   },
   en: {
     nav_home:"Home", nav_services:"Services", nav_engineering:"Engineering",
@@ -144,6 +148,10 @@ const translations = {
 
     nf_title:"Page Not Found", nf_desc:"The page you are looking for does not exist or has been moved.",
     nf_btn:"Back to Home"
+  m_c1_cta:"→ Get a quote for Stage Plot",
+m_c2_cta:"→ Get a quote for 3D design",
+m_c3_cta:"→ Get a quote for SPL calculation",
+m_c4_cta:"→ Get a quote for Rider service",
   }
 };
 
