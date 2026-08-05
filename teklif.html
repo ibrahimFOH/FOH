@@ -46,36 +46,43 @@
     <p class="section-desc" data-i18n="t_desc">Etkinliğinizin türüne göre detaylı teklif hazırlıyoruz.</p>
 
     <form id="offerForm">
-      <input type="text" name="name" placeholder="Ad Soyad / Firma" data-i18n-placeholder="ph_name" required>
-      <input type="tel" name="phone" placeholder="Telefon" data-i18n-placeholder="ph_phone" required>
-      
-      <select name="type" required>
-        <option value="" disabled selected data-i18n="opt_placeholder">Hizmet Türü Seçin</option>
-        <option value="Ses Sistemi Kiralama" data-i18n="opt_1">Ses Sistemi Kiralama</option>
-        <option value="Işık & Truss Kiralama" data-i18n="opt_2">Işık & Truss Kiralama</option>
-        <option value="Stage Plot / Sahne Planı" data-i18n="opt_3">Stage Plot / Sahne Planı</option>
-        <option value="3D Sahne Çizimi" data-i18n="opt_4">3D Sahne Çizimi</option>
-        <option value="SPL Hesaplama" data-i18n="opt_5">SPL Hesaplama</option>
-        <option value="Teknik Rider Hazırlama" data-i18n="opt_6">Teknik Rider Hazırlama</option>
-        <option value="FOH Operasyonu" data-i18n="opt_7">FOH Operasyonu</option>
-        <option value="Paket (Kiralama + Mühendislik)" data-i18n="opt_8">Paket (Kiralama + Mühendislik)</option>
-        <option value="Diğer" data-i18n="opt_9">Diğer</option>
-      </select>
+  <input type="text" name="name" placeholder="Ad Soyad / Firma" data-i18n-placeholder="ph_name" required>
+  <input type="tel" name="phone" placeholder="Telefon" data-i18n-placeholder="ph_phone" required>
 
-      <input type="text" name="location" placeholder="Lokasyon / Şehir" data-i18n-placeholder="ph_location">
-      <input type="text" name="people" placeholder="Tahmini Katılımcı Sayısı" data-i18n-placeholder="ph_people">
-      <input type="date" name="date">
-      <textarea name="message" rows="4" placeholder="Etkinlik detayları, özel istekler..." data-i18n-placeholder="ph_message"></textarea>
+  <select name="type" required>
+    <option value="" disabled selected data-i18n="opt_placeholder">Hizmet Türü Seçin</option>
+    <option value="Ses Sistemi Kiralama" data-i18n="opt_1">Ses Sistemi Kiralama</option>
+    <option value="Işık & Truss Kiralama" data-i18n="opt_2">Işık & Truss Kiralama</option>
+    <option value="Stage Plot / Sahne Planı" data-i18n="opt_3">Stage Plot / Sahne Planı</option>
+    <option value="3D Sahne Çizimi" data-i18n="opt_4">3D Sahne Çizimi</option>
+    <option value="SPL Hesaplama" data-i18n="opt_5">SPL Hesaplama</option>
+    <option value="Teknik Rider Hazırlama" data-i18n="opt_6">Teknik Rider Hazırlama</option>
+    <option value="FOH Operasyonu" data-i18n="opt_7">FOH Operasyonu</option>
+    <option value="Paket (Kiralama + Mühendislik)" data-i18n="opt_8">Paket (Kiralama + Mühendislik)</option>
+    <option value="Diğer" data-i18n="opt_9">Diğer</option>
+  </select>
 
-      <label style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:#aaa;margin:8px 0 4px">
-        <input type="checkbox" required style="margin-top:3px">
-        <span>Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.</span>
-      </label>
+  <input type="text" name="location" placeholder="Lokasyon / Şehir" data-i18n-placeholder="ph_location">
+  <input type="text" name="people" placeholder="Tahmini Katılımcı Sayısı" data-i18n-placeholder="ph_people">
 
-      <button type="submit" class="btn btn-whatsapp" style="margin-top:10px">
-        <i class="fa-brands fa-whatsapp"></i> <span data-i18n="t_submit">Teklif Al</span>
-      </button>
-    </form>
+  <!-- Tarih alanı - label eklendi -->
+  <div class="form-group">
+    <label for="eventDate" class="form-label" data-i18n="ph_date">Etkinlik Tarihi</label>
+    <input type="date" id="eventDate" name="date" required>
+  </div>
+
+  <textarea name="message" rows="4" placeholder="Etkinlik detayları, özel istekler..." data-i18n-placeholder="ph_message"></textarea>
+
+  <!-- KVKK - mobil uyumlu -->
+  <label class="kvkk-label">
+    <input type="checkbox" name="kvkk" required>
+    <span data-i18n="kvkk_text">Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.</span>
+  </label>
+
+  <button type="submit" class="btn btn-whatsapp">
+    <i class="fa-brands fa-whatsapp"></i> <span data-i18n="t_submit">Teklif Al</span>
+  </button>
+</form>
   </div>
 </section>
 
