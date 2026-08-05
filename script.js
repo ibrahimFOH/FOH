@@ -227,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Videolar
-  const videos = ["videos/video1.mp4", "videos/video2.mp4", "videos/video3.mp4"];
+  const videos = 
   const videoContainer = document.getElementById("videos");
   if (videoContainer) {
     videos.forEach(src => {
