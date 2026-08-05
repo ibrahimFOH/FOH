@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 – Sayfa Bulunamadı | Event Technologies</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<style>
+.not-found{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;flex-direction:column;padding-top:72px}
+.not-found .big{font-size:clamp(100px,18vw,180px);font-weight:900;color:#ffb000;line-height:1;opacity:.15;position:absolute;user-select:none;pointer-events:none}
+.not-found .content{position:relative;z-index:1}
+.not-found h2{font-size:clamp(24px,4vw,40px);font-weight:800;margin-bottom:14px}
+.not-found p{color:#888;margin-bottom:32px;font-size:16px;max-width:420px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">EVENT TECHNOLOGIES</a>
+    <div class="nav-right">
+      <button class="hamburger" id="hamburger" aria-label="Menü">
+        <i class="fa-solid fa-bars" id="hamburger-icon"></i>
+      </button>
+    </div>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Ana Sayfa</a>
+    <a href="hizmetler.html">Hizmetler</a>
+    <a href="muhendislik.html">Mühendislik</a>
+    <a href="galeri.html">Galeri</a>
+    <a href="dokumanlar.html">Dokümanlar</a>
+    <a href="teklif.html">Teklif Al</a>
+  </div>
+</nav>
+
+<div class="not-found">
+  <div class="big">404</div>
+  <div class="content">
+    <h2>Sayfa Bulunamadı</h2>
+    <p>Aradığınız sayfa mevcut değil veya taşınmış olabilir.</p>
+    <a href="index.html" class="btn btn-primary">
+      <i class="fa-solid fa-house"></i> Ana Sayfaya Dön
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <h3>İbrahim <span>Kavasoğlu</span></h3>
+    <p style="color:#888;margin-bottom:8px">FOH Engineer • Event Technologies</p>
+    <div class="footer-links">
+      <a href="index.html">Ana Sayfa</a>
+      <a href="hizmetler.html">Hizmetler</a>
+      <a href="muhendislik.html">Mühendislik</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="dokumanlar.html">Dokümanlar</a>
+      <a href="teklif.html">Teklif Al</a>
+    </div>
+    <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

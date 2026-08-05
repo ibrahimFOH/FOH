@@ -179,5 +179,36 @@ if (hamburger && navLinks) {
   });
 }
 
+// ================================
+// WHATSAPP SABİT BUTON
+// ================================
+(function () {
+  const btn = document.createElement("a");
+  btn.href = "https://wa.me/905320683012";
+  btn.target = "_blank";
+  btn.rel = "noopener noreferrer";
+  btn.className = "wa-float";
+  btn.setAttribute("aria-label", "WhatsApp ile iletişime geçin");
+  btn.innerHTML = '<i class="fa-brands fa-whatsapp"></i>';
+  document.body.appendChild(btn);
+})();
+
+// ================================
+// GOOGLE ANALYTİCS
+// G-XXXXXXXXXX yerine kendi GA4 ölçüm ID'nizi yazın
+// ================================
+const GA_ID = "G-XXXXXXXXXX";
+if (GA_ID !== "G-XXXXXXXXXX") {
+  const s = document.createElement("script");
+  s.async = true;
+  s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag("js", new Date());
+  gtag("config", GA_ID);
+}
+
 // Sayfa yüklenince
 loadMedia();
