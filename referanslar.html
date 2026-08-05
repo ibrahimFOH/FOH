@@ -1,79 +1,106 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Referanslar & Projeler — İbrahim Kavasoğlu</title>
-  <meta name="description" content="Geçmiş projeler ve referans örnekleri — konser, festival ve kurumsal etkinliklerde FOH ve sistem mühendisliği.">
-  <link rel="canonical" href="https://ibrahimfoh.github.io/FOH/referanslar.html">
-  <meta property="og:title" content="Referanslar & Projeler — İbrahim Kavasoğlu">
-  <meta property="og:description" content="Geçmiş projeler ve referans örnekleri — konser, festival ve kurumsal etkinliklerde FOH ve sistem mühendisliği.">
-  <meta property="og:image" content="https://ibrahimfoh.github.io/FOH/images/og-referanslar.jpg">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://ibrahimfoh.github.io/FOH/images/og-referanslar.jpg">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referanslar | Stagepulse</title>
+<meta name="description" content="FOH ve sistem mühendisliği proje örnekleri.">
+<link rel="canonical" href="https://ibrahimfoh.github.io/FOH/referanslar.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 <nav>
   <div class="container nav-inner">
-    <a href="index.html" class="logo">EVENT TECHNOLOGIES</a>
+    <a href="index.html" class="logo">STAGEPULSE</a>
     <div class="nav-right">
-      <button class="hamburger" id="hamburger" aria-label="Menü"><i class="fa-solid fa-bars"></i></button>
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f9-1f1f7.svg" alt="TR" class="flag"> TR
+        </button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
+        </button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menü">
+        <i class="fa-solid fa-bars" id="hamburger-icon"></i>
+      </button>
     </div>
   </div>
   <div class="nav-links" id="navLinks">
-    <a href="index.html">Ana Sayfa</a>
-    <a href="hizmetler.html">Hizmetler</a>
-    <a href="muhendislik.html">Mühendislik</a>
-    <a href="galeri.html">Galeri</a>
-    <a href="teklif.html">Teklif Al</a>
+    <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+    <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+    <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+    <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+    <a href="sss.html" data-i18n="nav_sss">SSS</a>
+    <a href="hakkimda.html" data-i18n="nav_about">Hakkımda</a>
+    <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
   </div>
 </nav>
 
-<main class="container page-content">
-  <h1>Referanslar & Projeler</h1>
-  <p>Bugüne kadar farklı ölçeklerde 100’ü aşkın etkinlikte FOH ve sistem mühendisliği hizmeti verdim. Aşağıda, izin verilen ölçüde paylaştığım bazı proje örneklerini bulabil[...]
-
-  <div class="projects">
+<section class="page-hero">
+  <div class="container">
+    <h1 class="section-title">Referanslar &amp; Projeler</h1>
+    <p class="section-desc">100+ etkinlikte FOH ve sistem mühendisliği. İzin verilen ölçüde örnek projeler.</p>
     <div class="project-card">
-      <h3>[Etkinlik Adı] — İstanbul, 2024</h3>
-      <p>3.000 kişilik açık alan konseri. 16 kutu line array + 8 sub, dLive S5000 FOH, 10 kanal IEM. Stage plot ve SPL analizi tarafımızdan hazırlandı.</p>
+      <h3>Açık alan konseri — İstanbul, 2024</h3>
+      <p>Yaklaşık 3.000 kişilik açık alan. 16 kutu line array + 8 sub, dLive S5000 FOH, 10 kanal IEM. Stage Plot ve SPL analizi tarafımızdan hazırlandı.</p>
     </div>
-
     <div class="project-card">
-      <h3>[Etkinlik Adı] — İzmir, 2023</h3>
-      <p>Kapalı salon etkinliği, yaklaşık 1.200 kişi. 12 kutu line array + 6 sub, monitör miks diyagonalden. Tümüyle kendi ekipmanımızla kurulum ve operasyon.</p>
+      <h3>Kapalı salon etkinliği — İzmir, 2023</h3>
+      <p>Yaklaşık 1.200 kişi. 12 kutu line array + 6 sub, monitör miks diyagonalden. Kurulum ve operasyon kendi ekipmanımızla.</p>
     </div>
-
     <div class="project-card">
-      <h3>Ulusal çapta bir müzik festivali — Ankara, 2022</h3>
-      <p>3 gün, 6 sahne. Ana sahnede 24 kutu line array + 12 sub, dLive S5000 FOH, 12 kanal IEM. Sistem tuning ve ölçümler Smaart ile yapıldı.</p>
+      <h3>Ulusal müzik festivali — Ankara, 2022</h3>
+      <p>3 gün, çoklu sahne. Ana sahnede 24 kutu line array + 12 sub, dLive S5000 FOH, 12 kanal IEM. Sistem tuning ve ölçümler Smaart ile yapıldı.</p>
     </div>
-
     <div class="project-card">
-      <h3>Kurumsal gala gecesi — Antalya, 2024</h3>
-      <p>500 kişilik kapalı mekân. 8 kutu line array + 4 sub, 8 kanal monitör, 6 kanal IEM. Sahne sesinin yanı sıra sunum ve konuşma mikrofonları da tarafımızdan yönetildi.</p>
+      <h3>Kurumsal gala — Antalya, 2024</h3>
+      <p>500 kişilik kapalı mekân. 8 kutu line array + 4 sub, 8 kanal monitör, 6 kanal IEM. Sunum ve konuşma mikrofonları da yönetildi.</p>
     </div>
-
     <div class="project-card">
       <h3>Turne konseri — Bursa, 2023</h3>
-      <p>2.000 kişilik salon. 12 kutu line array + 8 sub, DiGiCo SD16 FOH, 8 kanal IEM. Turne rider’ına uygun sahne ve ses planlaması yapıldı.</p>
+      <p>2.000 kişilik salon. 12 kutu line array + 8 sub, DiGiCo SD16 FOH, 8 kanal IEM. Turne rider’ına uygun sahne ve ses planlaması.</p>
+    </div>
+    <p style="color:#777;font-size:13px;margin-top:24px">İsim paylaşma izni olmayan projelerde genelleme kullanıldı; teknik detaylar gerçektir.</p>
+    <div style="margin-top:40px;text-align:center">
+      <a href="teklif.html" class="btn btn-primary"><i class="fa-solid fa-file-signature"></i> Projeniz için teklif alın</a>
     </div>
   </div>
-
-  <p class="note">İsim paylaşma izni olmayan projelerde “ulusal çapta bir müzik festivali”, “kurumsal gala gecesi” gibi genellemeler kullandım; teknik detaylar ise güven vermesi aç�[...]
-</main>
+</section>
 
 <footer>
   <div class="container">
-    <p>İletişim: <a href="tel:+905320683012">+90 532 068 3012</a> • <a href="mailto:ibrahimkavasoglu7@gmail.com">ibrahimkavasoglu7@gmail.com</a></p>
-    <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
+    <h3>İbrahim <span>Kavasoğlu</span></h3>
+    <p style="color:#888;margin-bottom:8px" data-i18n="footer_role">FOH Engineer • Stagepulse</p>
+    <div class="footer-contact">
+      <a href="tel:+905320683012"><i class="fa-solid fa-phone"></i> +90 532 068 3012</a>
+      <a href="mailto:ibrahimkavasoglu7@gmail.com"><i class="fa-solid fa-envelope"></i> ibrahimkavasoglu7@gmail.com</a>
+      <a href="https://wa.me/905320683012" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-links">
+      <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+      <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+      <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+      <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+      <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+      <a href="nasil-calisiyoruz.html" data-i18n="nav_process">Nasıl Çalışıyoruz</a>
+      <a href="referanslar.html" data-i18n="nav_refs">Referanslar</a>
+      <a href="sss.html" data-i18n="nav_sss">SSS</a>
+      <a href="hakkimda.html" data-i18n="nav_about">Hakkımda</a>
+      <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
+    </div>
+    <p class="copyright" data-i18n="copyright">© 2026 Stagepulse – İbrahim Kavasoğlu</p>
   </div>
 </footer>
+<a href="https://wa.me/905320683012" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 <script src="i18n.js"></script>
-<script src="script.js"></scri
-pt>
 <script src="script.js"></script>
 </body>
 </html>

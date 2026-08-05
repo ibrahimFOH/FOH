@@ -42,6 +42,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Lightbox
+  let lightbox = document.getElementById('lightbox');
+  if (!lightbox) {
+    lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = '<button class="lightbox-close" aria-label="Kapat">&times;</button><img src="" alt="">';
+    document.body.appendChild(lightbox);
+  }
+  const lbImg = lightbox.querySelector('img');
+  const lbClose = lightbox.querySelector('.lightbox-close');
+  function openLightbox(src) {
+    lbImg.src = src;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+  }
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
   const gallery = document.getElementById('gallery');
   const heroBg = document.getElementById('heroBg');
   const videoBox = document.getElementById('videos');
@@ -64,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             img.src = encodeURI(src);
             img.loading = 'lazy';
             img.alt = 'FOH Engineer – saha fotoğrafı ' + (i + 1);
+            img.addEventListener('click', () => openLightbox(encodeURI(src)));
             gallery.appendChild(img);
           });
         }
@@ -87,13 +113,18 @@ document.addEventListener('DOMContentLoaded', () => {
       const videos = Array.isArray(data.videos) ? data.videos : [];
       if (videoBox) {
         videoBox.innerHTML = '';
-        videos.forEach(src => {
-          const v = document.createElement('video');
-          v.src = encodeURI(src);
-          v.controls = true;
-          v.preload = 'metadata';
-          videoBox.appendChild(v);
-        });
+        if (!videos.length) {
+          const section = videoBox.closest('section') || videoBox.closest('.videos-section');
+          if (section) section.classList.add('hidden');
+        } else {
+          videos.forEach(src => {
+            const v = document.createElement('video');
+            v.src = encodeURI(src);
+            v.controls = true;
+            v.preload = 'metadata';
+            videoBox.appendChild(v);
+          });
+        }
       }
 
       const docs = Array.isArray(data.documents) ? data.documents : [];
@@ -148,6 +179,16 @@ document.addEventListener('DOMContentLoaded', () => {
         '%0AMesaj: ' +
         (this.message && this.message.value ? this.message.value : '-');
       window.open('https://wa.me/905320683012?text=' + t, '_blank');
+      let msg = document.getElementById('formSuccess');
+      if (!msg) {
+        msg = document.createElement('div');
+        msg.id = 'formSuccess';
+        msg.className = 'form-success';
+        msg.setAttribute('data-i18n', 'form_success');
+        msg.textContent = 'Talebiniz WhatsApp üzerinden yönlendirildi. Teşekkürler!';
+        form.appendChild(msg);
+      }
+      msg.classList.add('show');
     });
   }
 });

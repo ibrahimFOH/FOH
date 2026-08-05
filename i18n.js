@@ -1,7 +1,7 @@
 const translations = {
   tr: {
     nav_home:"Ana Sayfa", nav_services:"Hizmetler", nav_engineering:"Mühendislik",
-    nav_gallery:"Galeri", nav_docs:"Dokümanlar", nav_sss:"SSS", nav_about:"Hakkımda", nav_offer:"Teklif Al",
+    nav_gallery:"Galeri", nav_docs:"Dokümanlar", nav_sss:"SSS", nav_about:"Hakkımda", nav_process:"Nasıl Çalışıyoruz", nav_refs:"Referanslar", nav_offer:"Teklif Al",
     footer_role:"FOH Engineer • Stagepulse",
     copyright:"© 2026 Stagepulse – İbrahim Kavasoğlu",
     hero_title:"Profesyonel <span>Ses & Sahne</span> Çözümleri",
@@ -56,11 +56,12 @@ const translations = {
     ph_message:"Etkinlik detayları, özel istekler...",
     t_submit:"Teklif Al",
     kvkk_text:"Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.",
+    form_success:"Talebiniz WhatsApp üzerinden yönlendirildi. Teşekkürler!",
     nf_title:"Sayfa Bulunamadı", nf_desc:"Aradığınız sayfa mevcut değil.", nf_btn:"Ana Sayfaya Dön"
   },
   en: {
     nav_home:"Home", nav_services:"Services", nav_engineering:"Engineering",
-    nav_gallery:"Gallery", nav_docs:"Documents", nav_sss:"FAQ", nav_about:"About", nav_offer:"Get Quote",
+    nav_gallery:"Gallery", nav_docs:"Documents", nav_sss:"FAQ", nav_about:"About", nav_process:"How We Work", nav_refs:"References", nav_offer:"Get Quote",
     footer_role:"FOH Engineer • Stagepulse",
     copyright:"© 2026 Stagepulse – İbrahim Kavasoğlu",
     hero_title:"Professional <span>Audio & Stage</span> Solutions",
@@ -115,6 +116,7 @@ const translations = {
     ph_message:"Event details, special requests...",
     t_submit:"Get Quote",
     kvkk_text:"I accept that my personal data will be processed for the quote.",
+    form_success:"Your request was opened in WhatsApp. Thank you!",
     nf_title:"Page Not Found", nf_desc:"This page does not exist.", nf_btn:"Back to Home"
   }
 };

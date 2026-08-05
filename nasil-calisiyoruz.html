@@ -1,45 +1,122 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Nasıl Çalışıyoruz — Süreç</title>
-  <meta name="description" content="Etkinlik sürecini net, ölçülebilir ve risksiz hale getiren adımlar: talep, teknik planlama, teklif, kurulum, etkinlik ve söküm.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nasıl Çalışıyoruz | Stagepulse</title>
+<meta name="description" content="Etkinlik sürecimiz: talep, teknik planlama, teklif, kurulum ve söküm.">
+<link rel="canonical" href="https://ibrahimfoh.github.io/FOH/nasil-calisiyoruz.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-<nav class="container nav-inner"><a href="index.html" class="logo">EVENT TECHNOLOGIES</a></nav>
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">STAGEPULSE</a>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f9-1f1f7.svg" alt="TR" class="flag"> TR
+        </button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
+        </button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menü">
+        <i class="fa-solid fa-bars" id="hamburger-icon"></i>
+      </button>
+    </div>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+    <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+    <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+    <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+    <a href="sss.html" data-i18n="nav_sss">SSS</a>
+    <a href="hakkimda.html" data-i18n="nav_about">Hakkımda</a>
+    <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
+  </div>
+</nav>
 
-<main class="container page-content">
-  <h1>Nasıl Çalışıyoruz</h1>
-  <p>Etkinlik sürecini net, ölçülebilir ve risksiz hale getirmek için aşağıdaki adımları izliyorum.</p>
+<section class="page-hero">
+  <div class="container">
+    <h1 class="section-title">Nasıl Çalışıyoruz</h1>
+    <p class="section-desc">Etkinlik sürecini net, ölçülebilir ve risksiz hale getiren 5 adım.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <div>
+          <h3>Talep &amp; Keşif</h3>
+          <p>Etkinlik tipi, tarih, mekân, seyirci sayısı ve teknik ihtiyaçlar için kısa ön görüşme. Süre: 15–30 dk (telefon / online).</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <div>
+          <h3>Teknik Planlama</h3>
+          <p>Rider ve mekân bilgilerine göre Stage Plot, SPL analizi ve kapsama planı hazırlanır. Gerekirse mekân ölçümü planlanır. Süre: 1–3 iş günü.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <div>
+          <h3>Teklif &amp; Onay</h3>
+          <p>Ekipman listesi, teknik ekip, süre ve maliyet detaylarıyla yazılı teklif. Onay sonrası sözleşme ve ön ödeme planı. Süre: 1–2 iş günü.</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <div>
+          <h3>Kurulum &amp; Prova</h3>
+          <p>Sahne yerleşimi, kablaj, sistem tuning, mikrofon/IEM hatları. Sanatçı provası ile son kontrol. Süre: 1–4 gün (ölçeğe göre).</p>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="process-num">5</div>
+        <div>
+          <h3>Etkinlik &amp; Söküm</h3>
+          <p>FOH / sistem operasyonu, etkinlik sonrası güvenli söküm ve teslim. Süre: etkinlik + 0,5–1 gün söküm.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:48px;text-align:center">
+      <a href="teklif.html" class="btn btn-primary"><i class="fa-solid fa-file-signature"></i> Teklif Al</a>
+    </div>
+  </div>
+</section>
 
-  <ol class="process-steps">
-    <li>
-      <h3>Talep &amp; Keşif</h3>
-      <p>Etkinlik tipi, tarih, mekân, beklenen seyirci sayısı ve teknik ihtiyaçlar hakkında kısa bir ön görüşme yapılır. Süre: 15–30 dakika (online/telefon).</p>
-    </li>
-    <li>
-      <h3>Teknik Planlama (stage plot, SPL)</h3>
-      <p>Rider ve mekân bilgilerine göre stage plot, SPL analizi ve kapsama planı hazırlanır. Gerekirse mekân ziyareti veya ölçüm planı yapılır. Süre: 1–3 iş günü.</p>
-    </li>
-    <li>
-      <h3>Teklif &amp; Onay</h3>
-      <p>Ekipman listesi, teknik ekip, süre ve maliyet detaylarıyla yazılı teklif hazırlanır. Onay sonrası sözleşme ve ön ödeme planı belirlenir. Süre: 1–2 iş günü.</p>
-    </li>
-    <li>
-      <h3>Kurulum &amp; Prova</h3>
-      <p>Ekipmanların sahneye yerleştirilmesi, kablaj, sistem tuning ve mikrofon/IEM hatlarının hazırlanması yapılır. Sanatçı provası ile sistem son kez kontrol edilir. Süre: 1–4 gün (etkinlik ölçeğine göre).</p>
-    </li>
-    <li>
-      <h3>Etkinlik &amp; Söküm</h3>
-      <p>Etkinlik günü FOH ve/veya sistem operasyonu yürütülür. Etkinlik sonrası ekipmanların güvenli sökülmesi ve teslimi sağlanır. Süre: Etkinlik süresi + 0,5–1 gün söküm.</p>
-    </li>
-  </ol>
-</main>
-
-<footer class="container">
-  <p>İletişim: <a href="tel:+905320683012">+90 532 068 3012</a></p>
+<footer>
+  <div class="container">
+    <h3>İbrahim <span>Kavasoğlu</span></h3>
+    <p style="color:#888;margin-bottom:8px" data-i18n="footer_role">FOH Engineer • Stagepulse</p>
+    <div class="footer-contact">
+      <a href="tel:+905320683012"><i class="fa-solid fa-phone"></i> +90 532 068 3012</a>
+      <a href="mailto:ibrahimkavasoglu7@gmail.com"><i class="fa-solid fa-envelope"></i> ibrahimkavasoglu7@gmail.com</a>
+      <a href="https://wa.me/905320683012" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>
+    <div class="footer-links">
+      <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+      <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+      <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+      <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+      <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+      <a href="nasil-calisiyoruz.html" data-i18n="nav_process">Nasıl Çalışıyoruz</a>
+      <a href="referanslar.html" data-i18n="nav_refs">Referanslar</a>
+      <a href="sss.html" data-i18n="nav_sss">SSS</a>
+      <a href="hakkimda.html" data-i18n="nav_about">Hakkımda</a>
+      <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
+    </div>
+    <p class="copyright" data-i18n="copyright">© 2026 Stagepulse – İbrahim Kavasoğlu</p>
+  </div>
 </footer>
+<a href="https://wa.me/905320683012" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+<script src="i18n.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
