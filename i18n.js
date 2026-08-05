@@ -47,6 +47,7 @@ const translations = {
     d_empty_title:"Henüz doküman eklenmedi", d_empty_desc:"PDF'leri documents klasörüne yükleyin", d_view:"PDF görüntüle / indir",
     t_title:"Teklif Talebi", t_desc:"Etkinliğinize özel teklif hazırlıyoruz.",
     ph_name:"Ad Soyad / Firma", ph_phone:"Telefon", ph_date:"Etkinlik Tarihi",
+    ph_date_hint:"Gün.Ay.Yıl seçin",
     opt_placeholder:"Hizmet Türü Seçin",
     opt_1:"Ses Sistemi Kiralama", opt_2:"Işık & Truss Kiralama", opt_3:"Stage Plot / Sahne Planı",
     opt_4:"3D Sahne Çizimi", opt_5:"SPL Hesaplama", opt_6:"Teknik Rider Hazırlama",
@@ -56,7 +57,6 @@ const translations = {
     t_submit:"Teklif Al",
     kvkk_text:"Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.",
     nf_title:"Sayfa Bulunamadı", nf_desc:"Aradığınız sayfa mevcut değil.", nf_btn:"Ana Sayfaya Dön"
-    ph_date_hint:"Gün.Ay.Yıl seçin",
   },
   en: {
     nav_home:"Home", nav_services:"Services", nav_engineering:"Engineering",
@@ -106,6 +106,7 @@ const translations = {
     d_empty_title:"No documents yet", d_empty_desc:"Upload PDFs to documents folder", d_view:"View / download PDF",
     t_title:"Quote Request", t_desc:"Custom quotes for your event.",
     ph_name:"Full Name / Company", ph_phone:"Phone", ph_date:"Event Date",
+    ph_date_hint:"Select Day.Month.Year",
     opt_placeholder:"Select Service Type",
     opt_1:"Audio System Rental", opt_2:"Lighting & Truss Rental", opt_3:"Stage Plot / Layout",
     opt_4:"3D Stage Design", opt_5:"SPL Calculation", opt_6:"Technical Rider",
@@ -115,6 +116,5 @@ const translations = {
     t_submit:"Get Quote",
     kvkk_text:"I accept that my personal data will be processed for the quote.",
     nf_title:"Page Not Found", nf_desc:"This page does not exist.", nf_btn:"Back to Home"
-  ph_date_hint:"Select Day.Month.Year",
   }
 };
