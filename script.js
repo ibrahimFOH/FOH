@@ -36,74 +36,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const REPO = 'ibrahimFOH/FOH';
-  async function listFiles(folder, ext) {
-    try {
-      const res = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + folder + '?ref=main');
-      if (!res.ok) return [];
-      const files = await res.json();
-      if (!Array.isArray(files)) return [];
-      return files.filter(f => f.type === 'file' && ext.test(f.name)).map(f => f.path).sort();
-    } catch (e) { return []; }
-  }
-
+  // --- Media loading: fetch media.json and populate gallery, videos, documents ---
   const gallery = document.getElementById('gallery');
   const heroBg = document.getElementById('heroBg');
-  listFiles('images/gallery', /\.(jpe?g|png|webp|gif)$/i).then(photos => {
-    if (gallery) {
-      gallery.innerHTML = '';
-      if (!photos.length) gallery.innerHTML = '<p style="color:#666">Henüz fotoğraf eklenmedi.</p>';
-      else photos.forEach(src => {
-        const img = document.createElement('img');
-        img.src = src; img.loading = 'lazy'; img.alt = 'FOH Engineer';
-        gallery.appendChild(img);
-      });
-    }
-    if (heroBg && photos.length) {
-      let i = 0;
-      const set = function(n) {
-        heroBg.style.backgroundImage = 'linear-gradient(110deg,rgba(0,0,0,.93),rgba(0,0,0,.5)), url("' + photos[n] + '")';
-      };
-      set(0);
-      setInterval(function() { i = (i + 1) % photos.length; set(i); }, 5000);
-    }
-  });
-
   const videoBox = document.getElementById('videos');
-  if (videoBox) {
-    listFiles('videos', /\.(mp4|webm|mov)$/i).then(videos => {
-      videoBox.innerHTML = '';
-      videos.forEach(src => {
-        const v = document.createElement('video');
-        v.src = src; v.controls = true; v.preload = 'metadata';
-        videoBox.appendChild(v);
-      });
-    });
-  }
-
   const docList = document.getElementById('documentsList');
-  if (docList) {
-    listFiles('documents', /\.pdf$/i).then(docs => {
-      docList.innerHTML = '';
-      if (!docs.length) {
-        docList.innerHTML = '<div class="doc-card"><i class="fa-solid fa-file-pdf"></i><h3>Henüz doküman eklenmedi</h3><p>PDF documents klasörüne yükleyin</p></div>';
-        return;
-      }
-      docs.forEach(path => {
-        const name = path.split('/').pop().replace(/\.pdf$/i, '');
-        const a = document.createElement('a');
-        a.href = encodeURI(path); a.target = '_blank'; a.rel = 'noopener'; a.className = 'doc-card';
-        a.innerHTML = '<i class="fa-solid fa-file-pdf"></i><h3>' + name + '</h3><p>PDF görüntüle / indir</p>';
-        docList.appendChild(a);
-      });
-    });
-  }
 
+  (async function loadMedia() {
+    try {
+      const res = await fetch('media.json');
+      if (!res.ok) return; // silently exit on failure
+      const data = await res.json();
+
+      const photos = Array.isArray(data.photos) ? data.photos : [];
+      if (gallery) {
+        gallery.innerHTML = '';
+        if (!photos.length) {
+          gallery.innerHTML = '<p style="color:#666">Henüz fotoğraf eklenmedi.</p>';
+        } else {
+          photos.forEach((src, i) => {
+            const img = document.createElement('img');
+            img.src = encodeURI(src);
+            img.loading = 'lazy';
+            img.alt = 'FOH Engineer – saha fotoğrafı ' + (i + 1);
+            gallery.appendChild(img);
+          });
+        }
+      }
+
+      if (heroBg && photos.length) {
+        let i = 0;
+        const setBg = function(n) {
+          heroBg.style.backgroundImage = 'linear-gradient(110deg,rgba(0,0,0,.93),rgba(0,0,0,.5)), url("' + encodeURI(photos[n]) + '")';
+        };
+        setBg(0);
+        setInterval(function() { i = (i + 1) % photos.length; setBg(i); }, 5000);
+      }
+
+      const videos = Array.isArray(data.videos) ? data.videos : [];
+      if (videoBox) {
+        videoBox.innerHTML = '';
+        if (videos.length) {
+          videos.forEach(src => {
+            const v = document.createElement('video');
+            v.src = encodeURI(src);
+            v.controls = true;
+            v.preload = 'metadata';
+            videoBox.appendChild(v);
+          });
+        }
+      }
+
+      const docs = Array.isArray(data.documents) ? data.documents : [];
+      if (docList) {
+        docList.innerHTML = '';
+        if (!docs.length) {
+          docList.innerHTML = '<div class="doc-card"><i class="fa-solid fa-file-pdf"></i><h3>Henüz doküman eklenmedi</h3><p>PDF documents klasörüne yükleyin</p></div>';
+        } else {
+          docs.forEach(d => {
+            const name = d.title || (d.file ? d.file.split('/').pop().replace(/\.pdf$/i, '') : 'Doküman');
+            const a = document.createElement('a');
+            a.href = encodeURI(d.file || '');
+            a.target = '_blank';
+            a.rel = 'noopener';
+            a.className = 'doc-card';
+
+            const iconClass = (d.icon ? ('fa-solid ' + d.icon) : 'fa-solid fa-file-pdf');
+            a.innerHTML = '<i class="' + iconClass + '"></i><h3>' + name + '</h3><p>PDF görüntüle / indir</p>';
+            docList.appendChild(a);
+          });
+        }
+      }
+
+    } catch (e) {
+      // silently fail
+      return;
+    }
+  })();
+
+  // --- Offer form handling (leave unchanged) ---
   const form = document.getElementById('offerForm');
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      const t = 'Yeni Teklif Talebi%0A%0AAd: ' + this.name.value + '%0ATelefon: ' + this.phone.value + '%0AEtkinlik: ' + this.type.value + '%0ALokasyon: ' + this.location.value + '%0AKişi: ' + this.people.value + '%0ATarih: ' + (this.date && this.date.value ? this.date.value : '-') + '%0AMesaj: ' + (this.message && this.message.value ? this.message.value : '-');
+      const t = 'Yeni Teklif Talebi%0A%0AAd: ' + this.name.value + '%0ATelefon: ' + this.phone.value + '%0AEtkinlik: ' + this.type.value + '%0ALokasyon: ' + this.location.value + '%0AKişi: ' + t[...]
       window.open('https://wa.me/905320683012?text=' + t, '_blank');
     });
   }
