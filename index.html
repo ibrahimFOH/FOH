@@ -8,12 +8,12 @@
 <link rel="canonical" href="https://ibrahimfoh.github.io/FOH/">
 <meta property="og:title" content="İbrahim Kavasoğlu | FOH Engineer & Event Technologies">
 <meta property="og:description" content="Konserler, festivaller ve kurumsal etkinlikler için ses sistemi kiralama, Stage Plot, SPL hesaplama ve FOH operasyon hizmetleri.">
-<meta property="og:image" content="https://ibrahimfoh.github.io/FOH/images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg">
+<meta property="og:image" content="https://ibrahimfoh.github.io/FOH/images/og-index.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="İbrahim Kavasoğlu | FOH Engineer & Event Technologies">
 <meta name="twitter:description" content="Konserler, festivaller ve kurumsal etkinlikler için ses sistemi kiralama, Stage Plot, SPL hesaplama ve FOH operasyon hizmetleri.">
-<meta name="twitter:image" content="https://ibrahimfoh.github.io/FOH/images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg">
+<meta name="twitter:image" content="https://ibrahimfoh.github.io/FOH/images/og-index.jpg">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -58,7 +58,7 @@
           <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
         </button>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Menü">
+      <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
         <i class="fa-solid fa-bars" id="hamburger-icon"></i>
       </button>
     </div>
@@ -223,6 +223,27 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
-</body>
-</html>
+<script>
+// hamburger aria-expanded toggling (aksesibilite) — mevcut mobil menü kodu ile uyumlu
+const hamburger = document.getElementById('hamburger');
+const hamburgerIcon = document.getElementById('hamburger-icon');
+const navLinks = document.getElementById('navLinks');
+if (hamburger && navLinks) {
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = navLinks.classList.toggle('active');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    if (hamburgerIcon) hamburgerIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+  });
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      navLinks.classList.remove('active');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      if (hamburgerIcon) hamburgerIcon.className = 'fa-solid fa-bars';
+    }
+  });
+}
+</script>
