@@ -56,6 +56,7 @@ const translations = {
     t_submit:"Teklif Al",
     kvkk_text:"Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.",
     nf_title:"Sayfa Bulunamadı", nf_desc:"Aradığınız sayfa mevcut değil.", nf_btn:"Ana Sayfaya Dön"
+    ph_date_hint:"Gün.Ay.Yıl seçin",
   },
   en: {
     nav_home:"Home", nav_services:"Services", nav_engineering:"Engineering",
@@ -114,5 +115,6 @@ const translations = {
     t_submit:"Get Quote",
     kvkk_text:"I accept that my personal data will be processed for the quote.",
     nf_title:"Page Not Found", nf_desc:"This page does not exist.", nf_btn:"Back to Home"
+  ph_date_hint:"Select Day.Month.Year",
   }
 };
