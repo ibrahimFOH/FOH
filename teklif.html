@@ -1,140 +1,39 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teklif Al | Event Technologies</title>
-<meta name="description" content="Etkinliğiniz için ses sistemi, ışık, sahne ve mühendislik hizmetleri teklifi alın. WhatsApp üzerinden hızlı iletişim.">
-<link rel="canonical" href="https://ibrahimfoh.github.io/FOH/teklif.html">
-<meta property="og:title" content="Teklif Al | Event Technologies">
-<meta property="og:description" content="Etkinliğiniz için ses, ışık, sahne ve mühendislik hizmetleri teklifi alın.">
-<meta property="og:image" content="https://ibrahimfoh.github.io/FOH/images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+<label for="phone">Telefon</label>
+<input id="phone" name="phone" type="tel" placeholder="Telefon" required>
 
-<nav>
-  <div class="container nav-inner">
-    <a href="index.html" class="logo">EVENT TECHNOLOGIES</a>
-    <div class="nav-right">
-      <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
-          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f9-1f1f7.svg" alt="TR" class="flag"> TR
-        </button>
-        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
-          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
-        </button>
-      </div>
-      <button class="hamburger" id="hamburger" aria-label="Menü">
-        <i class="fa-solid fa-bars" id="hamburger-icon"></i>
-      </button>
-    </div>
-  </div>
-  <div class="nav-links" id="navLinks">
-    <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
-    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
-    <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
-    <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
-    <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
-    <a href="teklif.html" class="active" data-i18n="nav_offer">Teklif Al</a>
-  </div>
-</nav>
+<label for="service">Hizmet Türü</label>
+<select id="service" name="service" required>
+  <option value="" disabled selected>Hizmet Türü Seçin</option>
+  <option>Ses Sistemi Kiralama</option>
+  <option>Işık &amp; Truss Kiralama</option>
+  <option>Stage Plot / Sahne Planı</option>
+  <option>3D Sahne Çizimi</option>
+  <option>SPL Hesaplama</option>
+  <option>Teknik Rider Hazırlama</option>
+  <option>FOH Operasyonu</option>
+  <option>Paket (Kiralama + Mühendislik)</option>
+  <option>Diğer</option>
+</select>
 
-<section class="page-hero">
-  <div class="container">
-    <h1 class="section-title" data-i18n="t_title">Teklif Talebi</h1>
-    <p class="section-desc" data-i18n="t_desc">Etkinliğinizin türüne göre detaylı teklif hazırlıyoruz.</p>
+<label for="location">Lokasyon / Şehir</label>
+<input id="location" name="location" type="text" placeholder="Lokasyon / Şehir">
 
-    <form id="offerForm">
-      <input name="name" type="text" data-i18n-placeholder="ph_name" placeholder="Ad Soyad / Firma" required>
-      <input name="phone" type="text" data-i18n-placeholder="ph_phone" placeholder="Telefon" required>
-      <select name="service" required>
-        <option value="" disabled selected data-i18n="opt_placeholder">Hizmet Türü Seçin</option>
-        <option value="Ses Sistemi Kiralama" data-i18n="opt_1">Ses Sistemi Kiralama</option>
-        <option value="Işık & Truss Kiralama" data-i18n="opt_2">Işık &amp; Truss Kiralama</option>
-        <option value="Stage Plot" data-i18n="opt_3">Stage Plot / Sahne Planı</option>
-        <option value="3D Sahne Çizimi" data-i18n="opt_4">3D Sahne Çizimi</option>
-        <option value="SPL Hesaplama" data-i18n="opt_5">SPL Hesaplama</option>
-        <option value="Teknik Rider" data-i18n="opt_6">Teknik Rider Hazırlama</option>
-        <option value="FOH Operasyonu" data-i18n="opt_7">FOH Operasyonu</option>
-        <option value="Paket (Kiralama + Mühendislik)" data-i18n="opt_8">Paket (Kiralama + Mühendislik)</option>
-        <option value="Diğer" data-i18n="opt_9">Diğer</option>
-      </select>
-      <input name="location" type="text" data-i18n-placeholder="ph_location" placeholder="Lokasyon / Şehir">
-      <input name="date" type="date">
-      <input name="people" type="text" data-i18n-placeholder="ph_people" placeholder="Tahmini Katılımcı Sayısı">
-      <textarea name="message" rows="5" data-i18n-placeholder="ph_message" placeholder="Etkinlik detayları, özel istekler..."></textarea>
+<label for="date">Etkinlik Tarihi</label>
+<input id="date" name="date" type="date">
 
-      <button type="submit" class="btn btn-whatsapp">
-        <i class="fa-brands fa-whatsapp"></i> <span data-i18n="t_submit">Teklif Al</span>
-      </button>
-    </form>
+<label for="people">Tahmini Katılımcı Sayısı</label>
+<input id="people" name="people" type="text" placeholder="Tahmini Katılımcı Sayısı">
 
-    <div style="margin-top:60px">
-      <h2 class="section-title" style="font-size:28px" data-i18n="t_contact_title">İletişim</h2>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:20px">
-        <a class="btn btn-whatsapp" href="https://wa.me/905320683012" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-        <a class="btn btn-instagram" href="https://instagram.com/ibrahim_kavasogluu" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-instagram"></i> Instagram
-        </a>
-      </div>
-      <p style="margin-top:24px;color:#aaa">
-        <i class="fa-solid fa-envelope" style="margin-right:8px;color:#ffb000"></i> ibrahimkavasoglu7@gmail.com
-      </p>
-    </div>
-  </div>
-</section>
+<label for="message">Etkinlik detayları, özel istekler</label>
+<textarea id="message" name="message" rows="5" placeholder="Etkinlik detayları, özel istekler..."></textarea>
 
-<footer>
-  <div class="container">
-    <h3>İbrahim <span>Kavasoğlu</span></h3>
-    <p style="color:#888;margin-bottom:8px" data-i18n="footer_role">FOH Engineer • Event Technologies</p>
-    <div class="footer-links">
-      <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
-      <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
-      <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
-      <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
-      <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
-      <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
-    </div>
-    <p class="copyright" data-i18n="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
-  </div>
-</footer>
+<!-- KVKK onayı -->
+<label style="display:block;margin:12px 0" for="kvkk_onay">
+  <input type="checkbox" id="kvkk_onay" name="kvkk_onay" required>
+  Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.
+  <a href="kvkk.html" target="_blank" rel="noopener">Aydınlatma Metni</a>
+</label>
 
-<script src="script.js"></script>
-<script>
-// ── FORM → WHATSAPP ─────────────────────────────────────
-document.getElementById("offerForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const name     = this.name.value.trim();
-  const phone    = this.phone.value.trim();
-  const service  = this.service.value;
-  const location = this.location.value.trim();
-  const date     = this.date.value;
-  const people   = this.people.value.trim();
-  const message  = this.message.value.trim();
-
-  let text = `*YENİ TEKLİF TALEBİ*\n\n`;
-  text += `👤 *Ad / Firma:* ${name}\n`;
-  text += `📞 *Telefon:* ${phone}\n`;
-  text += `🎛️ *Hizmet:* ${service}\n`;
-  if (location) text += `📍 *Lokasyon:* ${location}\n`;
-  if (date)     text += `📅 *Tarih:* ${date}\n`;
-  if (people)   text += `👥 *Katılımcı:* ${people}\n`;
-  if (message)  text += `📝 *Detay:* ${message}\n`;
-
-  const encoded = encodeURIComponent(text);
-  window.open(`https://wa.me/905320683012?text=${encoded}`, "_blank");
-});
-</script>
-</body>
-</html>
+<button type="submit" class="btn btn-whatsapp" aria-label="Teklif Gönder">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Teklif Al
+</button>
