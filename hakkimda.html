@@ -1,69 +1,97 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>İbrahim Kavasoğlu — FOH Engineer</title>
-  <meta name="description" content="İbrahim Kavasoğlu — 8 yıldır konser, festival ve kurumsal etkinliklerde FOH miks ve sistem mühendisliği. Dante, dLive, DiGiCo, Yamaha uzmanlığı.">
-  <link rel="canonical" href="https://ibrahimfoh.github.io/FOH/hakkimda.html">
-  <meta property="og:title" content="İbrahim Kavasoğlu — FOH Engineer">
-  <meta property="og:description" content="8 yıllık deneyimle konser, festival ve kurumsal etkinliklerde FOH miks ve sistem mühendisliği hizmetleri.">
-  <meta property="og:type" content="profile">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hakkımda | Stagepulse</title>
+<meta name="description" content="İbrahim Kavasoğlu — FOH Engineer. 8 yıldır konser, festival ve kurumsal etkinliklerde FOH miks ve sistem mühendisliği.">
+<link rel="canonical" href="https://ibrahimfoh.github.io/FOH/hakkimda.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- NAV (aynı yapıyı koruyor) -->
-  <nav>
-    <div class="container nav-inner">
-      <a href="index.html" class="logo">EVENT TECHNOLOGIES</a>
-      <div class="nav-right">
-        <button class="hamburger" id="hamburger" aria-label="Menü"><i class="fa-solid fa-bars"></i></button>
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">STAGEPULSE</a>
+    <div class="nav-right">
+      <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f9-1f1f7.svg" alt="TR" class="flag"> TR
+        </button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
+        </button>
       </div>
+      <button class="hamburger" id="hamburger" aria-label="Menü">
+        <i class="fa-solid fa-bars" id="hamburger-icon"></i>
+      </button>
     </div>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Ana Sayfa</a>
-      <a href="hizmetler.html">Hizmetler</a>
-      <a href="muhendislik.html">Mühendislik</a>
-      <a href="galeri.html">Galeri</a>
-      <a href="teklif.html">Teklif Al</a>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+    <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+    <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+    <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+    <a href="sss.html" data-i18n="nav_sss">SSS</a>
+    <a href="hakkimda.html" class="active" data-i18n="nav_about">Hakkımda</a>
+    <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <h1 class="section-title">Hakkımda</h1>
+    <p class="section-desc">FOH Engineer • Stagepulse</p>
+
+    <div class="card" style="margin-bottom:20px">
+      <p>8 yıldır konser, festival ve kurumsal etkinliklerde front of house (FOH) miks ve sistem mühendisliği yapıyorum. Allen &amp; Heath dLive, DiGiCo SD serisi ve Yamaha CL/QL konsollarında aktif çalışıyorum; Dante tabanlı ağ ses altyapılarının kurulumu ve sistem tuning’i uzmanlık alanım.</p>
     </div>
-  </nav>
 
-  <main class="container page-content">
-    <h1>Hakkımda</h1>
-    <p>8 yıldır konser, festival ve kurumsal etkinliklerde front of house (FOH) miks ve sistem mühendisliği yapıyorum. Allen &amp; Heath dLive, DiGiCo SD serisi ve Yamaha CL/QL konsollarında aktif çalışıyorum; Dante tabanlı ağ ses altyapılarının kurulumu ve sistem tuning’i uzmanlık alanım.</p>
-
-    <h2>Yaklaşımım</h2>
-    <p>Her projeye ölçüm, SPL analizi ve kapsama planlaması ile başlıyorum. Konsolda doğru son miks için sahne, mikrofonlama ve sistem tasarımını uçtan uca planlıyorum. Amacım sahnedeki sesin salonun her noktasında aynı netlikte duyulmasıdır.</p>
-
-    <h2>Sertifikalar &amp; Eğitimler</h2>
-    <ul>
-      <li>Dante Level 1 / Level 2 / Level 3</li>
-      <li>Smaart v8/9 ile ölçüm ve sistem tuning eğitimleri</li>
-      <li>L-Acoustics / Meyer Sound ileri düzey sistem tasarım eğitimleri (varsa)</li>
-    </ul>
-
-    <h2>Öne Çıkan Konsollar</h2>
-    <ul>
-      <li>Allen &amp; Heath dLive S5000 / C3500</li>
-      <li>DiGiCo SD12 / SD16 / SD24</li>
-      <li>Yamaha CL5 / QL5</li>
-    </ul>
-
-    <p>Buraya bir portre fotoğrafı ve varsa sertifika/etkinlik görselleri eklenebilir.</p>
-  </main>
-
-  <footer>
-    <div class="container">
-      <h3>İbrahim <span>Kavasoğlu</span></h3>
-      <p style="color:#888">FOH Engineer • Event Technologies</p>
-      <p class="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
+    <h2 class="section-title" style="font-size:28px;margin-top:40px">Yaklaşımım</h2>
+    <div class="card" style="margin-bottom:20px">
+      <p>Her projeye ölçüm, SPL analizi ve kapsama planlaması ile başlıyorum. Konsolda doğru son miks için sahne, mikrofonlama ve sistem tasarımını uçtan uca planlıyorum. Amacım sahnedeki sesin salonun her noktasında aynı netlikte duyulmasıdır.</p>
     </div>
-  </footer>
+
+    <h2 class="section-title" style="font-size:28px;margin-top:40px">Sertifikalar &amp; Eğitimler</h2>
+    <div class="grid-2">
+      <div class="card"><h3>Dante</h3><p>Level 1 / Level 2 / Level 3</p></div>
+      <div class="card"><h3>Smaart</h3><p>v8/9 ölçüm ve sistem tuning eğitimleri</p></div>
+      <div class="card"><h3>Sistem Tasarımı</h3><p>L-Acoustics / Meyer Sound ileri düzey eğitimler</p></div>
+    </div>
+
+    <h2 class="section-title" style="font-size:28px;margin-top:40px">Öne Çıkan Konsollar</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Allen &amp; Heath</h3><p>dLive S5000 / C3500</p></div>
+      <div class="card"><h3>DiGiCo</h3><p>SD12 / SD16 / SD24</p></div>
+      <div class="card"><h3>Yamaha</h3><p>CL5 / QL5</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <h3>İbrahim <span>Kavasoğlu</span></h3>
+    <p style="color:#888;margin-bottom:8px" data-i18n="footer_role">FOH Engineer • Stagepulse</p>
+    <div class="footer-links">
+      <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+      <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+      <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+      <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+      <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+      <a href="sss.html" data-i18n="nav_sss">SSS</a>
+      <a href="hakkimda.html" data-i18n="nav_about">Hakkımda</a>
+      <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
+    </div>
+    <p class="copyright" data-i18n="copyright">© 2026 Stagepulse – İbrahim Kavasoğlu</p>
+  </div>
+</footer>
+<a href="https://wa.me/905320683012" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
 <script src="i18n.js"></script>
-<script src="script.js"></scri
-pt>
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
