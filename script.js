@@ -25,18 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       hamburger.classList.toggle('open');
-      if (icon) { icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-xmark'); }
+      if (icon) {
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-xmark');
+      }
     });
     navLinks.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', () => {
         navLinks.classList.remove('active');
         hamburger.classList.remove('open');
-        if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark'); }
+        if (icon) {
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-xmark');
+        }
       });
     });
   }
 
-  // --- Media loading: fetch media.json and populate gallery, videos, documents ---
   const gallery = document.getElementById('gallery');
   const heroBg = document.getElementById('heroBg');
   const videoBox = document.getElementById('videos');
@@ -45,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   (async function loadMedia() {
     try {
       const res = await fetch('media.json');
-      if (!res.ok) return; // silently exit on failure
+      if (!res.ok) return;
       const data = await res.json();
 
       const photos = Array.isArray(data.photos) ? data.photos : [];
@@ -66,60 +71,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (heroBg && photos.length) {
         let i = 0;
-        const setBg = function(n) {
-          heroBg.style.backgroundImage = 'linear-gradient(110deg,rgba(0,0,0,.93),rgba(0,0,0,.5)), url("' + encodeURI(photos[n]) + '")';
+        const setBg = function (n) {
+          heroBg.style.backgroundImage =
+            'linear-gradient(110deg,rgba(0,0,0,.93),rgba(0,0,0,.5)), url("' +
+            encodeURI(photos[n]) +
+            '")';
         };
         setBg(0);
-        setInterval(function() { i = (i + 1) % photos.length; setBg(i); }, 5000);
+        setInterval(function () {
+          i = (i + 1) % photos.length;
+          setBg(i);
+        }, 5000);
       }
 
       const videos = Array.isArray(data.videos) ? data.videos : [];
       if (videoBox) {
         videoBox.innerHTML = '';
-        if (videos.length) {
-          videos.forEach(src => {
-            const v = document.createElement('video');
-            v.src = encodeURI(src);
-            v.controls = true;
-            v.preload = 'metadata';
-            videoBox.appendChild(v);
-          });
-        }
+        videos.forEach(src => {
+          const v = document.createElement('video');
+          v.src = encodeURI(src);
+          v.controls = true;
+          v.preload = 'metadata';
+          videoBox.appendChild(v);
+        });
       }
 
       const docs = Array.isArray(data.documents) ? data.documents : [];
       if (docList) {
         docList.innerHTML = '';
         if (!docs.length) {
-          docList.innerHTML = '<div class="doc-card"><i class="fa-solid fa-file-pdf"></i><h3>Henüz doküman eklenmedi</h3><p>PDF documents klasörüne yükleyin</p></div>';
+          docList.innerHTML =
+            '<div class="doc-card"><i class="fa-solid fa-file-pdf"></i><h3>Henüz doküman eklenmedi</h3><p>PDF documents klasörüne yükleyin</p></div>';
         } else {
           docs.forEach(d => {
-            const name = d.title || (d.file ? d.file.split('/').pop().replace(/\.pdf$/i, '') : 'Doküman');
+            const name =
+              d.title ||
+              (d.file ? d.file.split('/').pop().replace(/\.pdf$/i, '') : 'Doküman');
             const a = document.createElement('a');
             a.href = encodeURI(d.file || '');
             a.target = '_blank';
-            a.rel = 'noopener';
+            a.rel = 'noopener noreferrer';
             a.className = 'doc-card';
-
-            const iconClass = (d.icon ? ('fa-solid ' + d.icon) : 'fa-solid fa-file-pdf');
-            a.innerHTML = '<i class="' + iconClass + '"></i><h3>' + name + '</h3><p>PDF görüntüle / indir</p>';
+            const iconClass = d.icon ? 'fa-solid ' + d.icon : 'fa-solid fa-file-pdf';
+            a.innerHTML =
+              '<i class="' +
+              iconClass +
+              '"></i><h3>' +
+              name +
+              '</h3><p>PDF görüntüle / indir</p>';
             docList.appendChild(a);
           });
         }
       }
-
     } catch (e) {
-      // silently fail
       return;
     }
   })();
 
-  // --- Offer form handling (leave unchanged) ---
   const form = document.getElementById('offerForm');
   if (form) {
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      const t = 'Yeni Teklif Talebi%0A%0AAd: ' + this.name.value + '%0ATelefon: ' + this.phone.value + '%0AEtkinlik: ' + this.type.value + '%0ALokasyon: ' + this.location.value + '%0AKişi: ' + t[...]
+      const t =
+        'Yeni Teklif Talebi%0A%0AAd: ' +
+        this.name.value +
+        '%0ATelefon: ' +
+        this.phone.value +
+        '%0AEtkinlik: ' +
+        this.type.value +
+        '%0ALokasyon: ' +
+        this.location.value +
+        '%0AKişi: ' +
+        this.people.value +
+        '%0ATarih: ' +
+        (this.date && this.date.value ? this.date.value : '-') +
+        '%0AMesaj: ' +
+        (this.message && this.message.value ? this.message.value : '-');
       window.open('https://wa.me/905320683012?text=' + t, '_blank');
     });
   }
