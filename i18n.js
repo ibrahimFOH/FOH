@@ -60,7 +60,7 @@ const translations = {
   },
   en: {
     nav_home:"Home", nav_services:"Services", nav_engineering:"Engineering",
-    nav_gallery:"Gallery", nav_docs:"Documents", nav_offer:"Get Quote",
+    nav_gallery:"Gallery", nav_docs:"Documents", nav_sss:"FAQ", nav_about:"About", nav_offer:"Get Quote",
     footer_role:"FOH Engineer • Stagepulse",
     copyright:"© 2026 Stagepulse – İbrahim Kavasoğlu",
     hero_title:"Professional <span>Audio & Stage</span> Solutions",
