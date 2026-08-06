@@ -1,0 +1,130 @@
+ROLE
+You are a careful frontend editor for a live static website (GitHub Pages). 
+Do not invent new pages. Do not break existing i18n, scripts, styles, or forms.
+Only edit what is listed below. Keep Turkish content. Preserve data-i18n attributes.
+
+GOAL
+1) Make the hamburger/nav menu complete and identical on EVERY HTML page.
+2) Fix remaining consistency issues across the site.
+3) Do not touch working features (forms, WhatsApp, gallery loaders, i18n.js logic) unless required below.
+
+========================================
+A) GLOBAL NAV (ALL HTML FILES)
+========================================
+Find every:
+<div class="nav-links" id="navLinks"> ... </div>
+
+Replace its INNER content with this exact order:
+
+  <a href="INDEX_HREF" data-i18n="nav_home">Ana Sayfa</a>
+  <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+  <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+  <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+  <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+  <a href="referanslar.html" data-i18n="nav_refs">Referanslar</a>
+  <a href="nasil-calisiyoruz.html" data-i18n="nav_process">Nasıl Çalışıyoruz</a>
+  <a href="sss.html" data-i18n="nav_sss">SSS</a>
+  <a href="hakkimda.html" data-i18n="nav_about">Hakkımda</a>
+  <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
+
+Rules for INDEX_HREF:
+- On index.html / root homepage: use "./" if the file already uses "./", otherwise "index.html"
+- On all other pages: use "index.html"
+
+Active class rules:
+- Only ONE link may have class="active"
+- Put class="active" on the link of the current page
+- Examples:
+  - index.html → Ana Sayfa active
+  - hizmetler.html → Hizmetler active
+  - referanslar.html → Referanslar active
+  - nasil-calisiyoruz.html → Nasıl Çalışıyoruz active
+  - teklif.html → Teklif Al active
+  - etc.
+
+Apply this nav update to ALL HTML pages that contain nav-links, including:
+index.html, hizmetler.html, muhendislik.html, galeri.html, dokumanlar.html,
+referanslar.html, nasil-calisiyoruz.html, sss.html, hakkimda.html, teklif.html, Kvkk.html
+and any other *.html with the same nav.
+
+========================================
+B) FOOTER CONSISTENCY (ALL HTML FILES)
+========================================
+In footer-links, ensure these links exist (do not duplicate if already present):
+- Ana Sayfa
+- Hizmetler
+- Mühendislik
+- Galeri
+- Dokümanlar
+- Nasıl Çalışıyoruz
+- Referanslar
+- SSS
+- Hakkımda
+- Teklif Al
+
+Keep existing footer contact block, WhatsApp, phone, email unchanged.
+
+========================================
+C) TEKLIF PAGE
+========================================
+File: teklif.html
+If missing, add this paragraph immediately ABOVE <form id="offerForm">:
+
+<p class="section-desc" style="margin-bottom:24px">
+  Formu gönderdikten sonra genellikle <strong>24 saat içinde</strong> dönüş yapıyorum.
+  Acil işlerde WhatsApp üzerinden daha hızlı ilerleyebiliriz.
+</p>
+
+Do not break the form, KVKK checkbox, or submit button.
+
+========================================
+D) REFERANSLAR PAGE
+========================================
+File: referanslar.html
+- Keep the project cards and "Ne dediler?" testimonials if already present.
+- Ensure the page has class="active" on Referanslar in nav.
+- Do not remove existing realistic/anonymous project content.
+
+========================================
+E) SEO SAFETY CHECK (ALL HTML)
+========================================
+For each HTML page:
+1) If canonical points to ibrahimfoh.github.io, change it to https://stagepulse.com.tr/ + correct path
+2) If og:url points to github.io, change it to stagepulse.com.tr equivalent
+3) Do not remove existing title/description/og/twitter tags if already correct for stagepulse.com.tr
+
+Homepage canonical must be:
+<link rel="canonical" href="https://stagepulse.com.tr/">
+
+========================================
+F) robots.txt AND sitemap.xml
+========================================
+robots.txt must be exactly:
+User-agent: *
+Allow: /
+
+Sitemap: https://stagepulse.com.tr/sitemap.xml
+
+sitemap.xml must use ONLY https://stagepulse.com.tr/ URLs (not github.io).
+If any github.io URL remains, replace with stagepulse.com.tr.
+
+========================================
+G) DO NOT
+========================================
+- Do not rewrite style.css or script.js unless a broken selector is caused by your nav edit
+- Do not delete i18n.js keys
+- Do not change form field names
+- Do not add frameworks
+- Do not create new filenames except if robots.txt / sitemap.xml missing
+- Do not put artist real names unless already on the page
+
+========================================
+H) FINAL VERIFICATION
+========================================
+After edits, report a short checklist:
+- Which files were changed
+- Confirm every page nav contains Referanslar and Nasıl Çalışıyoruz
+- Confirm active class is correct per page
+- Confirm no github.io left in canonical/og:url/sitemap/robots
+
+Execute all of the above now.
