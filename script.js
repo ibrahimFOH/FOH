@@ -48,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox = document.createElement('div');
     lightbox.id = 'lightbox';
     lightbox.className = 'lightbox';
-    lightbox.innerHTML = '<button class="lightbox-close" aria-label="Kapat">&times;</button><img src="" alt="">';
+    lightbox.innerHTML =
+      '<button class="lightbox-close" aria-label="Kapat">&times;</button><img src="" alt="">';
     document.body.appendChild(lightbox);
   }
   const lbImg = lightbox.querySelector('img');
@@ -63,25 +64,28 @@ document.addEventListener('DOMContentLoaded', () => {
     lbImg.src = '';
     document.body.style.overflow = '';
   }
-  lbClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  if (lbClose) lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
 
   const gallery = document.getElementById('gallery');
   const heroBg = document.getElementById('heroBg');
   const videoBox = document.getElementById('videos');
   const docList = document.getElementById('documentsList');
 
-  // Turkish FOH/Stage alt texts for gallery images
   const galleryAlts = [
-    "Sahne line array kurulumu",
-    "FOH konsol ve miks noktası",
-    "Açık alan ses sistemi",
-    "Truss ve ışık kurulumu",
-    "Monitör ve sahne düzeni",
-    "Canlı etkinlik ses operasyonu",
-    "Sahne ve PA sistemi kurulumu",
-    "FOH mühendisliği saha çalışması"
+    'Sahne line array kurulumu',
+    'FOH konsol ve miks noktası',
+    'Açık alan ses sistemi',
+    'Truss ve ışık kurulumu',
+    'Monitör ve sahne düzeni',
+    'Canlı etkinlik ses operasyonu',
+    'Sahne ve PA sistemi kurulumu',
+    'FOH mühendisliği saha çalışması'
   ];
 
   (async function loadMedia() {
@@ -126,7 +130,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (videoBox) {
         videoBox.innerHTML = '';
         if (!videos.length) {
-          const section = videoBox.closest('section') || videoBox.closest('.videos-section');
+          const section =
+            videoBox.closest('section') || videoBox.closest('.videos-section');
           if (section) section.classList.add('hidden');
         } else {
           videos.forEach(src => {
@@ -196,11 +201,11 @@ document.addEventListener('DOMContentLoaded', () => {
         msg = document.createElement('div');
         msg.id = 'formSuccess';
         msg.className = 'form-success';
-        msg.setAttribute('data-i18n', 'form_success');
         msg.textContent = 'Talebiniz WhatsApp üzerinden yönlendirildi. Teşekkürler!';
         form.appendChild(msg);
       }
-      msg.classList.add('show');
+      msg.style.display = 'block';
+      form.reset();
     });
   }
 });
