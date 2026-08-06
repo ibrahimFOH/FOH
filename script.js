@@ -72,6 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const videoBox = document.getElementById('videos');
   const docList = document.getElementById('documentsList');
 
+  // Turkish FOH/Stage alt texts for gallery images
+  const galleryAltTexts = [
+    'Sahne line array kurulumu',
+    'FOH konsol ve miks noktası',
+    'Açık alan ses sistemi',
+    'Truss ve ışık kurulumu',
+    'Monitör ve sahne düzeni',
+    'Profesyonel hoparlör sistemi',
+    'Sahne kablo ve konnektör yönetimi',
+    'Mixer board ve ses işleme',
+  ];
+
   (async function loadMedia() {
     try {
       const res = await fetch('media.json');
@@ -88,7 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const img = document.createElement('img');
             img.src = encodeURI(src);
             img.loading = 'lazy';
-            img.alt = 'FOH Engineer – saha fotoğrafı ' + (i + 1);
+            // Rotate through meaningful Turkish alts; fallback if fewer images than alts
+            img.alt = galleryAltTexts[i % galleryAltTexts.length];
             img.addEventListener('click', () => openLightbox(encodeURI(src)));
             gallery.appendChild(img);
           });
