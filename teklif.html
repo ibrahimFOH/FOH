@@ -3,25 +3,54 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Teklif Al | Event Technologies</title>
-<meta name="description" content="Etkinliğiniz için ses sistemi, ışık, sahne ve mühendislik hizmetleri teklifi alın. WhatsApp üzerinden hızlı iletişim.">
-<link rel="canonical" href="https://ibrahimfoh.github.io/FOH/teklif.html">
-<meta property="og:title" content="Teklif Al | Event Technologies">
-<meta property="og:description" content="Etkinliğiniz için ses, ışık, sahne ve mühendislik hizmetleri teklifi alın.">
-<meta property="og:image" content="https://ibrahimfoh.github.io/FOH/images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg">
+<title>Teklif Al | Ses Sistemi Kiralama & FOH | Stagepulse</title>
+<meta name="description" content="Etkinliğiniz için özel Stage Plot, sistem önerisi ve fiyat teklifi alın. Ses kiralama, FOH operasyon ve mühendislik paketleri.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b0b0b">
+<link rel="canonical" href="https://stagepulse.com.tr/teklif.html">
+
 <meta property="og:type" content="website">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:url" content="https://stagepulse.com.tr/teklif.html">
+<meta property="og:title" content="Teklif Al | Ses Sistemi Kiralama & FOH | Stagepulse">
+<meta property="og:description" content="Etkinliğiniz için özel Stage Plot, sistem önerisi ve fiyat teklifi alın.">
+<meta property="og:image" content="https://stagepulse.com.tr/images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg">
+<meta property="og:site_name" content="Stagepulse">
+
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Teklif Al | Ses Sistemi Kiralama & FOH | Stagepulse">
+<meta name="twitter:description" content="Etkinliğiniz için özel Stage Plot, sistem önerisi ve fiyat teklifi alın.">
+<meta name="twitter:image" content="https://stagepulse.com.tr/images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg">
+
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="style.css">
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GVS4022KDJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GVS4022KDJ');
+</script>
 </head>
 <body>
-
 <nav>
   <div class="container nav-inner">
-    <a href="index.html" class="logo">EVENT TECHNOLOGIES</a>
+    <a href="index.html" class="logo">STAGEPULSE</a>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
+      <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
+      <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
+      <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
+      <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+      <a href="referanslar.html" data-i18n="nav_refs">Referanslar</a>
+      <a href="nasil-calisiyoruz.html" data-i18n="nav_process">Nasıl Çalışıyoruz</a>
+      <a href="sss.html" data-i18n="nav_sss">SSS</a>
+      <a href="hakkimda.html" data-i18n="nav_about">Hakkımda</a>
+      <a href="teklif.html" class="active" data-i18n="nav_offer">Teklif Al</a>
+    </div>
     <div class="nav-right">
       <div class="lang-switch">
         <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
@@ -31,110 +60,92 @@
           <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
         </button>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Menü">
+      <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
         <i class="fa-solid fa-bars" id="hamburger-icon"></i>
       </button>
     </div>
   </div>
-  <div class="nav-links" id="navLinks">
-    <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
-    <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
-    <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
-    <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
-    <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
-    <a href="teklif.html" class="active" data-i18n="nav_offer">Teklif Al</a>
-  </div>
 </nav>
-
 <section class="page-hero">
   <div class="container">
     <h1 class="section-title" data-i18n="t_title">Teklif Talebi</h1>
     <p class="section-desc" data-i18n="t_desc">Etkinliğinizin türüne göre detaylı teklif hazırlıyoruz.</p>
-
+        <p class="section-desc" style="margin-bottom:24px">
+      Formu gönderdikten sonra genellikle <strong>24 saat içinde</strong> dönüş yapıyorum.
+      Acil işlerde WhatsApp üzerinden daha hızlı ilerleyebiliriz.
+    </p>
     <form id="offerForm">
-      <input name="name" type="text" data-i18n-placeholder="ph_name" placeholder="Ad Soyad / Firma" required>
-      <input name="phone" type="text" data-i18n-placeholder="ph_phone" placeholder="Telefon" required>
-      <select name="service" required>
+      <input type="text" name="name" placeholder="Ad Soyad / Firma" data-i18n-placeholder="ph_name" required>
+      <input type="tel" name="phone" placeholder="Telefon" data-i18n-placeholder="ph_phone" required>
+      <select name="type" required>
         <option value="" disabled selected data-i18n="opt_placeholder">Hizmet Türü Seçin</option>
         <option value="Ses Sistemi Kiralama" data-i18n="opt_1">Ses Sistemi Kiralama</option>
-        <option value="Işık & Truss Kiralama" data-i18n="opt_2">Işık &amp; Truss Kiralama</option>
-        <option value="Stage Plot" data-i18n="opt_3">Stage Plot / Sahne Planı</option>
+        <option value="Işık & Truss Kiralama" data-i18n="opt_2">Işık & Truss Kiralama</option>
+        <option value="Stage Plot / Sahne Planı" data-i18n="opt_3">Stage Plot / Sahne Planı</option>
         <option value="3D Sahne Çizimi" data-i18n="opt_4">3D Sahne Çizimi</option>
         <option value="SPL Hesaplama" data-i18n="opt_5">SPL Hesaplama</option>
-        <option value="Teknik Rider" data-i18n="opt_6">Teknik Rider Hazırlama</option>
+        <option value="Teknik Rider Hazırlama" data-i18n="opt_6">Teknik Rider Hazırlama</option>
         <option value="FOH Operasyonu" data-i18n="opt_7">FOH Operasyonu</option>
         <option value="Paket (Kiralama + Mühendislik)" data-i18n="opt_8">Paket (Kiralama + Mühendislik)</option>
         <option value="Diğer" data-i18n="opt_9">Diğer</option>
       </select>
-      <input name="location" type="text" data-i18n-placeholder="ph_location" placeholder="Lokasyon / Şehir">
-      <input name="date" type="date">
-      <input name="people" type="text" data-i18n-placeholder="ph_people" placeholder="Tahmini Katılımcı Sayısı">
-      <textarea name="message" rows="5" data-i18n-placeholder="ph_message" placeholder="Etkinlik detayları, özel istekler..."></textarea>
-
+      <input type="text" name="location" placeholder="Lokasyon / Şehir" data-i18n-placeholder="ph_location">
+      <input type="text" name="people" placeholder="Tahmini Katılımcı Sayısı" data-i18n-placeholder="ph_people">
+      <div class="form-group">
+        <label for="eventDate" class="form-label" data-i18n="ph_date">Etkinlik Tarihi</label>
+        <input type="date" id="eventDate" name="date" required lang="tr">
+        <small class="form-hint" data-i18n="ph_date_hint">Gün.Ay.Yıl seçin</small>
+      </div>
+      <textarea name="message" rows="4" placeholder="Etkinlik detayları, özel istekler..." data-i18n-placeholder="ph_message"></textarea>
+      <label class="kvkk-label">
+        <input type="checkbox" name="kvkk" required>
+        <span data-i18n="kvkk_text">Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.</span>
+        <a href="Kvkk.html" target="_blank" rel="noopener" style="color:#ffb000;margin-left:6px;font-size:13px;">KVKK</a>
+        </label>
       <button type="submit" class="btn btn-whatsapp">
         <i class="fa-brands fa-whatsapp"></i> <span data-i18n="t_submit">Teklif Al</span>
       </button>
+          <div id="formSuccess" class="form-success" data-i18n="form_success">Talebiniz WhatsApp üzerinden yönlendirildi. Teşekkürler!</div>
     </form>
-
-    <div style="margin-top:60px">
-      <h2 class="section-title" style="font-size:28px" data-i18n="t_contact_title">İletişim</h2>
-      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:20px">
-        <a class="btn btn-whatsapp" href="https://wa.me/905320683012" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-        <a class="btn btn-instagram" href="https://instagram.com/ibrahim_kavasogluu" target="_blank" rel="noopener noreferrer">
-          <i class="fa-brands fa-instagram"></i> Instagram
-        </a>
-      </div>
-      <p style="margin-top:24px;color:#aaa">
-        <i class="fa-solid fa-envelope" style="margin-right:8px;color:#ffb000"></i> ibrahimkavasoglu7@gmail.com
-      </p>
-    </div>
   </div>
 </section>
-
 <footer>
   <div class="container">
     <h3>İbrahim <span>Kavasoğlu</span></h3>
-    <p style="color:#888;margin-bottom:8px" data-i18n="footer_role">FOH Engineer • Event Technologies</p>
-    <div class="footer-links">
+    <p style="color:#888;margin-bottom:8px" data-i18n="footer_role">FOH Engineer • Stagepulse</p>
+    <div class="footer-contact">
+      <a href="tel:+905320683012"><i class="fa-solid fa-phone"></i> +90 532 068 3012</a>
+      <a href="mailto:ibrahimkavasoglu7@gmail.com"><i class="fa-solid fa-envelope"></i> ibrahimkavasoglu7@gmail.com</a>
+      <a href="https://wa.me/905320683012?text=Merhaba%2C%20Stagepulse%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </div>
+
+            
+    <div class="footer-social" style="margin:16px 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a href="https://www.instagram.com/stagepulse.hatay" target="_blank" rel="noopener" aria-label="Instagram" style="color:#ccc;font-size:20px">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+    </div>
+
+            <div class="footer-links">
       <a href="index.html" data-i18n="nav_home">Ana Sayfa</a>
       <a href="hizmetler.html" data-i18n="nav_services">Hizmetler</a>
       <a href="muhendislik.html" data-i18n="nav_engineering">Mühendislik</a>
       <a href="galeri.html" data-i18n="nav_gallery">Galeri</a>
       <a href="dokumanlar.html" data-i18n="nav_docs">Dokümanlar</a>
+      <a href="nasil-calisiyoruz.html" data-i18n="nav_process">Nasıl Çalışıyoruz</a>
+      <a href="referanslar.html" data-i18n="nav_refs">Referanslar</a>
+      <a href="sss.html" data-i18n="nav_sss">SSS</a>
+      <a href="hakkimda.html" data-i18n="nav_about">Hakkımda</a>
       <a href="teklif.html" data-i18n="nav_offer">Teklif Al</a>
     </div>
-    <p class="copyright" data-i18n="copyright">© 2026 İbrahim Kavasoğlu – Event Technologies</p>
+
+    <p class="copyright" data-i18n="copyright">© 2026 Stagepulse – İbrahim Kavasoğlu</p>
   </div>
 </footer>
-
+<a href="https://wa.me/905320683012?text=Merhaba%2C%20Stagepulse%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." class="wa-float" target="_blank" aria-label="WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+<script src="i18n.js"></script>
 <script src="script.js"></script>
-<script>
-// ── FORM → WHATSAPP ─────────────────────────────────────
-document.getElementById("offerForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  const name     = this.name.value.trim();
-  const phone    = this.phone.value.trim();
-  const service  = this.service.value;
-  const location = this.location.value.trim();
-  const date     = this.date.value;
-  const people   = this.people.value.trim();
-  const message  = this.message.value.trim();
-
-  let text = `*YENİ TEKLİF TALEBİ*\n\n`;
-  text += `👤 *Ad / Firma:* ${name}\n`;
-  text += `📞 *Telefon:* ${phone}\n`;
-  text += `🎛️ *Hizmet:* ${service}\n`;
-  if (location) text += `📍 *Lokasyon:* ${location}\n`;
-  if (date)     text += `📅 *Tarih:* ${date}\n`;
-  if (people)   text += `👥 *Katılımcı:* ${people}\n`;
-  if (message)  text += `📝 *Detay:* ${message}\n`;
-
-  const encoded = encodeURIComponent(text);
-  window.open(`https://wa.me/905320683012?text=${encoded}`, "_blank");
-});
-</script>
 </body>
 </html>
