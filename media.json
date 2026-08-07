@@ -16,8 +16,23 @@
       "icon": "fa-file-pdf"
     },
     {
+      "title": "Stagepulse Ornek 3D Sahne",
+      "file": "documents/Stagepulse-Ornek-3D-Sahne.pdf",
+      "icon": "fa-file-pdf"
+    },
+    {
+      "title": "Stagepulse Ornek Stage Plot Gorsel",
+      "file": "documents/Stagepulse-Ornek-Stage-Plot-Gorsel.pdf",
+      "icon": "fa-file-pdf"
+    },
+    {
       "title": "Stagepulse Ornek Stage Plot",
       "file": "documents/Stagepulse-Ornek-Stage-Plot.pdf",
+      "icon": "fa-file-pdf"
+    },
+    {
+      "title": "Stagepulse Ornek Teknik Kesit",
+      "file": "documents/Stagepulse-Ornek-Teknik-Kesit.pdf",
       "icon": "fa-file-pdf"
     },
     {
