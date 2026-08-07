@@ -403,10 +403,9 @@ if (hamburger && navLinks) {
 
 // ================================
 // GOOGLE ANALYTİCS
-// G-XXXXXXXXXX yerine kendi GA4 ölçüm ID'nizi yazın
 // ================================
-const GA_ID = "G-XXXXXXXXXX";
-if (GA_ID !== "G-XXXXXXXXXX") {
+const GA_ID = "G-GVS4022KDJ";
+if (GA_ID !== "G-GVS4022KDJ") {
   const s = document.createElement("script");
   s.async = true;
   s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
