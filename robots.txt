@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ibrahimfoh.github.io/FOH/sitemap.xml
+Sitemap: https://stagepulse.com.tr/sitemap.xml
