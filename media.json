@@ -11,8 +11,13 @@
   "videos": [],
   "documents": [
     {
-      "title": "NİHAT MUGİL TEKNİK RİDER (1)",
+      "title": "Ni̇hat Mugi̇l Tekni̇k Ri̇der (1)",
       "file": "documents/NİHAT MUGİL TEKNİK RİDER (1).pdf",
+      "icon": "fa-file-pdf"
+    },
+    {
+      "title": "Stagepulse Ornek Stage Plot",
+      "file": "documents/Stagepulse-Ornek-Stage-Plot.pdf",
       "icon": "fa-file-pdf"
     }
   ]
