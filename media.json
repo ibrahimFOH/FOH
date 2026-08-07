@@ -11,32 +11,27 @@
   "videos": [],
   "documents": [
     {
-      "title": "Ni̇hat Mugi̇l Tekni̇k Ri̇der (1)",
+      "title": "NİHAT MUGİL TEKNİK RİDER (1)",
       "file": "documents/NİHAT MUGİL TEKNİK RİDER (1).pdf",
       "icon": "fa-file-pdf"
     },
     {
-      "title": "Stagepulse Ornek 3D Sahne",
+      "title": "Stagepulse-Ornek-3D-Sahne",
       "file": "documents/Stagepulse-Ornek-3D-Sahne.pdf",
       "icon": "fa-file-pdf"
     },
     {
-      "title": "Stagepulse Ornek Stage Plot Gorsel",
+      "title": "Stagepulse-Ornek-Stage-Plot-Gorsel",
       "file": "documents/Stagepulse-Ornek-Stage-Plot-Gorsel.pdf",
       "icon": "fa-file-pdf"
     },
     {
-      "title": "Stagepulse Ornek Stage Plot",
-      "file": "documents/Stagepulse-Ornek-Stage-Plot.pdf",
-      "icon": "fa-file-pdf"
-    },
-    {
-      "title": "Stagepulse Ornek Teknik Kesit",
+      "title": "Stagepulse-Ornek-Teknik-Kesit",
       "file": "documents/Stagepulse-Ornek-Teknik-Kesit.pdf",
       "icon": "fa-file-pdf"
     },
     {
-      "title": "Stagepulse Ornek Teknik Rider",
+      "title": "Stagepulse-Ornek-Teknik-Rider",
       "file": "documents/Stagepulse-Ornek-Teknik-Rider.pdf",
       "icon": "fa-file-pdf"
     }
