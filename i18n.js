@@ -130,7 +130,10 @@ const translations = {
     ph_message: "Etkinlik detayları, özel istekler...",
     t_submit: "Teklif Al",
     kvkk_text: "Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.",
-    form_success: "Talebiniz WhatsApp üzerinden yönlendirildi. Teşekkürler!",
+    form_success: "Talebiniz alındı. Teşekkürler!",
+    cookie_text: "Bu site deneyimi iyileştirmek ve teklif süreçlerini yönetmek için çerezler kullanır. Devam ederek <a href=\"Kvkk.html\" target=\"_blank\" rel=\"noopener\">KVKK Aydınlatma Metni</a>’ni kabul etmiş olursunuz.",
+    cookie_accept: "Kabul Et",
+    cookie_reject: "Reddet",
 
     nf_title: "Sayfa Bulunamadı",
     nf_desc: "Aradığınız sayfa mevcut değil.",
@@ -268,7 +271,10 @@ const translations = {
     ph_message: "Event details, special requests...",
     t_submit: "Get Quote",
     kvkk_text: "I accept that my personal data will be processed for the quote.",
-    form_success: "Your request was opened in WhatsApp. Thank you!",
+    form_success: "Your request was received. Thank you!",
+    cookie_text: "This site uses cookies to improve experience and manage quote processes. By continuing you accept the <a href=\"Kvkk.html\" target=\"_blank\" rel=\"noopener\">KVKK Notice</a>.",
+    cookie_accept: "Accept",
+    cookie_reject: "Reject",
 
     nf_title: "Page Not Found",
     nf_desc: "This page does not exist.",

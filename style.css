@@ -197,3 +197,42 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .badge-soon{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;background:rgba(255,176,0,.12);color:#ffb000;border:1px solid rgba(255,176,0,.25)}
 .badge-project{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;background:rgba(255,255,255,.06);color:#aaa;border:1px solid rgba(255,255,255,.1)}
 .hero-cta .btn{min-height:48px}
+
+/* ========== Cookie Banner ========== */
+#cookie-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:10000;
+  background:rgba(10,10,10,.97);backdrop-filter:blur(16px);
+  border-top:1px solid rgba(255,176,0,.25);
+  padding:16px 20px;box-shadow:0 -8px 32px rgba(0,0,0,.5);
+}
+.cookie-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.cookie-inner p{margin:0;font-size:14px;color:#ccc;line-height:1.5;flex:1;min-width:240px}
+.cookie-inner a{color:#ffb000;text-decoration:underline}
+.cookie-actions{display:flex;gap:10px;flex-shrink:0}
+.cookie-actions .btn{padding:10px 18px;font-size:13.5px}
+
+/* Focus visible – accessibility */
+:focus-visible{
+  outline:2px solid #ffb000;
+  outline-offset:3px;
+}
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible{
+  outline:2px solid #ffb000;
+  outline-offset:2px;
+}
+
+/* Form success */
+.form-success{
+  display:none;margin-top:14px;padding:12px 16px;
+  background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.35);
+  border-radius:10px;color:#2ee26e;font-size:14.5px;text-align:center;
+}
+.form-success.show{display:block}
+
+@media (max-width:600px){
+  .cookie-inner{flex-direction:column;align-items:stretch;text-align:center}
+  .cookie-actions{justify-content:center}
+}

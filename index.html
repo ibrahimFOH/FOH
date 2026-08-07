@@ -22,6 +22,10 @@
 <meta name="twitter:description" content="Konser, festival ve kurumsal etkinlikler için FOH miks, Stage Plot, SPL ve ses sistemi kiralama.">
 <meta name="twitter:image" content="https://stagepulse.com.tr/images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg">
 
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -30,15 +34,16 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": ["ProfessionalService", "LocalBusiness"],
   "name": "Stagepulse",
   "alternateName": "Stagepulse FOH Engineer",
   "url": "https://stagepulse.com.tr/",
   "logo": "https://stagepulse.com.tr/favicon.svg",
   "image": "https://stagepulse.com.tr/images/gallery/0EAAE007-14C6-468D-80CB-6C5275CB6827.jpeg",
-  "description": "FOH mühendisliği, ses sistemi kiralama, Stage Plot, SPL hesaplama ve 3D sahne çizimi hizmetleri.",
+  "description": "FOH mühendisliği, ses sistemi kiralama, Stage Plot, SPL hesaplama ve 3D sahne çizimi hizmetleri. Konser, festival ve kurumsal etkinlikler için profesyonel çözümler.",
   "telephone": "+90-532-068-3012",
   "email": "ibrahimkavasoglu7@gmail.com",
+  "priceRange": "$$",
   "areaServed": {
     "@type": "Country",
     "name": "Turkey"
@@ -48,7 +53,8 @@
     "Audio System Rental",
     "Stage Plot",
     "SPL Calculation",
-    "3D Stage Design"
+    "3D Stage Design",
+    "Lighting & Truss Rental"
   ],
   "founder": {
     "@type": "Person",
@@ -57,8 +63,14 @@
     "url": "https://stagepulse.com.tr/hakkimda.html"
   },
   "sameAs": [
-    "https://wa.me/905320683012"
-  ]
+    "https://wa.me/905320683012",
+    "https://www.instagram.com/stagepulse.hatay"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "TR",
+    "addressRegion": "Hatay"
+  }
 }
 </script>
 <!-- Google Analytics -->
@@ -279,5 +291,12 @@
 </a>
 <script src="i18n.js"></script>
 <script src="script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
+</script>
 </body>
 </html>

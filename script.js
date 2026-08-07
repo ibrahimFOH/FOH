@@ -1,3 +1,10 @@
+/* ============================================
+   STAGEPULSE – script.js
+   Temiz, hata toleranslı, üst düzey sürüm
+   ============================================ */
+
+const FORMSPREE_ENDPOINT = 'YOUR_FORMSPREE_ENDPOINT'; // ← Formspree’den aldığın https://formspree.io/f/xxxxxx değerini buraya yaz
+
 function setLanguage(lang) {
   localStorage.setItem('lang', lang);
   document.documentElement.lang = lang;
@@ -16,7 +23,6 @@ function setLanguage(lang) {
     }
   });
 
-  // select option çevirileri
   document.querySelectorAll('select option[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key] !== undefined) {
@@ -30,8 +36,60 @@ function setLanguage(lang) {
   if (btnEn) btnEn.classList.toggle('active', lang === 'en');
 }
 
+/* ---------- Cookie / KVKK Consent ---------- */
+function initCookieConsent() {
+  if (localStorage.getItem('sp_consent') === 'accepted') {
+    loadAnalytics();
+    return;
+  }
+  if (localStorage.getItem('sp_consent') === 'rejected') return;
+
+  const banner = document.createElement('div');
+  banner.id = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-label', 'Çerez onayı');
+  banner.innerHTML = `
+    <div class="cookie-inner">
+      <p data-i18n="cookie_text">Bu site deneyimi iyileştirmek ve teklif süreçlerini yönetmek için çerezler kullanır. Devam ederek <a href="Kvkk.html" target="_blank" rel="noopener">KVKK Aydınlatma Metni</a>’ni kabul etmiş olursunuz.</p>
+      <div class="cookie-actions">
+        <button id="cookie-accept" class="btn btn-primary" data-i18n="cookie_accept">Kabul Et</button>
+        <button id="cookie-reject" class="btn btn-outline" data-i18n="cookie_reject">Reddet</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(banner);
+
+  setLanguage(localStorage.getItem('lang') || 'tr');
+
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem('sp_consent', 'accepted');
+    banner.remove();
+    loadAnalytics();
+  });
+
+  document.getElementById('cookie-reject').addEventListener('click', () => {
+    localStorage.setItem('sp_consent', 'rejected');
+    banner.remove();
+  });
+}
+
+function loadAnalytics() {
+  if (window.gtagLoaded) return;
+  window.gtagLoaded = true;
+  if (typeof gtag === 'function') {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+  }
+}
+
+function trackEvent(name, params = {}) {
+  if (typeof gtag === 'function' && localStorage.getItem('sp_consent') === 'accepted') {
+    gtag('event', name, params);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setLanguage(localStorage.getItem('lang') || 'tr');
+  initCookieConsent();
 
   // ===== Hamburger =====
   const hamburger = document.getElementById('hamburger');
@@ -42,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('active');
       hamburger.classList.toggle('open', isOpen);
-      hamburger.setAttribute('aria-expanded', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       if (icon) {
         icon.classList.toggle('fa-bars', !isOpen);
         icon.classList.toggle('fa-xmark', isOpen);
@@ -62,59 +120,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ===== Aktif menü otomatik =====
+  // ===== Aktif menü =====
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-links a').forEach(a => {
     const href = a.getAttribute('href');
     if (!href) return;
     const clean = href.replace('./', '').replace(/^\//, '') || 'index.html';
-    if (
-      clean === currentPath ||
-      (currentPath === '' && (clean === './' || clean === 'index.html')) ||
-      (currentPath === 'index.html' && (clean === './' || clean === 'index.html'))
-    ) {
+    if (clean === currentPath || (currentPath === '' && clean === 'index.html')) {
       a.classList.add('active');
-    } else {
-      a.classList.remove('active');
     }
   });
 
   // ===== Lightbox =====
-  let lightbox = document.getElementById('lightbox');
-  if (!lightbox) {
-    lightbox = document.createElement('div');
-    lightbox.id = 'lightbox';
-    lightbox.className = 'lightbox';
-    lightbox.setAttribute('role', 'dialog');
-    lightbox.setAttribute('aria-modal', 'true');
-    lightbox.innerHTML =
-      '<button class="lightbox-close" aria-label="Kapat">&times;</button><img src="" alt="">';
-    document.body.appendChild(lightbox);
-  }
-
-  const lbImg = lightbox.querySelector('img');
-  const lbClose = lightbox.querySelector('.lightbox-close');
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbClose = document.getElementById('lightbox-close');
 
   function openLightbox(src) {
+    if (!lightbox || !lbImg) return;
     lbImg.src = src;
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
   }
   function closeLightbox() {
+    if (!lightbox) return;
     lightbox.classList.remove('open');
-    lbImg.src = '';
+    if (lbImg) lbImg.src = '';
     document.body.style.overflow = '';
   }
 
   if (lbClose) lbClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) closeLightbox();
-  });
+  if (lightbox) {
+    lightbox.addEventListener('click', e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // ===== Media Loader (mevcut mantık korunuyor) =====
+  // ===== Media Loader =====
   const gallery = document.getElementById('gallery');
   const heroBg = document.getElementById('heroBg');
   const videoBox = document.getElementById('videos');
@@ -174,14 +219,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (videoBox) {
         videoBox.innerHTML = '';
         if (!videos.length) {
-          const section = videoBox.closest('section') || videoBox.closest('.videos-section');
-          if (section) section.classList.add('hidden');
+          const section = videoBox.closest('section') || videoBox.closest('.section');
+          if (section) section.style.display = 'none';
         } else {
           videos.forEach(src => {
             const v = document.createElement('video');
             v.src = encodeURI(src);
             v.controls = true;
             v.preload = 'metadata';
+            v.playsInline = true;
             videoBox.appendChild(v);
           });
         }
@@ -213,14 +259,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
     } catch (e) {
-      // sessiz hata – medya yoksa site yine çalışır
+      // sessiz
     }
   })();
 
-  // ===== Form (daha sağlam) =====
+  // ===== Form (Formspree + WhatsApp) =====
   const form = document.getElementById('offerForm');
   if (form) {
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
 
       const submitBtn = form.querySelector('button[type="submit"]');
@@ -230,6 +276,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const lang = localStorage.getItem('lang') || 'tr';
+      const formData = new FormData(form);
+
+      if (FORMSPREE_ENDPOINT && FORMSPREE_ENDPOINT !== 'YOUR_FORMSPREE_ENDPOINT') {
+        try {
+          await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            body: formData,
+            headers: { Accept: 'application/json' }
+          });
+        } catch (err) {
+          console.warn('Formspree error', err);
+        }
+      }
+
       const t =
         'Yeni Teklif Talebi%0A%0A' +
         'Ad: ' + encodeURIComponent(this.name.value) +
@@ -251,8 +311,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       msg.textContent =
         (translations[lang] && translations[lang].form_success) ||
-        'Talebiniz WhatsApp üzerinden yönlendirildi. Teşekkürler!';
+        'Talebiniz alındı. Teşekkürler!';
       msg.classList.add('show');
+
+      trackEvent('generate_lead', {
+        event_category: 'form',
+        event_label: this.type.value || 'teklif'
+      });
 
       form.reset();
 
@@ -264,4 +329,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 2500);
     });
   }
+
+  document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+    a.addEventListener('click', () => {
+      trackEvent('contact', { method: 'whatsapp' });
+    });
+  });
 });
