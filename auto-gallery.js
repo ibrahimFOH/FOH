@@ -31,15 +31,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 
-// ===== SECURE WEBHOOK (OPTIONAL) =====
-async function sendLeadWebhook(data){
-  try{
-    await fetch("https://hook.make.com/REPLACE_WITH_YOUR_WEBHOOK",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify(data)
+// ===== FORCE HAMBURGER FIX =====
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", function () {
+      navMenu.classList.toggle("active");
     });
-  }catch(e){
-    console.log("Webhook error", e);
   }
-}
+});

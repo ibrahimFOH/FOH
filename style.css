@@ -269,3 +269,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   font-size: 18px;
   margin-right: 6px;
 }
+
+
+/* HAMBURGER FIX */
+.nav-menu {
+  display: none;
+}
+
+.nav-menu.active {
+  display: block;
+}

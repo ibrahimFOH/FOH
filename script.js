@@ -411,10 +411,7 @@ if(price < MIN_PRICE){
   alert("Minimum teklif tutarı: " + MIN_PRICE + " TL");
   return;
 }
-
-await sendLeadWebhook({name, phone, price});
 doc.save("teklif.pdf");
-
 
 
     // WhatsApp yönlendirme
@@ -427,8 +424,8 @@ doc.save("teklif.pdf");
 
 // ===== SUPABASE CONFIG =====
 // BURAYA KENDİ KEYLERİNİ GİR
-const SUPABASE_URL = "https://mtjcqqrogjqaxkagwkti.supabase.co";
-const SUPABASE_KEY = "sb_publishable_yR_HlWlFbYYq22tQmiB9LA_acq6bQi6";
+const SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
+const SUPABASE_KEY = "YOUR_PUBLIC_ANON_KEY";
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // ===== FORM SUBMIT FULL SYSTEM =====
@@ -493,10 +490,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const doc = new jsPDF();
     doc.text("StagePulse Teklif", 20, 20);
     doc.text("Fiyat: " + price + " TL", 20, 40);
-    
-await sendLeadWebhook({name, phone, price});
-doc.save("teklif.pdf");
-
+    doc.save("teklif.pdf");
 
     // ===== WHATSAPP =====
     const wa = "905320683012";
@@ -550,15 +544,14 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// ===== SECURE WEBHOOK (OPTIONAL) =====
-async function sendLeadWebhook(data){
-  try{
-    await fetch("https://hook.make.com/REPLACE_WITH_YOUR_WEBHOOK",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify(data)
+// ===== FORCE HAMBURGER FIX =====
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburger = document.querySelector(".hamburger");
+  const navMenu = document.querySelector(".nav-menu");
+
+  if (hamburger && navMenu) {
+    hamburger.addEventListener("click", function () {
+      navMenu.classList.toggle("active");
     });
-  }catch(e){
-    console.log("Webhook error", e);
   }
-}
+});
