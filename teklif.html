@@ -54,8 +54,12 @@
     </div>
     <div class="nav-right">
       <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr"><span class="flag" aria-hidden="true">🇹🇷</span> TR</button>
-        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en"><span class="flag" aria-hidden="true">🇬🇧</span> EN</button>
+        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f9-1f1f7.svg" alt="TR" class="flag"> TR
+        </button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
+        </button>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
         <i class="fa-solid fa-bars" id="hamburger-icon"></i>
@@ -71,7 +75,7 @@
       Formu gönderdikten sonra genellikle <strong>24 saat içinde</strong> dönüş yapıyorum.
       Acil işlerde WhatsApp üzerinden daha hızlı ilerleyebiliriz.
     </p>
-    <form id="offerForm" >
+    <form id="offerForm" novalidate>
       <input type="text" name="name" placeholder="Ad Soyad / Firma" data-i18n-placeholder="ph_name" required>
       <input type="tel" name="phone" placeholder="Telefon" data-i18n-placeholder="ph_phone" required>
       <select name="type" required>
@@ -143,15 +147,6 @@
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 <script src="i18n.js"></script>
-<script src="script.js" defer></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
-<footer style="padding:20px; text-align:center;">
-<p>Telefon: +905320683012</p>
-<p>Email: stagepulse.hatay@gmail.com</p>
-<p>Instagram: <a href="https://instagram.com/stagepulse.hatay" target="_blank">https://instagram.com/stagepulse.hatay</a></p>
-</footer>
+<script src="script.js"></script>
 </body>
-
 </html>

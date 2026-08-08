@@ -100,8 +100,12 @@
     </div>
     <div class="nav-right">
       <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr"><span class="flag" aria-hidden="true">🇹🇷</span> TR</button>
-        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en"><span class="flag" aria-hidden="true">🇬🇧</span> EN</button>
+        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f9-1f1f7.svg" alt="TR" class="flag"> TR
+        </button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
+          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
+        </button>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
         <i class="fa-solid fa-bars" id="hamburger-icon"></i>
@@ -203,7 +207,6 @@
       <a href="teklif.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_pack">Paket Teklifi Al</span></a>
     </div>
   </div>
-</section>
 <section>
   <div class="container">
     <h2 class="section-title" data-i18n="s4_title">Neden Stagepulse?</h2>
@@ -287,7 +290,7 @@
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 <script src="i18n.js"></script>
-<script src="script.js" defer></script>
+<script src="script.js"></script>
 <script>
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
@@ -295,22 +298,5 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
-
-<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Fotoğraf">
-  <button class="lightbox-close" id="lightbox-close" aria-label="Kapat">&times;</button>
-  <img loading="lazy" id="lightbox-img" src="" alt="">
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<div id="autoGallery"></div>
-<script src="auto-gallery.js"></script>
-
-<footer style="padding:20px; text-align:center;">
-<p>Telefon: +905320683012</p>
-<p>Email: stagepulse.hatay@gmail.com</p>
-<p>Instagram: <a href="https://instagram.com/stagepulse.hatay" target="_blank">https://instagram.com/stagepulse.hatay</a></p>
-</footer>
 </body>
-
 </html>

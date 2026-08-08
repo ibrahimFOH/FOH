@@ -30,7 +30,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.9
 .lang-switch{display:flex;gap:6px}
 .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff;padding:5px 10px;border-radius:6px;cursor:pointer;font-size:12.5px;display:flex;align-items:center;gap:5px;transition:.2s;font-family:inherit}
 .lang-btn:hover,.lang-btn.active{border-color:#ffb000;color:#ffb000}
-.lang-btn .flag{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;font-size:15px;line-height:1;border-radius:50%;overflow:hidden}
+.lang-btn .flag{width:18px;height:18px;border-radius:50%;object-fit:cover}
 
 /* Masaüstü yatay menü */
 @media (min-width:1100px){
@@ -236,69 +236,3 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   .cookie-inner{flex-direction:column;align-items:stretch;text-align:center}
   .cookie-actions{justify-content:center}
 }
-
-
-/* Highlight box */
-.highlight-box{
-  background:linear-gradient(135deg,rgba(255,176,0,.08),rgba(255,176,0,.02));
-  border:1px solid rgba(255,176,0,.25);
-  border-radius:16px;padding:32px 28px;margin:10px 0 20px;
-}
-.highlight-box .btn{margin-top:8px}
-
-.card-cta{margin-top:14px;font-size:13.5px;color:#ffb000;font-weight:600}
-
-.stat-item h3{font-size:clamp(32px,4vw,44px);font-weight:800;color:#ffb000;line-height:1;margin:0}
-.stat-item p{font-size:13.5px;color:#999;margin-top:6px}
-
-
-/* FIXES */
-.hamburger {
-  display: block !important;
-  font-size: 28px;
-  color: #ffffff !important;
-  cursor: pointer;
-}
-
-.hamburger span,
-.hamburger div {
-  background: #ffffff !important;
-}
-
-.btn-whatsapp i {
-  font-size: 18px;
-  margin-right: 6px;
-}
-
-
-/* HAMBURGER FIX */
-.nav-menu {
-  display: none;
-}
-
-.nav-menu.active {
-  display: block;
-}
-
-
-/* ===== RESPONSIVE FIX ===== */
-.hamburger { display:none; cursor:pointer; }
-.nav-menu { display:flex; gap:20px; }
-
-@media (max-width:768px){
-  .hamburger{ display:block; }
-  .nav-menu{
-    display:none;
-    flex-direction:column;
-    position:absolute;
-    right:0;
-    top:60px;
-    background:#111;
-    padding:15px;
-    width:200px;
-  }
-  .nav-menu.active{ display:flex; }
-}
-
-/* Flags */
-.lang-flag{ width:20px; height:14px; margin-right:5px; }
