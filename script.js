@@ -336,3 +336,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+
+// KVKK validation fix
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("offerForm");
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    const kvkk = form.querySelector('input[name="kvkk"]');
+    if (kvkk && !kvkk.checked) {
+      e.preventDefault();
+      alert("KVKK onayı zorunludur.");
+    }
+  });
+});

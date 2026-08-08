@@ -250,3 +250,22 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 
 .stat-item h3{font-size:clamp(32px,4vw,44px);font-weight:800;color:#ffb000;line-height:1;margin:0}
 .stat-item p{font-size:13.5px;color:#999;margin-top:6px}
+
+
+/* FIXES */
+.hamburger {
+  display: block !important;
+  font-size: 28px;
+  color: #ffffff !important;
+  cursor: pointer;
+}
+
+.hamburger span,
+.hamburger div {
+  background: #ffffff !important;
+}
+
+.btn-whatsapp i {
+  font-size: 18px;
+  margin-right: 6px;
+}
