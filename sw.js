@@ -1,5 +1,5 @@
-/* Stagepulse – basit offline cache */
-const CACHE = 'stagepulse-v2';
+/* Stagepulse – güncel içerik öncelikli offline cache */
+const CACHE = 'stagepulse-v3';
 const ASSETS = [
   '/',
   '/index.html',
@@ -22,6 +22,8 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  const url = new URL(e.request.url);
+
   if (e.request.mode === 'navigate') {
     e.respondWith(
       fetch(e.request).catch(() =>
@@ -31,7 +33,17 @@ self.addEventListener('fetch', e => {
     return;
   }
 
+  if (url.origin !== self.location.origin) return;
+
   e.respondWith(
-    caches.match(e.request).then(r => r || fetch(e.request).catch(() => caches.match('/')))
+    fetch(e.request)
+      .then(res => {
+        if (res && res.status === 200) {
+          const clone = res.clone();
+          caches.open(CACHE).then(cache => cache.put(e.request, clone));
+        }
+        return res;
+      })
+      .catch(() => caches.match(e.request).then(r => r || caches.match('/')))
   );
 });
