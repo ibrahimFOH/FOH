@@ -279,3 +279,26 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .nav-menu.active {
   display: block;
 }
+
+
+/* ===== RESPONSIVE FIX ===== */
+.hamburger { display:none; cursor:pointer; }
+.nav-menu { display:flex; gap:20px; }
+
+@media (max-width:768px){
+  .hamburger{ display:block; }
+  .nav-menu{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    right:0;
+    top:60px;
+    background:#111;
+    padding:15px;
+    width:200px;
+  }
+  .nav-menu.active{ display:flex; }
+}
+
+/* Flags */
+.lang-flag{ width:20px; height:14px; margin-right:5px; }

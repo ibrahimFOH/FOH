@@ -485,3 +485,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+
+document.addEventListener("DOMContentLoaded", function(){
+  const h = document.querySelector(".hamburger");
+  const m = document.querySelector(".nav-menu");
+  if(h && m){
+    h.onclick = ()=> m.classList.toggle("active");
+  }
+});
