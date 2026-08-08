@@ -50,12 +50,15 @@ self.addEventListener('fetch', e => {
         caches.match(e.request).then(
           r =>
             r ||
-            caches.match('/') ||
-            new Response('Offline', {
-              status: 503,
-              statusText: 'Service Unavailable',
-              headers: { 'Content-Type': 'text/plain; charset=utf-8' }
-            })
+            caches.match('/').then(
+              homeCache =>
+                homeCache ||
+                new Response('Offline', {
+                  status: 503,
+                  statusText: 'Service Unavailable',
+                  headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+                })
+            )
         )
       )
   );
