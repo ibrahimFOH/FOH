@@ -22,8 +22,6 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  const url = new URL(e.request.url);
-
   if (e.request.mode === 'navigate') {
     e.respondWith(
       fetch(e.request).catch(() =>
@@ -33,6 +31,7 @@ self.addEventListener('fetch', e => {
     return;
   }
 
+  const url = new URL(e.request.url);
   if (url.origin !== self.location.origin) return;
 
   e.respondWith(
@@ -40,7 +39,7 @@ self.addEventListener('fetch', e => {
       .then(res => {
         if (res && res.ok) {
           const clone = res.clone();
-          caches.open(CACHE).then(cache => cache.put(e.request, clone));
+          caches.open(CACHE).then(cache => cache.put(e.request, clone)).catch(() => {});
         }
         return res;
       })
