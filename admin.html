@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StagePulse Admin</title>
+<style>
+body { font-family: Arial; padding:20px; background:#111; color:#fff;}
+input { display:block; margin:10px 0; padding:8px; width:250px;}
+button { padding:10px; cursor:pointer;}
+</style>
+</head>
+<body>
+
+<h2>Fiyat Yönetimi</h2>
+
+<label>Kişi Başı (TL)</label>
+<input id="price_people" type="number">
+
+<label>Line Array (TL)</label>
+<input id="price_linearray" type="number">
+
+<label>Basic Sistem (TL)</label>
+<input id="price_basic" type="number">
+
+<label>Işık (TL)</label>
+<input id="price_lights" type="number">
+
+<label>Sahne (TL)</label>
+<input id="price_stage" type="number">
+
+<label>Minimum Teklif (TL)</label>
+<input id="min_price" type="number">
+
+<button onclick="save()">Kaydet</button>
+
+<script>
+function load(){
+  const data = JSON.parse(localStorage.getItem("pricing") || "{}");
+  document.getElementById("price_people").value = data.people || 500;
+  document.getElementById("price_linearray").value = data.linearray || 15000;
+  document.getElementById("price_basic").value = data.basic || 5000;
+  document.getElementById("price_lights").value = data.lights || 7000;
+  document.getElementById("price_stage").value = data.stage || 10000;
+  document.getElementById("min_price").value = data.min || 15000;
+}
+
+function save(){
+  const data = {
+    people: Number(document.getElementById("price_people").value),
+    linearray: Number(document.getElementById("price_linearray").value),
+    basic: Number(document.getElementById("price_basic").value),
+    lights: Number(document.getElementById("price_lights").value),
+    stage: Number(document.getElementById("price_stage").value),
+    min: Number(document.getElementById("min_price").value)
+  };
+  localStorage.setItem("pricing", JSON.stringify(data));
+  alert("Kaydedildi");
+}
+
+load();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<footer style="padding:20px; text-align:center;">
+<p>Telefon: +905320683012</p>
+<p>Email: stagepulse.hatay@gmail.com</p>
+<p>Instagram: <a href="https://instagram.com/stagepulse.hatay" target="_blank">https://instagram.com/stagepulse.hatay</a></p>
+</footer>
+</body>
+
+</html>
