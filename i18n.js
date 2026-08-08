@@ -137,7 +137,13 @@ const translations = {
 
     nf_title: "Sayfa Bulunamadı",
     nf_desc: "Aradığınız sayfa mevcut değil.",
-    nf_btn: "Ana Sayfaya Dön"
+    nf_btn: "Ana Sayfaya Dön",
+    p_title: "Nasıl Çalışıyoruz", p_desc: "Etkinlik sürecini net, ölçülebilir ve risksiz hale getiren 5 adım.",
+    p1_t: "Talep & Keşif", p1_d: "Etkinlik tipi, tarih, mekân, seyirci sayısı ve teknik ihtiyaçlar için kısa ön görüşme. Süre: 15–30 dk (telefon / online).",
+    p2_t: "Teknik Planlama", p2_d: "Rider ve mekân bilgilerine göre Stage Plot, SPL analizi ve kapsama planı hazırlanır. Gerekirse mekân ölçümü planlanır. Süre: 1–3 iş günü.",
+    p3_t: "Teklif & Onay", p3_d: "Ekipman listesi, teknik ekip, süre ve maliyet detaylarıyla yazılı teklif. Onay sonrası sözleşme ve ön ödeme planı. Süre: 1–2 iş günü.",
+    p4_t: "Kurulum & Prova", p4_d: "Sahne yerleşimi, kablaj, sistem tuning, mikrofon/IEM hatları. Sanatçı provası ile son kontrol. Süre: 1–4 gün (ölçeğe göre).",
+    p5_t: "Etkinlik & Söküm", p5_d: "FOH / sistem operasyonu, etkinlik sonrası güvenli söküm ve teslim. Süre: etkinlik + 0,5–1 gün söküm."
   },
 
   en: {
@@ -278,6 +284,33 @@ const translations = {
 
     nf_title: "Page Not Found",
     nf_desc: "This page does not exist.",
-    nf_btn: "Back to Home"
+    nf_btn: "Back to Home",
+    p_title: "How We Work", p_desc: "Five clear, measurable steps to make the event process predictable and low-risk.",
+    p1_t: "Inquiry & Discovery", p1_d: "A short initial call covering event type, date, venue, audience size and technical needs. Duration: 15–30 min (phone / online).",
+    p2_t: "Technical Planning", p2_d: "Stage Plot, SPL analysis and coverage planning based on the rider and venue information. Venue measurement is arranged if needed. Duration: 1–3 business days.",
+    p3_t: "Quote & Approval", p3_d: "Written quote with equipment list, technical crew, schedule and pricing. Contract and deposit plan after approval. Duration: 1–2 business days.",
+    p4_t: "Setup & Soundcheck", p4_d: "Stage layout, cabling, system tuning and microphone/IEM lines, followed by artist soundcheck and final checks. Duration: 1–4 days depending on scale.",
+    p5_t: "Event & Teardown", p5_d: "FOH / system operation, safe teardown and handover after the event. Duration: event + 0.5–1 day teardown."
   }
 };
+
+
+// Stagepulse language runtime
+(function () {
+  window.setLanguage = function (lang) {
+    const selected = translations[lang] || translations.tr;
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      const key = el.getAttribute("data-i18n");
+      if (Object.prototype.hasOwnProperty.call(selected, key)) el.innerHTML = selected[key];
+    });
+    document.querySelectorAll("#btn-tr, #btn-en").forEach(function (btn) { btn.classList.remove("active"); });
+    const active = document.getElementById("btn-" + lang);
+    if (active) active.classList.add("active");
+    try { localStorage.setItem("stagepulse_lang", lang); } catch (e) {}
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    let lang = "tr"; try { lang = localStorage.getItem("stagepulse_lang") || "tr"; } catch (e) {}
+    window.setLanguage(lang);
+  });
+})();
