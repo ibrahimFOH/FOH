@@ -1,74 +1,81 @@
-# Stagepulse – FOH Engineer & Ses Sistemi Kiralama
+# Stagepulse
 
-Profesyonel ses & sahne çözümleri sitesi. Cloudflare Pages / Workers için hazır.
+**FOH Engineer • Ses Sistemi Kiralama • Teknik Mühendislik**
 
-## Yapılan düzeltmeler (2026-08-08)
+Profesyonel canlı etkinlik, konser, festival ve kurumsal organizasyonlar için  
+Front of House (FOH) mühendisliği, ses/ışık kiralama, Stage Plot, SPL hesaplama ve 3D sahne çizimi hizmetleri.
 
-- Bayrak sorunu çözüldü → **inline SVG** (klasör / CDN yok, telefonda ekstra yükleme gerekmez)
-- Cloudflare email-protection kaldırıldı → gerçek `mailto:ibrahimkavasoglu7@gmail.com`
-- Cloudflare challenge / email-decode scriptleri temizlendi
-- Logo ve ana sayfa linkleri `index.html` olarak standardize edildi
-- Boşluklu dosya adı düzeltildi (`2025-12-10_22-07-22.JPG`)
-- `robots.txt` + `sitemap.xml` eklendi
-- Tüm sayfalarda `i18n.js` + `script.js` sırası doğru
-- CSS bayrak stilleri inline SVG’ye uygun hale getirildi
+**Canlı site:** https://stagepulse.com.tr  
+**Geliştirici:** İbrahim Kavasoğlu
 
-## Klasör yapısı (yeni klasör açma)
+---
 
-```
-/
-├── index.html
-├── hizmetler.html
-├── muhendislik.html
-├── teklif.html
-├── galeri.html
-├── hakkimda.html
-├── dokumanlar.html
-├── nasil-calisiyoruz.html
-├── referanslar.html
-├── sss.html
-├── ekipman.html
-├── Kvkk.html
-├── style.css
-├── script.js
-├── i18n.js
-├── media.json
-├── sw.js
-├── manifest.webmanifest
-├── favicon.svg
-├── robots.txt
-├── sitemap.xml
-├── images/
-│   └── gallery/          ← fotoğraflar burada
-└── documents/            ← PDF’ler burada
-```
+## Özellikler
 
-**Not:** `images/flags` klasörü **yok**. Bayraklar HTML içinde gömülü.
+- Tam responsive (mobil öncelikli) tasarım
+- Türkçe / İngilizce i18n (dil tercihi kaydedilir)
+- Otomatik medya yükleme sistemi (klasöre dosya at → kod değişmeden gallery / video / dokümanlar güncellenir)
+- KVKK uyumlu teklif formu + çerez onayı
+- Formspree entegrasyonu (kayıt + e-posta) + WhatsApp yedek
+- Schema.org (ProfessionalService + LocalBusiness)
+- PWA desteği (manifest + service worker)
+- Üst düzey güvenlik header’ları (Cloudflare üzerinden)
+- Google Analytics 4 + conversion event’leri
+- Accessibility iyileştirmeleri (ARIA, focus-visible, klavye navigasyonu)
 
-## Cloudflare’e yükleme (telefon uyumlu adımlar)
+---
 
-1. Bu zip’i indirip aç.
-2. Cloudflare Dashboard → Pages → Create project → Upload assets
-3. Açılan `stagepulse` klasörünün **içindeki tüm dosyaları** seçip yükle  
-   (içindeki `images` ve `documents` klasörleri de gelsin)
-4. Deploy sonrası domain’i bağla: `stagepulse.com.tr`
+## Medya Ekleme (Kod Değiştirmeden)
 
-Alternatif: GitHub’a push + Cloudflare Pages Git entegrasyonu.
+1. Fotoğraf → `images/gallery/` klasörüne at (JPG, PNG, WEBP, GIF)
+2. Video → `videos/` klasörüne at (MP4, WEBM, MOV)
+3. PDF doküman → `documents/` klasörüne at
 
-## Test
+GitHub Actions veya `python generate_media_json.py` çalışınca `media.json` otomatik güncellenir.  
+Site bir sonraki yüklemede yeni dosyaları gösterir.
 
-Yerelde:
+---
+
+## Formspree Kurulumu
+
+1. https://formspree.io adresinden ücretsiz hesap aç
+2. Yeni form oluştur → endpoint’i kopyala (`https://formspree.io/f/xxxxxx`)
+3. `script.js` içinde `FORMSPREE_ENDPOINT` sabitini kendi endpoint’inle değiştir
+4. Formspree ayarlarından e-posta bildirimini aç
+
+Form hem Formspree’ye kaydeder hem de WhatsApp’a yönlendirir.
+
+---
+
+## Yerel Geliştirme
 
 ```bash
-npx serve .
+# Basit static server
+python -m http.server 8080
 # veya
-python3 -m http.server 8000
+npx serve .
 ```
 
-Galeri, dil değiştirme, form ve WhatsApp butonunu kontrol et.
+Medya JSON’u güncellemek için:
 
-## Form & iletişim
+```bash
+python generate_media_json.py
+```
 
-- Formspree: `https://formspree.io/f/xrpzeegb`
-- WhatsApp: +90 532 068 3012
-- E-posta: ibrahimkavasoglu7@gmail.com
+---
+
+## Deploy
+
+Push to `main` = GitHub Pages + Cloudflare üzerinden otomatik yayın.
+
+CNAME dosyası `stagepulse.com.tr` olarak ayarlıdır.
+
+---
+
+## Lisans
+
+MIT License – detaylar için `LICENSE` dosyasına bakın.
+
+---
+
+© 2026 Stagepulse – İbrahim Kavasoğlu
