@@ -3,16 +3,26 @@
   "short_name": "Stagepulse",
   "description": "FOH mühendisliği, ses sistemi kiralama, Stage Plot, SPL hesaplama ve 3D sahne çizimi",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "any",
   "background_color": "#070707",
   "theme_color": "#0b0b0b",
   "lang": "tr",
+  "dir": "ltr",
+  "categories": ["business", "productivity"],
   "icons": [
     {
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
     }
   ]
 }

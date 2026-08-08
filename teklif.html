@@ -8,6 +8,10 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0b0b0b">
 <link rel="canonical" href="https://stagepulse.com.tr/teklif.html">
+<link rel="alternate" hreflang="tr" href="https://stagepulse.com.tr/teklif.html">
+<link rel="alternate" hreflang="en" href="https://stagepulse.com.tr/teklif.html">
+<link rel="alternate" hreflang="x-default" href="https://stagepulse.com.tr/teklif.html">
+
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="tr_TR">
@@ -37,6 +41,8 @@
 </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link">İçeriğe atla</a>
+
 <nav>
   <div class="container nav-inner">
     <a href="index.html" class="logo">STAGEPULSE</a>
@@ -67,7 +73,7 @@
     </div>
   </div>
 </nav>
-<section class="page-hero">
+<section class="page-hero" id="main-content">
   <div class="container">
     <h1 class="section-title" data-i18n="t_title">Teklif Talebi</h1>
     <p class="section-desc" data-i18n="t_desc">Etkinliğinizin türüne göre detaylı teklif hazırlıyoruz.</p>
@@ -75,10 +81,10 @@
       Formu gönderdikten sonra genellikle <strong>24 saat içinde</strong> dönüş yapıyorum.
       Acil işlerde WhatsApp üzerinden daha hızlı ilerleyebiliriz.
     </p>
-    <form id="offerForm" novalidate>
-      <input type="text" name="name" placeholder="Ad Soyad / Firma" data-i18n-placeholder="ph_name" required>
-      <input type="tel" name="phone" placeholder="Telefon" data-i18n-placeholder="ph_phone" required>
-      <select name="type" required>
+    <form id="offerForm" novalidate aria-label="Teklif talep formu">
+      <input type="text" name="name" id="name" placeholder="Ad Soyad / Firma" data-i18n-placeholder="ph_name" required aria-required="true" autocomplete="name" aria-label="Ad Soyad veya Firma">
+      <input type="tel" name="phone" id="phone" placeholder="Telefon" data-i18n-placeholder="ph_phone" required aria-required="true" autocomplete="tel" aria-label="Telefon">
+      <select name="type" id="type" required aria-required="true" aria-label="Hizmet türü">
         <option value="" disabled selected data-i18n="opt_placeholder">Hizmet Türü Seçin</option>
         <option value="Ses Sistemi Kiralama" data-i18n="opt_1">Ses Sistemi Kiralama</option>
         <option value="Işık & Truss Kiralama" data-i18n="opt_2">Işık & Truss Kiralama</option>
@@ -90,16 +96,16 @@
         <option value="Paket (Kiralama + Mühendislik)" data-i18n="opt_8">Paket (Kiralama + Mühendislik)</option>
         <option value="Diğer" data-i18n="opt_9">Diğer</option>
       </select>
-      <input type="text" name="location" placeholder="Lokasyon / Şehir" data-i18n-placeholder="ph_location">
-      <input type="text" name="people" placeholder="Tahmini Katılımcı Sayısı" data-i18n-placeholder="ph_people">
+      <input type="text" name="location" id="location" placeholder="Lokasyon / Şehir" data-i18n-placeholder="ph_location" autocomplete="address-level2" aria-label="Lokasyon veya Şehir">
+      <input type="text" name="people" id="people" placeholder="Tahmini Katılımcı Sayısı" data-i18n-placeholder="ph_people" inputmode="numeric" aria-label="Tahmini katılımcı sayısı">
       <div class="form-group">
         <label for="eventDate" class="form-label" data-i18n="ph_date">Etkinlik Tarihi</label>
-        <input type="date" id="eventDate" name="date" required lang="tr">
+        <input type="date" id="eventDate" name="date" required lang="tr" aria-required="true" aria-label="Etkinlik tarihi">
         <small class="form-hint" data-i18n="ph_date_hint">Gün.Ay.Yıl seçin</small>
       </div>
-      <textarea name="message" rows="4" placeholder="Etkinlik detayları, özel istekler..." data-i18n-placeholder="ph_message"></textarea>
+      <textarea name="message" id="message" rows="4" placeholder="Etkinlik detayları, özel istekler..." data-i18n-placeholder="ph_message" aria-label="Etkinlik detayları ve özel istekler"></textarea>
       <label class="kvkk-label">
-        <input type="checkbox" name="kvkk" required>
+        <input type="checkbox" name="kvkk" id="kvkk" required aria-required="true">
         <span data-i18n="kvkk_text">Kişisel verilerimin teklif hazırlanması amacıyla işlenmesini kabul ediyorum.</span>
         <a href="Kvkk.html" target="_blank" rel="noopener" style="color:#ffb000;margin-left:6px;font-size:13px;">KVKK</a>
         </label>
