@@ -3,7 +3,7 @@
    Temiz, hata toleranslı, üst düzey sürüm
    ============================================ */
 
-const FORMSPREE_ENDPOINT = 'YOUR_FORMSPREE_ENDPOINT'; // ← Formspree’den aldığın https://formspree.io/f/xxxxxx değerini buraya yaz
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xrpzeegb';
 
 function setLanguage(lang) {
   localStorage.setItem('lang', lang);
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const lang = localStorage.getItem('lang') || 'tr';
       const formData = new FormData(form);
 
-      if (FORMSPREE_ENDPOINT && FORMSPREE_ENDPOINT !== 'YOUR_FORMSPREE_ENDPOINT') {
+      if (FORMSPREE_ENDPOINT && FORMSPREE_ENDPOINT !== '') {
         try {
           await fetch(FORMSPREE_ENDPOINT, {
             method: 'POST',
