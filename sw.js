@@ -39,10 +39,24 @@ self.addEventListener('fetch', e => {
       .then(res => {
         if (res && res.ok) {
           const clone = res.clone();
-          caches.open(CACHE).then(cache => cache.put(e.request, clone)).catch(() => {});
+          caches
+            .open(CACHE)
+            .then(cache => cache.put(e.request, clone))
+            .catch(err => console.warn('Cache update failed:', err));
         }
         return res;
       })
-      .catch(() => caches.match(e.request).then(r => r || caches.match('/')))
+      .catch(() =>
+        caches.match(e.request).then(
+          r =>
+            r ||
+            caches.match('/') ||
+            new Response('Offline', {
+              status: 503,
+              statusText: 'Service Unavailable',
+              headers: { 'Content-Type': 'text/plain; charset=utf-8' }
+            })
+        )
+      )
   );
 });
