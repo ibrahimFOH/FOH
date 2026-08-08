@@ -100,12 +100,8 @@
     </div>
     <div class="nav-right">
       <div class="lang-switch">
-        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr">
-          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1f9-1f1f7.svg" alt="TR" class="flag"> TR
-        </button>
-        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en">
-          <img src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f1ec-1f1e7.svg" alt="GB" class="flag"> EN
-        </button>
+        <button class="lang-btn active" onclick="setLanguage('tr')" id="btn-tr"><span class="flag" aria-hidden="true">🇹🇷</span> TR</button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="btn-en"><span class="flag" aria-hidden="true">🇬🇧</span> EN</button>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Menü" aria-expanded="false">
         <i class="fa-solid fa-bars" id="hamburger-icon"></i>
@@ -207,6 +203,7 @@
       <a href="teklif.html" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> <span data-i18n="btn_pack">Paket Teklifi Al</span></a>
     </div>
   </div>
+</section>
 <section>
   <div class="container">
     <h2 class="section-title" data-i18n="s4_title">Neden Stagepulse?</h2>
@@ -298,5 +295,11 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Fotoğraf">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Kapat">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 </body>
 </html>
