@@ -30,7 +30,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:9999;background:rgba(7,7,7,.9
 .lang-switch{display:flex;gap:6px}
 .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff;padding:5px 10px;border-radius:6px;cursor:pointer;font-size:12.5px;display:flex;align-items:center;gap:5px;transition:.2s;font-family:inherit}
 .lang-btn:hover,.lang-btn.active{border-color:#ffb000;color:#ffb000}
-.lang-btn .flag{width:18px;height:18px;border-radius:50%;object-fit:cover}
+.lang-btn .flag{width:20px;height:15px;border-radius:2px;object-fit:cover;flex-shrink:0}
 
 /* Masaüstü yatay menü */
 @media (min-width:1100px){
